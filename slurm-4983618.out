@@ -1,0 +1,2751 @@
+Running for beta = -1.0
+sed: -e expression #1, char 29: unknown option to `s'
+theory:
+  camb:
+    path: /users/smp24dhl/cosmo/code/CAMB_beta
+    extra_args:
+      lens_potential_accuracy: 1
+      num_massive_neutrinos: 1
+      nnu: 3.044
+      theta_H0_range:
+      - 20
+      - 100
+likelihood:
+  planck_2018_highl_plik.TTTEEE:
+  planck_2018_lowl.TT:
+  planck_2018_lowl.EE:
+
+params:
+  logA:
+    value: 3.06958
+    latex: \log(10^{10} A_\mathrm{s})
+    drop: true
+  As:
+    value: 'lambda logA: 1e-10*np.exp(logA)'
+    latex: A_\mathrm{s}
+  ns:
+    value: 0.9659111
+    latex: n_\mathrm{s}
+  H0:
+    latex: H_0
+    value: 68.07373
+  ombh2:
+    value: 0.02230531
+    latex: \Omega_\mathrm{b} h^2
+  omch2:
+    value: 0.1201717
+    latex: \Omega_\mathrm{c} h^2
+  omegam:
+    latex: \Omega_\mathrm{m}
+  omegamh2:
+    derived: 'lambda omegam, H0: omegam*(H0/100)**2'
+    latex: \Omega_\mathrm{m} h^2
+  mnu: 0.06
+  w:
+    value: -1.032966
+    latex: w_{0,\mathrm{DE}}
+  wa:
+    value: 0.00819477
+    latex: w_{a, \mathrm{DE}}
+  beta_DE:
+    value: 1.091425
+    latex: \beta_{\mathrm{DE}}
+  YHe:
+    latex: Y_\mathrm{P}
+  Y_p:
+    latex: Y_P^\mathrm{BBN}
+  DHBBN:
+    derived: 'lambda DH: 10**5*DH'
+    latex: 10^5 \mathrm{D}/\mathrm{H}
+  tau:
+    value: 0.06997392
+    latex: \tau_\mathrm{reio}
+  zrei:
+    latex: z_\mathrm{re}
+  sigma8:
+    latex: \sigma_8
+  s8h5:
+    derived: 'lambda sigma8, H0: sigma8*(H0*1e-2)**(-0.5)'
+    latex: \sigma_8/h^{0.5}
+  s8omegamp5:
+    derived: 'lambda sigma8, omegam: sigma8*omegam**0.5'
+    latex: \sigma_8 \Omega_\mathrm{m}^{0.5}
+  s8omegamp25:
+    derived: 'lambda sigma8, omegam: sigma8*omegam**0.25'
+    latex: \sigma_8 \Omega_\mathrm{m}^{0.25}
+  A:
+    derived: 'lambda As: 1e9*As'
+    latex: 10^9 A_\mathrm{s}
+  clggamp:
+    derived: 'lambda As, tau: 1e9*As*np.exp(-2*tau)'
+    latex: 10^9 A_\mathrm{s} e^{-2\tau}
+  age:
+    latex: '{\rm{Age}}/\mathrm{Gyr}'
+  rdrag:
+    latex: r_\mathrm{drag}
+sampler:
+  evaluate:
+    override:
+      beta_DE: -1.0
+
+output: ./beta/1-beta
+debug: true
+ 2025-01-15 16:51:24,396 [output] Output to be read-from/written-into folder './beta', with prefix '1-beta'
+ 2025-01-15 16:51:24,649 [prior] Loading external prior 'SZ' from: 'lambda ksz_norm, A_sz: stats.norm.logpdf(ksz_norm+1.6*A_sz, loc=9.5, scale=3.0)'
+ 2025-01-15 16:51:24,650 [prior] *WARNING* External prior 'SZ' loaded. Mind that it might not be normalized!
+ 2025-01-15 16:51:24,652 [camb] Attempting import from /users/smp24dhl/cosmo/code/CAMB_beta.
+ 2025-01-15 16:51:24,652 [camb] 'camb' to be imported from (sub)directory /users/smp24dhl/cosmo/code/CAMB_beta
+ 2025-01-15 16:51:24,701 [camb] `camb` module loaded successfully from /users/smp24dhl/cosmo/code/CAMB_beta/camb
+ 2025-01-15 16:51:24,703 [planck_2018_highl_plik.ttteee] Attempting import of Cobaya-installed version, but defaulting to global import if not found.
+ 2025-01-15 16:51:24,705 [planck_2018_highl_plik.ttteee] 'clik' to be imported from (sub)directory /users/smp24dhl/cosmo/code/planck/clik/lib/python/site-packages
+ 2025-01-15 16:51:24,831 [planck_2018_highl_plik.ttteee] Could not import 'clik' from /users/smp24dhl/cosmo/code/planck: Module clik successfully loaded, but not from requested path: /users/smp24dhl/cosmo/code/planck/clik/lib/python/site-packages, but instead from /users/smp24dhl/cosmo/code/planck/clik/lib/python3.9/site-packages/clik
+ 2025-01-15 16:51:24,831 [planck_2018_highl_plik.ttteee] Defaulting to global import.
+ 2025-01-15 16:51:24,831 [planck_2018_highl_plik.ttteee] `clik` module loaded successfully from /users/smp24dhl/cosmo/code/planck/clik/lib/python3.9/site-packages/clik
+----
+clik version clik_16.0b1-2-g63c889f3aa9c MAKEFILE
+  smica
+Checking likelihood '/users/smp24dhl/cosmo/data/planck_2018/baseline/plc_3.0/hi_l/plik/plik_rd12_HM_v22b_TTTEEE.clik' on test data. got -1172.47 expected -1172.47 (diff -4.34054e-07)
+----
+ 2025-01-15 16:51:25,237 [model] Parameters were assigned as follows:
+ 2025-01-15 16:51:25,237 [model] - planck_2018_highl_plik.TTTEEE:
+ 2025-01-15 16:51:25,237 [model]      Input:  ['A_planck', 'calib_100T', 'calib_217T', 'A_pol', 'calib_100P', 'calib_143P', 'calib_217P', 'cib_index', 'A_cib_217', 'xi_sz_cib', 'A_sz', 'ksz_norm', 'gal545_A_100', 'gal545_A_143', 'gal545_A_143_217', 'gal545_A_217', 'A_sbpx_100_100_TT', 'A_sbpx_143_143_TT', 'A_sbpx_143_217_TT', 'A_sbpx_217_217_TT', 'ps_A_100_100', 'ps_A_143_143', 'ps_A_143_217', 'ps_A_217_217', 'galf_TE_index', 'galf_TE_A_100', 'galf_TE_A_100_143', 'galf_TE_A_100_217', 'galf_TE_A_143', 'galf_TE_A_143_217', 'galf_TE_A_217', 'galf_EE_index', 'galf_EE_A_100', 'galf_EE_A_100_143', 'galf_EE_A_100_217', 'galf_EE_A_143', 'galf_EE_A_143_217', 'galf_EE_A_217', 'A_cnoise_e2e_100_100_EE', 'A_cnoise_e2e_143_143_EE', 'A_cnoise_e2e_217_217_EE', 'A_sbpx_100_100_EE', 'A_sbpx_100_143_EE', 'A_sbpx_100_217_EE', 'A_sbpx_143_143_EE', 'A_sbpx_143_217_EE', 'A_sbpx_217_217_EE']
+ 2025-01-15 16:51:25,237 [model]      Output: []
+ 2025-01-15 16:51:25,237 [model] - planck_2018_lowl.TT:
+ 2025-01-15 16:51:25,237 [model]      Input:  ['A_planck']
+ 2025-01-15 16:51:25,237 [model]      Output: []
+ 2025-01-15 16:51:25,237 [model] - planck_2018_lowl.EE:
+ 2025-01-15 16:51:25,237 [model]      Input:  ['A_planck']
+ 2025-01-15 16:51:25,237 [model]      Output: []
+ 2025-01-15 16:51:25,237 [model] - camb.transfers:
+ 2025-01-15 16:51:25,237 [model]      Input:  ['H0', 'ombh2', 'omch2', 'mnu', 'w', 'wa', 'beta_DE', 'tau']
+ 2025-01-15 16:51:25,237 [model]      Output: []
+ 2025-01-15 16:51:25,237 [model] - camb:
+ 2025-01-15 16:51:25,237 [model]      Input:  ['As', 'ns']
+ 2025-01-15 16:51:25,238 [model]      Output: ['omegam', 'YHe', 'Y_p', 'zrei', 'sigma8', 'age', 'rdrag', 'DH']
+ 2025-01-15 16:51:25,241 [model] Components will be computed in the order:
+ 2025-01-15 16:51:25,241 [model]  - [camb.transfers, camb, planck_2018_highl_plik.TTTEEE, planck_2018_lowl.TT, planck_2018_lowl.EE]
+ 2025-01-15 16:51:25,241 [model] Requirements will be calculated by these components:
+ 2025-01-15 16:51:25,241 [model] - Cl: camb
+ 2025-01-15 16:51:25,241 [model] - CAMB_transfers: camb.transfers
+ 2025-01-15 16:51:25,302 [evaluate] Initialized!
+ 2025-01-15 16:51:25,324 [evaluate] Looking for a reference point with non-zero prior.
+ 2025-01-15 16:51:25,324 [prior] Evaluating prior at array([9.99638236e-01, 9.99576698e-01, 9.98506589e-01, 4.28615780e+01,
+       3.59243069e-02, 6.84975879e+00, 1.44903886e+00, 4.48934568e+00,
+       6.28867162e+00, 2.07659053e+01, 9.04223239e+01, 2.80630765e+02,
+       4.73379428e+01, 5.70503613e+01, 1.40343217e+02, 7.99585651e-02,
+       1.69158804e-01, 2.82426159e-01, 2.07972041e-01, 6.63214396e-01,
+       1.83903030e+00])
+ 2025-01-15 16:51:25,325 [prior] Got logpriors (internal) = -25.638435116218652
+ 2025-01-15 16:51:25,325 [prior] Got logpriors (external) = [-2.487565370990975]
+ 2025-01-15 16:51:25,325 [evaluate] *ERROR* Parameter 'beta_DE' used in override not known. Known parameters names are {'A_planck': 0.9996382356052176, 'calib_100T': 0.9995766979819674, 'calib_217T': 0.9985065885273915, 'A_cib_217': 42.86157797329942, 'xi_sz_cib': 0.035924306883666914, 'A_sz': 6.849758794448673, 'ksz_norm': 1.4490388617923862, 'gal545_A_100': 4.489345682145955, 'gal545_A_143': 6.288671619989918, 'gal545_A_143_217': 20.765905339692083, 'gal545_A_217': 90.42232386227666, 'ps_A_100_100': 280.6307649557827, 'ps_A_143_143': 47.33794275313577, 'ps_A_143_217': 57.05036127671626, 'ps_A_217_217': 140.34321684088914, 'galf_TE_A_100': 0.07995856510498132, 'galf_TE_A_100_143': 0.1691588041594917, 'galf_TE_A_100_217': 0.28242615888382955, 'galf_TE_A_143': 0.20797204149270052, 'galf_TE_A_143_217': 0.6632143957341067, 'galf_TE_A_217': 1.8390302992923135}.
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun detected that one or more processes exited with non-zero status, thus causing
+the job to be terminated. The first process to do so was:
+
+  Process name: [[47569,1],0]
+  Exit code:    1
+--------------------------------------------------------------------------
+Running for beta = -0.9
+sed: -e expression #1, char 29: unknown option to `s'
+theory:
+  camb:
+    path: /users/smp24dhl/cosmo/code/CAMB_beta
+    extra_args:
+      lens_potential_accuracy: 1
+      num_massive_neutrinos: 1
+      nnu: 3.044
+      theta_H0_range:
+      - 20
+      - 100
+likelihood:
+  planck_2018_highl_plik.TTTEEE:
+  planck_2018_lowl.TT:
+  planck_2018_lowl.EE:
+
+params:
+  logA:
+    value: 3.06958
+    latex: \log(10^{10} A_\mathrm{s})
+    drop: true
+  As:
+    value: 'lambda logA: 1e-10*np.exp(logA)'
+    latex: A_\mathrm{s}
+  ns:
+    value: 0.9659111
+    latex: n_\mathrm{s}
+  H0:
+    latex: H_0
+    value: 68.07373
+  ombh2:
+    value: 0.02230531
+    latex: \Omega_\mathrm{b} h^2
+  omch2:
+    value: 0.1201717
+    latex: \Omega_\mathrm{c} h^2
+  omegam:
+    latex: \Omega_\mathrm{m}
+  omegamh2:
+    derived: 'lambda omegam, H0: omegam*(H0/100)**2'
+    latex: \Omega_\mathrm{m} h^2
+  mnu: 0.06
+  w:
+    value: -1.032966
+    latex: w_{0,\mathrm{DE}}
+  wa:
+    value: 0.00819477
+    latex: w_{a, \mathrm{DE}}
+  beta_DE:
+    value: 1.091425
+    latex: \beta_{\mathrm{DE}}
+  YHe:
+    latex: Y_\mathrm{P}
+  Y_p:
+    latex: Y_P^\mathrm{BBN}
+  DHBBN:
+    derived: 'lambda DH: 10**5*DH'
+    latex: 10^5 \mathrm{D}/\mathrm{H}
+  tau:
+    value: 0.06997392
+    latex: \tau_\mathrm{reio}
+  zrei:
+    latex: z_\mathrm{re}
+  sigma8:
+    latex: \sigma_8
+  s8h5:
+    derived: 'lambda sigma8, H0: sigma8*(H0*1e-2)**(-0.5)'
+    latex: \sigma_8/h^{0.5}
+  s8omegamp5:
+    derived: 'lambda sigma8, omegam: sigma8*omegam**0.5'
+    latex: \sigma_8 \Omega_\mathrm{m}^{0.5}
+  s8omegamp25:
+    derived: 'lambda sigma8, omegam: sigma8*omegam**0.25'
+    latex: \sigma_8 \Omega_\mathrm{m}^{0.25}
+  A:
+    derived: 'lambda As: 1e9*As'
+    latex: 10^9 A_\mathrm{s}
+  clggamp:
+    derived: 'lambda As, tau: 1e9*As*np.exp(-2*tau)'
+    latex: 10^9 A_\mathrm{s} e^{-2\tau}
+  age:
+    latex: '{\rm{Age}}/\mathrm{Gyr}'
+  rdrag:
+    latex: r_\mathrm{drag}
+sampler:
+  evaluate:
+    override:
+      beta_DE: -0.9
+
+output: ./beta/1-beta
+debug: true
+ 2025-01-15 16:51:26,469 [output] Output to be read-from/written-into folder './beta', with prefix '1-beta'
+ 2025-01-15 16:51:26,469 [output] Found existing info files with the requested output prefix: './beta/1-beta'
+ 2025-01-15 16:51:26,869 [input] is_equal_info: different content of [sampler:evaluate] -- (re-run with `debug: True` for more info)
+ 2025-01-15 16:51:26,869 [input] {'override': {'beta_DE': -1.0}} (old) vs {'override': {'beta_DE': -0.9}} (new)
+ 2025-01-15 16:51:26,869 [sampler] *ERROR* Found old Sampler information which is not compatible with the new one. Delete the previous output manually, or automatically with either '-f', '--force', 'force: True'
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun detected that one or more processes exited with non-zero status, thus causing
+the job to be terminated. The first process to do so was:
+
+  Process name: [[47550,1],0]
+  Exit code:    1
+--------------------------------------------------------------------------
+Running for beta = -0.8
+sed: -e expression #1, char 29: unknown option to `s'
+theory:
+  camb:
+    path: /users/smp24dhl/cosmo/code/CAMB_beta
+    extra_args:
+      lens_potential_accuracy: 1
+      num_massive_neutrinos: 1
+      nnu: 3.044
+      theta_H0_range:
+      - 20
+      - 100
+likelihood:
+  planck_2018_highl_plik.TTTEEE:
+  planck_2018_lowl.TT:
+  planck_2018_lowl.EE:
+
+params:
+  logA:
+    value: 3.06958
+    latex: \log(10^{10} A_\mathrm{s})
+    drop: true
+  As:
+    value: 'lambda logA: 1e-10*np.exp(logA)'
+    latex: A_\mathrm{s}
+  ns:
+    value: 0.9659111
+    latex: n_\mathrm{s}
+  H0:
+    latex: H_0
+    value: 68.07373
+  ombh2:
+    value: 0.02230531
+    latex: \Omega_\mathrm{b} h^2
+  omch2:
+    value: 0.1201717
+    latex: \Omega_\mathrm{c} h^2
+  omegam:
+    latex: \Omega_\mathrm{m}
+  omegamh2:
+    derived: 'lambda omegam, H0: omegam*(H0/100)**2'
+    latex: \Omega_\mathrm{m} h^2
+  mnu: 0.06
+  w:
+    value: -1.032966
+    latex: w_{0,\mathrm{DE}}
+  wa:
+    value: 0.00819477
+    latex: w_{a, \mathrm{DE}}
+  beta_DE:
+    value: 1.091425
+    latex: \beta_{\mathrm{DE}}
+  YHe:
+    latex: Y_\mathrm{P}
+  Y_p:
+    latex: Y_P^\mathrm{BBN}
+  DHBBN:
+    derived: 'lambda DH: 10**5*DH'
+    latex: 10^5 \mathrm{D}/\mathrm{H}
+  tau:
+    value: 0.06997392
+    latex: \tau_\mathrm{reio}
+  zrei:
+    latex: z_\mathrm{re}
+  sigma8:
+    latex: \sigma_8
+  s8h5:
+    derived: 'lambda sigma8, H0: sigma8*(H0*1e-2)**(-0.5)'
+    latex: \sigma_8/h^{0.5}
+  s8omegamp5:
+    derived: 'lambda sigma8, omegam: sigma8*omegam**0.5'
+    latex: \sigma_8 \Omega_\mathrm{m}^{0.5}
+  s8omegamp25:
+    derived: 'lambda sigma8, omegam: sigma8*omegam**0.25'
+    latex: \sigma_8 \Omega_\mathrm{m}^{0.25}
+  A:
+    derived: 'lambda As: 1e9*As'
+    latex: 10^9 A_\mathrm{s}
+  clggamp:
+    derived: 'lambda As, tau: 1e9*As*np.exp(-2*tau)'
+    latex: 10^9 A_\mathrm{s} e^{-2\tau}
+  age:
+    latex: '{\rm{Age}}/\mathrm{Gyr}'
+  rdrag:
+    latex: r_\mathrm{drag}
+sampler:
+  evaluate:
+    override:
+      beta_DE: -0.8
+
+output: ./beta/1-beta
+debug: true
+ 2025-01-15 16:51:28,054 [output] Output to be read-from/written-into folder './beta', with prefix '1-beta'
+ 2025-01-15 16:51:28,054 [output] Found existing info files with the requested output prefix: './beta/1-beta'
+ 2025-01-15 16:51:28,519 [prior] Loading external prior 'SZ' from: 'lambda ksz_norm, A_sz: stats.norm.logpdf(ksz_norm+1.6*A_sz, loc=9.5, scale=3.0)'
+ 2025-01-15 16:51:28,519 [prior] *WARNING* External prior 'SZ' loaded. Mind that it might not be normalized!
+ 2025-01-15 16:51:28,520 [camb] Attempting import from /users/smp24dhl/cosmo/code/CAMB_beta.
+ 2025-01-15 16:51:28,520 [camb] 'camb' to be imported from (sub)directory /users/smp24dhl/cosmo/code/CAMB_beta
+ 2025-01-15 16:51:28,571 [camb] `camb` module loaded successfully from /users/smp24dhl/cosmo/code/CAMB_beta/camb
+ 2025-01-15 16:51:28,573 [planck_2018_highl_plik.ttteee] Attempting import of Cobaya-installed version, but defaulting to global import if not found.
+ 2025-01-15 16:51:28,574 [planck_2018_highl_plik.ttteee] 'clik' to be imported from (sub)directory /users/smp24dhl/cosmo/code/planck/clik/lib/python/site-packages
+ 2025-01-15 16:51:28,636 [planck_2018_highl_plik.ttteee] Could not import 'clik' from /users/smp24dhl/cosmo/code/planck: Module clik successfully loaded, but not from requested path: /users/smp24dhl/cosmo/code/planck/clik/lib/python/site-packages, but instead from /users/smp24dhl/cosmo/code/planck/clik/lib/python3.9/site-packages/clik
+ 2025-01-15 16:51:28,637 [planck_2018_highl_plik.ttteee] Defaulting to global import.
+ 2025-01-15 16:51:28,637 [planck_2018_highl_plik.ttteee] `clik` module loaded successfully from /users/smp24dhl/cosmo/code/planck/clik/lib/python3.9/site-packages/clik
+----
+clik version clik_16.0b1-2-g63c889f3aa9c MAKEFILE
+  smica
+Checking likelihood '/users/smp24dhl/cosmo/data/planck_2018/baseline/plc_3.0/hi_l/plik/plik_rd12_HM_v22b_TTTEEE.clik' on test data. got -1172.47 expected -1172.47 (diff -4.34054e-07)
+----
+ 2025-01-15 16:51:29,095 [model] Parameters were assigned as follows:
+ 2025-01-15 16:51:29,096 [model] - planck_2018_highl_plik.TTTEEE:
+ 2025-01-15 16:51:29,096 [model]      Input:  ['A_planck', 'calib_100T', 'calib_217T', 'A_pol', 'calib_100P', 'calib_143P', 'calib_217P', 'cib_index', 'A_cib_217', 'xi_sz_cib', 'A_sz', 'ksz_norm', 'gal545_A_100', 'gal545_A_143', 'gal545_A_143_217', 'gal545_A_217', 'A_sbpx_100_100_TT', 'A_sbpx_143_143_TT', 'A_sbpx_143_217_TT', 'A_sbpx_217_217_TT', 'ps_A_100_100', 'ps_A_143_143', 'ps_A_143_217', 'ps_A_217_217', 'galf_TE_index', 'galf_TE_A_100', 'galf_TE_A_100_143', 'galf_TE_A_100_217', 'galf_TE_A_143', 'galf_TE_A_143_217', 'galf_TE_A_217', 'galf_EE_index', 'galf_EE_A_100', 'galf_EE_A_100_143', 'galf_EE_A_100_217', 'galf_EE_A_143', 'galf_EE_A_143_217', 'galf_EE_A_217', 'A_cnoise_e2e_100_100_EE', 'A_cnoise_e2e_143_143_EE', 'A_cnoise_e2e_217_217_EE', 'A_sbpx_100_100_EE', 'A_sbpx_100_143_EE', 'A_sbpx_100_217_EE', 'A_sbpx_143_143_EE', 'A_sbpx_143_217_EE', 'A_sbpx_217_217_EE']
+ 2025-01-15 16:51:29,096 [model]      Output: []
+ 2025-01-15 16:51:29,096 [model] - planck_2018_lowl.TT:
+ 2025-01-15 16:51:29,096 [model]      Input:  ['A_planck']
+ 2025-01-15 16:51:29,096 [model]      Output: []
+ 2025-01-15 16:51:29,096 [model] - planck_2018_lowl.EE:
+ 2025-01-15 16:51:29,096 [model]      Input:  ['A_planck']
+ 2025-01-15 16:51:29,096 [model]      Output: []
+ 2025-01-15 16:51:29,096 [model] - camb.transfers:
+ 2025-01-15 16:51:29,096 [model]      Input:  ['H0', 'ombh2', 'omch2', 'mnu', 'w', 'wa', 'beta_DE', 'tau']
+ 2025-01-15 16:51:29,096 [model]      Output: []
+ 2025-01-15 16:51:29,096 [model] - camb:
+ 2025-01-15 16:51:29,096 [model]      Input:  ['As', 'ns']
+ 2025-01-15 16:51:29,096 [model]      Output: ['omegam', 'YHe', 'Y_p', 'zrei', 'sigma8', 'age', 'rdrag', 'DH']
+ 2025-01-15 16:51:29,100 [model] Components will be computed in the order:
+ 2025-01-15 16:51:29,100 [model]  - [camb.transfers, camb, planck_2018_highl_plik.TTTEEE, planck_2018_lowl.TT, planck_2018_lowl.EE]
+ 2025-01-15 16:51:29,101 [model] Requirements will be calculated by these components:
+ 2025-01-15 16:51:29,101 [model] - Cl: camb
+ 2025-01-15 16:51:29,101 [model] - CAMB_transfers: camb.transfers
+ 2025-01-15 16:51:29,163 [evaluate] Initialized!
+ 2025-01-15 16:51:29,186 [evaluate] Looking for a reference point with non-zero prior.
+ 2025-01-15 16:51:29,187 [prior] Evaluating prior at array([1.00057638e+00, 1.00233240e+00, 9.96098632e-01, 7.10637083e+01,
+       6.08695080e-03, 5.81951770e+00, 1.94195346e+00, 7.33773920e+00,
+       8.60613810e+00, 2.19154818e+01, 7.21588004e+01, 2.39401776e+02,
+       5.64842626e+01, 2.81163215e+01, 9.97401627e+01, 2.85087535e-01,
+       1.43907146e-01, 3.71557388e-01, 1.77703614e-01, 6.96419752e-01,
+       1.79976928e+00])
+ 2025-01-15 16:51:29,188 [prior] Got logpriors (internal) = -35.052191736873596
+ 2025-01-15 16:51:29,188 [prior] Got logpriors (external) = [-2.1883089526129247]
+ 2025-01-15 16:51:29,188 [evaluate] *ERROR* Parameter 'beta_DE' used in override not known. Known parameters names are {'A_planck': 1.0005763781092234, 'calib_100T': 1.0023323959996489, 'calib_217T': 0.9960986321008731, 'A_cib_217': 71.06370828045645, 'xi_sz_cib': 0.006086950804484416, 'A_sz': 5.819517697054604, 'ksz_norm': 1.9419534645981593, 'gal545_A_100': 7.337739204506181, 'gal545_A_143': 8.606138103935859, 'gal545_A_143_217': 21.91548180071198, 'gal545_A_217': 72.1588003671533, 'ps_A_100_100': 239.40177572882354, 'ps_A_143_143': 56.48426256756665, 'ps_A_143_217': 28.11632152615497, 'ps_A_217_217': 99.74016267826251, 'galf_TE_A_100': 0.28508753528165176, 'galf_TE_A_100_143': 0.14390714561916504, 'galf_TE_A_100_217': 0.3715573878231409, 'galf_TE_A_143': 0.1777036144670165, 'galf_TE_A_143_217': 0.696419752177662, 'galf_TE_A_217': 1.7997692760207469}.
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun detected that one or more processes exited with non-zero status, thus causing
+the job to be terminated. The first process to do so was:
+
+  Process name: [[47840,1],0]
+  Exit code:    1
+--------------------------------------------------------------------------
+Running for beta = -0.7
+sed: -e expression #1, char 29: unknown option to `s'
+theory:
+  camb:
+    path: /users/smp24dhl/cosmo/code/CAMB_beta
+    extra_args:
+      lens_potential_accuracy: 1
+      num_massive_neutrinos: 1
+      nnu: 3.044
+      theta_H0_range:
+      - 20
+      - 100
+likelihood:
+  planck_2018_highl_plik.TTTEEE:
+  planck_2018_lowl.TT:
+  planck_2018_lowl.EE:
+
+params:
+  logA:
+    value: 3.06958
+    latex: \log(10^{10} A_\mathrm{s})
+    drop: true
+  As:
+    value: 'lambda logA: 1e-10*np.exp(logA)'
+    latex: A_\mathrm{s}
+  ns:
+    value: 0.9659111
+    latex: n_\mathrm{s}
+  H0:
+    latex: H_0
+    value: 68.07373
+  ombh2:
+    value: 0.02230531
+    latex: \Omega_\mathrm{b} h^2
+  omch2:
+    value: 0.1201717
+    latex: \Omega_\mathrm{c} h^2
+  omegam:
+    latex: \Omega_\mathrm{m}
+  omegamh2:
+    derived: 'lambda omegam, H0: omegam*(H0/100)**2'
+    latex: \Omega_\mathrm{m} h^2
+  mnu: 0.06
+  w:
+    value: -1.032966
+    latex: w_{0,\mathrm{DE}}
+  wa:
+    value: 0.00819477
+    latex: w_{a, \mathrm{DE}}
+  beta_DE:
+    value: 1.091425
+    latex: \beta_{\mathrm{DE}}
+  YHe:
+    latex: Y_\mathrm{P}
+  Y_p:
+    latex: Y_P^\mathrm{BBN}
+  DHBBN:
+    derived: 'lambda DH: 10**5*DH'
+    latex: 10^5 \mathrm{D}/\mathrm{H}
+  tau:
+    value: 0.06997392
+    latex: \tau_\mathrm{reio}
+  zrei:
+    latex: z_\mathrm{re}
+  sigma8:
+    latex: \sigma_8
+  s8h5:
+    derived: 'lambda sigma8, H0: sigma8*(H0*1e-2)**(-0.5)'
+    latex: \sigma_8/h^{0.5}
+  s8omegamp5:
+    derived: 'lambda sigma8, omegam: sigma8*omegam**0.5'
+    latex: \sigma_8 \Omega_\mathrm{m}^{0.5}
+  s8omegamp25:
+    derived: 'lambda sigma8, omegam: sigma8*omegam**0.25'
+    latex: \sigma_8 \Omega_\mathrm{m}^{0.25}
+  A:
+    derived: 'lambda As: 1e9*As'
+    latex: 10^9 A_\mathrm{s}
+  clggamp:
+    derived: 'lambda As, tau: 1e9*As*np.exp(-2*tau)'
+    latex: 10^9 A_\mathrm{s} e^{-2\tau}
+  age:
+    latex: '{\rm{Age}}/\mathrm{Gyr}'
+  rdrag:
+    latex: r_\mathrm{drag}
+sampler:
+  evaluate:
+    override:
+      beta_DE: -0.7
+
+output: ./beta/1-beta
+debug: true
+ 2025-01-15 16:51:30,377 [output] Output to be read-from/written-into folder './beta', with prefix '1-beta'
+ 2025-01-15 16:51:30,377 [output] Found existing info files with the requested output prefix: './beta/1-beta'
+ 2025-01-15 16:51:30,798 [input] is_equal_info: different content of [sampler:evaluate] -- (re-run with `debug: True` for more info)
+ 2025-01-15 16:51:30,798 [input] {'override': {'beta_DE': -0.8}} (old) vs {'override': {'beta_DE': -0.7}} (new)
+ 2025-01-15 16:51:30,798 [sampler] *ERROR* Found old Sampler information which is not compatible with the new one. Delete the previous output manually, or automatically with either '-f', '--force', 'force: True'
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun detected that one or more processes exited with non-zero status, thus causing
+the job to be terminated. The first process to do so was:
+
+  Process name: [[42682,1],0]
+  Exit code:    1
+--------------------------------------------------------------------------
+Running for beta = -0.6
+sed: -e expression #1, char 29: unknown option to `s'
+theory:
+  camb:
+    path: /users/smp24dhl/cosmo/code/CAMB_beta
+    extra_args:
+      lens_potential_accuracy: 1
+      num_massive_neutrinos: 1
+      nnu: 3.044
+      theta_H0_range:
+      - 20
+      - 100
+likelihood:
+  planck_2018_highl_plik.TTTEEE:
+  planck_2018_lowl.TT:
+  planck_2018_lowl.EE:
+
+params:
+  logA:
+    value: 3.06958
+    latex: \log(10^{10} A_\mathrm{s})
+    drop: true
+  As:
+    value: 'lambda logA: 1e-10*np.exp(logA)'
+    latex: A_\mathrm{s}
+  ns:
+    value: 0.9659111
+    latex: n_\mathrm{s}
+  H0:
+    latex: H_0
+    value: 68.07373
+  ombh2:
+    value: 0.02230531
+    latex: \Omega_\mathrm{b} h^2
+  omch2:
+    value: 0.1201717
+    latex: \Omega_\mathrm{c} h^2
+  omegam:
+    latex: \Omega_\mathrm{m}
+  omegamh2:
+    derived: 'lambda omegam, H0: omegam*(H0/100)**2'
+    latex: \Omega_\mathrm{m} h^2
+  mnu: 0.06
+  w:
+    value: -1.032966
+    latex: w_{0,\mathrm{DE}}
+  wa:
+    value: 0.00819477
+    latex: w_{a, \mathrm{DE}}
+  beta_DE:
+    value: 1.091425
+    latex: \beta_{\mathrm{DE}}
+  YHe:
+    latex: Y_\mathrm{P}
+  Y_p:
+    latex: Y_P^\mathrm{BBN}
+  DHBBN:
+    derived: 'lambda DH: 10**5*DH'
+    latex: 10^5 \mathrm{D}/\mathrm{H}
+  tau:
+    value: 0.06997392
+    latex: \tau_\mathrm{reio}
+  zrei:
+    latex: z_\mathrm{re}
+  sigma8:
+    latex: \sigma_8
+  s8h5:
+    derived: 'lambda sigma8, H0: sigma8*(H0*1e-2)**(-0.5)'
+    latex: \sigma_8/h^{0.5}
+  s8omegamp5:
+    derived: 'lambda sigma8, omegam: sigma8*omegam**0.5'
+    latex: \sigma_8 \Omega_\mathrm{m}^{0.5}
+  s8omegamp25:
+    derived: 'lambda sigma8, omegam: sigma8*omegam**0.25'
+    latex: \sigma_8 \Omega_\mathrm{m}^{0.25}
+  A:
+    derived: 'lambda As: 1e9*As'
+    latex: 10^9 A_\mathrm{s}
+  clggamp:
+    derived: 'lambda As, tau: 1e9*As*np.exp(-2*tau)'
+    latex: 10^9 A_\mathrm{s} e^{-2\tau}
+  age:
+    latex: '{\rm{Age}}/\mathrm{Gyr}'
+  rdrag:
+    latex: r_\mathrm{drag}
+sampler:
+  evaluate:
+    override:
+      beta_DE: -0.6
+
+output: ./beta/1-beta
+debug: true
+ 2025-01-15 16:51:31,973 [output] Output to be read-from/written-into folder './beta', with prefix '1-beta'
+ 2025-01-15 16:51:31,973 [output] Found existing info files with the requested output prefix: './beta/1-beta'
+ 2025-01-15 16:51:32,449 [prior] Loading external prior 'SZ' from: 'lambda ksz_norm, A_sz: stats.norm.logpdf(ksz_norm+1.6*A_sz, loc=9.5, scale=3.0)'
+ 2025-01-15 16:51:32,450 [prior] *WARNING* External prior 'SZ' loaded. Mind that it might not be normalized!
+ 2025-01-15 16:51:32,451 [camb] Attempting import from /users/smp24dhl/cosmo/code/CAMB_beta.
+ 2025-01-15 16:51:32,451 [camb] 'camb' to be imported from (sub)directory /users/smp24dhl/cosmo/code/CAMB_beta
+ 2025-01-15 16:51:32,501 [camb] `camb` module loaded successfully from /users/smp24dhl/cosmo/code/CAMB_beta/camb
+ 2025-01-15 16:51:32,502 [planck_2018_highl_plik.ttteee] Attempting import of Cobaya-installed version, but defaulting to global import if not found.
+ 2025-01-15 16:51:32,503 [planck_2018_highl_plik.ttteee] 'clik' to be imported from (sub)directory /users/smp24dhl/cosmo/code/planck/clik/lib/python/site-packages
+ 2025-01-15 16:51:32,564 [planck_2018_highl_plik.ttteee] Could not import 'clik' from /users/smp24dhl/cosmo/code/planck: Module clik successfully loaded, but not from requested path: /users/smp24dhl/cosmo/code/planck/clik/lib/python/site-packages, but instead from /users/smp24dhl/cosmo/code/planck/clik/lib/python3.9/site-packages/clik
+ 2025-01-15 16:51:32,564 [planck_2018_highl_plik.ttteee] Defaulting to global import.
+ 2025-01-15 16:51:32,565 [planck_2018_highl_plik.ttteee] `clik` module loaded successfully from /users/smp24dhl/cosmo/code/planck/clik/lib/python3.9/site-packages/clik
+----
+clik version clik_16.0b1-2-g63c889f3aa9c MAKEFILE
+  smica
+Checking likelihood '/users/smp24dhl/cosmo/data/planck_2018/baseline/plc_3.0/hi_l/plik/plik_rd12_HM_v22b_TTTEEE.clik' on test data. got -1172.47 expected -1172.47 (diff -4.34054e-07)
+----
+ 2025-01-15 16:51:33,017 [model] Parameters were assigned as follows:
+ 2025-01-15 16:51:33,017 [model] - planck_2018_highl_plik.TTTEEE:
+ 2025-01-15 16:51:33,017 [model]      Input:  ['A_planck', 'calib_100T', 'calib_217T', 'A_pol', 'calib_100P', 'calib_143P', 'calib_217P', 'cib_index', 'A_cib_217', 'xi_sz_cib', 'A_sz', 'ksz_norm', 'gal545_A_100', 'gal545_A_143', 'gal545_A_143_217', 'gal545_A_217', 'A_sbpx_100_100_TT', 'A_sbpx_143_143_TT', 'A_sbpx_143_217_TT', 'A_sbpx_217_217_TT', 'ps_A_100_100', 'ps_A_143_143', 'ps_A_143_217', 'ps_A_217_217', 'galf_TE_index', 'galf_TE_A_100', 'galf_TE_A_100_143', 'galf_TE_A_100_217', 'galf_TE_A_143', 'galf_TE_A_143_217', 'galf_TE_A_217', 'galf_EE_index', 'galf_EE_A_100', 'galf_EE_A_100_143', 'galf_EE_A_100_217', 'galf_EE_A_143', 'galf_EE_A_143_217', 'galf_EE_A_217', 'A_cnoise_e2e_100_100_EE', 'A_cnoise_e2e_143_143_EE', 'A_cnoise_e2e_217_217_EE', 'A_sbpx_100_100_EE', 'A_sbpx_100_143_EE', 'A_sbpx_100_217_EE', 'A_sbpx_143_143_EE', 'A_sbpx_143_217_EE', 'A_sbpx_217_217_EE']
+ 2025-01-15 16:51:33,017 [model]      Output: []
+ 2025-01-15 16:51:33,017 [model] - planck_2018_lowl.TT:
+ 2025-01-15 16:51:33,017 [model]      Input:  ['A_planck']
+ 2025-01-15 16:51:33,017 [model]      Output: []
+ 2025-01-15 16:51:33,017 [model] - planck_2018_lowl.EE:
+ 2025-01-15 16:51:33,017 [model]      Input:  ['A_planck']
+ 2025-01-15 16:51:33,017 [model]      Output: []
+ 2025-01-15 16:51:33,017 [model] - camb.transfers:
+ 2025-01-15 16:51:33,017 [model]      Input:  ['H0', 'ombh2', 'omch2', 'mnu', 'w', 'wa', 'beta_DE', 'tau']
+ 2025-01-15 16:51:33,017 [model]      Output: []
+ 2025-01-15 16:51:33,017 [model] - camb:
+ 2025-01-15 16:51:33,018 [model]      Input:  ['As', 'ns']
+ 2025-01-15 16:51:33,018 [model]      Output: ['omegam', 'YHe', 'Y_p', 'zrei', 'sigma8', 'age', 'rdrag', 'DH']
+ 2025-01-15 16:51:33,022 [model] Components will be computed in the order:
+ 2025-01-15 16:51:33,022 [model]  - [camb.transfers, camb, planck_2018_highl_plik.TTTEEE, planck_2018_lowl.TT, planck_2018_lowl.EE]
+ 2025-01-15 16:51:33,022 [model] Requirements will be calculated by these components:
+ 2025-01-15 16:51:33,023 [model] - Cl: camb
+ 2025-01-15 16:51:33,023 [model] - CAMB_transfers: camb.transfers
+ 2025-01-15 16:51:33,086 [evaluate] Initialized!
+ 2025-01-15 16:51:33,108 [evaluate] Looking for a reference point with non-zero prior.
+ 2025-01-15 16:51:33,109 [prior] Evaluating prior at array([1.00070732e+00, 9.98972407e-01, 9.98023694e-01, 6.21516182e+01,
+       1.33134691e-02, 8.53392779e+00, 1.98829348e+00, 4.87540614e+00,
+       8.82095259e+00, 2.76352813e+01, 8.66763868e+01, 2.29885691e+02,
+       4.39505032e+01, 3.42031556e+01, 1.13489313e+02, 5.77451505e-02,
+       3.05451082e-01, 4.79438612e-01, 1.67855766e-01, 7.41976101e-01,
+       1.63021280e+00])
+ 2025-01-15 16:51:33,110 [prior] Got logpriors (internal) = -34.90275969276427
+ 2025-01-15 16:51:33,110 [prior] Got logpriors (external) = [-4.113732143303688]
+ 2025-01-15 16:51:33,110 [evaluate] *ERROR* Parameter 'beta_DE' used in override not known. Known parameters names are {'A_planck': 1.000707315437356, 'calib_100T': 0.9989724066137007, 'calib_217T': 0.9980236943467302, 'A_cib_217': 62.15161822093587, 'xi_sz_cib': 0.013313469143965929, 'A_sz': 8.533927790751315, 'ksz_norm': 1.9882934777918875, 'gal545_A_100': 4.875406136492341, 'gal545_A_143': 8.820952588630242, 'gal545_A_143_217': 27.63528134740533, 'gal545_A_217': 86.67638676119594, 'ps_A_100_100': 229.88569057773537, 'ps_A_143_143': 43.95050315189238, 'ps_A_143_217': 34.20315563729468, 'ps_A_217_217': 113.4893126748567, 'galf_TE_A_100': 0.05774515050254907, 'galf_TE_A_100_143': 0.3054510818924131, 'galf_TE_A_100_217': 0.47943861227111734, 'galf_TE_A_143': 0.16785576556888226, 'galf_TE_A_143_217': 0.7419761005408045, 'galf_TE_A_217': 1.6302128034214098}.
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun detected that one or more processes exited with non-zero status, thus causing
+the job to be terminated. The first process to do so was:
+
+  Process name: [[41184,1],0]
+  Exit code:    1
+--------------------------------------------------------------------------
+Running for beta = -0.5
+sed: -e expression #1, char 29: unknown option to `s'
+theory:
+  camb:
+    path: /users/smp24dhl/cosmo/code/CAMB_beta
+    extra_args:
+      lens_potential_accuracy: 1
+      num_massive_neutrinos: 1
+      nnu: 3.044
+      theta_H0_range:
+      - 20
+      - 100
+likelihood:
+  planck_2018_highl_plik.TTTEEE:
+  planck_2018_lowl.TT:
+  planck_2018_lowl.EE:
+
+params:
+  logA:
+    value: 3.06958
+    latex: \log(10^{10} A_\mathrm{s})
+    drop: true
+  As:
+    value: 'lambda logA: 1e-10*np.exp(logA)'
+    latex: A_\mathrm{s}
+  ns:
+    value: 0.9659111
+    latex: n_\mathrm{s}
+  H0:
+    latex: H_0
+    value: 68.07373
+  ombh2:
+    value: 0.02230531
+    latex: \Omega_\mathrm{b} h^2
+  omch2:
+    value: 0.1201717
+    latex: \Omega_\mathrm{c} h^2
+  omegam:
+    latex: \Omega_\mathrm{m}
+  omegamh2:
+    derived: 'lambda omegam, H0: omegam*(H0/100)**2'
+    latex: \Omega_\mathrm{m} h^2
+  mnu: 0.06
+  w:
+    value: -1.032966
+    latex: w_{0,\mathrm{DE}}
+  wa:
+    value: 0.00819477
+    latex: w_{a, \mathrm{DE}}
+  beta_DE:
+    value: 1.091425
+    latex: \beta_{\mathrm{DE}}
+  YHe:
+    latex: Y_\mathrm{P}
+  Y_p:
+    latex: Y_P^\mathrm{BBN}
+  DHBBN:
+    derived: 'lambda DH: 10**5*DH'
+    latex: 10^5 \mathrm{D}/\mathrm{H}
+  tau:
+    value: 0.06997392
+    latex: \tau_\mathrm{reio}
+  zrei:
+    latex: z_\mathrm{re}
+  sigma8:
+    latex: \sigma_8
+  s8h5:
+    derived: 'lambda sigma8, H0: sigma8*(H0*1e-2)**(-0.5)'
+    latex: \sigma_8/h^{0.5}
+  s8omegamp5:
+    derived: 'lambda sigma8, omegam: sigma8*omegam**0.5'
+    latex: \sigma_8 \Omega_\mathrm{m}^{0.5}
+  s8omegamp25:
+    derived: 'lambda sigma8, omegam: sigma8*omegam**0.25'
+    latex: \sigma_8 \Omega_\mathrm{m}^{0.25}
+  A:
+    derived: 'lambda As: 1e9*As'
+    latex: 10^9 A_\mathrm{s}
+  clggamp:
+    derived: 'lambda As, tau: 1e9*As*np.exp(-2*tau)'
+    latex: 10^9 A_\mathrm{s} e^{-2\tau}
+  age:
+    latex: '{\rm{Age}}/\mathrm{Gyr}'
+  rdrag:
+    latex: r_\mathrm{drag}
+sampler:
+  evaluate:
+    override:
+      beta_DE: -0.5
+
+output: ./beta/1-beta
+debug: true
+ 2025-01-15 16:51:34,301 [output] Output to be read-from/written-into folder './beta', with prefix '1-beta'
+ 2025-01-15 16:51:34,301 [output] Found existing info files with the requested output prefix: './beta/1-beta'
+ 2025-01-15 16:51:34,705 [input] is_equal_info: different content of [sampler:evaluate] -- (re-run with `debug: True` for more info)
+ 2025-01-15 16:51:34,705 [input] {'override': {'beta_DE': -0.6}} (old) vs {'override': {'beta_DE': -0.5}} (new)
+ 2025-01-15 16:51:34,705 [sampler] *ERROR* Found old Sampler information which is not compatible with the new one. Delete the previous output manually, or automatically with either '-f', '--force', 'force: True'
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun detected that one or more processes exited with non-zero status, thus causing
+the job to be terminated. The first process to do so was:
+
+  Process name: [[41542,1],0]
+  Exit code:    1
+--------------------------------------------------------------------------
+Running for beta = -0.4
+sed: -e expression #1, char 29: unknown option to `s'
+theory:
+  camb:
+    path: /users/smp24dhl/cosmo/code/CAMB_beta
+    extra_args:
+      lens_potential_accuracy: 1
+      num_massive_neutrinos: 1
+      nnu: 3.044
+      theta_H0_range:
+      - 20
+      - 100
+likelihood:
+  planck_2018_highl_plik.TTTEEE:
+  planck_2018_lowl.TT:
+  planck_2018_lowl.EE:
+
+params:
+  logA:
+    value: 3.06958
+    latex: \log(10^{10} A_\mathrm{s})
+    drop: true
+  As:
+    value: 'lambda logA: 1e-10*np.exp(logA)'
+    latex: A_\mathrm{s}
+  ns:
+    value: 0.9659111
+    latex: n_\mathrm{s}
+  H0:
+    latex: H_0
+    value: 68.07373
+  ombh2:
+    value: 0.02230531
+    latex: \Omega_\mathrm{b} h^2
+  omch2:
+    value: 0.1201717
+    latex: \Omega_\mathrm{c} h^2
+  omegam:
+    latex: \Omega_\mathrm{m}
+  omegamh2:
+    derived: 'lambda omegam, H0: omegam*(H0/100)**2'
+    latex: \Omega_\mathrm{m} h^2
+  mnu: 0.06
+  w:
+    value: -1.032966
+    latex: w_{0,\mathrm{DE}}
+  wa:
+    value: 0.00819477
+    latex: w_{a, \mathrm{DE}}
+  beta_DE:
+    value: 1.091425
+    latex: \beta_{\mathrm{DE}}
+  YHe:
+    latex: Y_\mathrm{P}
+  Y_p:
+    latex: Y_P^\mathrm{BBN}
+  DHBBN:
+    derived: 'lambda DH: 10**5*DH'
+    latex: 10^5 \mathrm{D}/\mathrm{H}
+  tau:
+    value: 0.06997392
+    latex: \tau_\mathrm{reio}
+  zrei:
+    latex: z_\mathrm{re}
+  sigma8:
+    latex: \sigma_8
+  s8h5:
+    derived: 'lambda sigma8, H0: sigma8*(H0*1e-2)**(-0.5)'
+    latex: \sigma_8/h^{0.5}
+  s8omegamp5:
+    derived: 'lambda sigma8, omegam: sigma8*omegam**0.5'
+    latex: \sigma_8 \Omega_\mathrm{m}^{0.5}
+  s8omegamp25:
+    derived: 'lambda sigma8, omegam: sigma8*omegam**0.25'
+    latex: \sigma_8 \Omega_\mathrm{m}^{0.25}
+  A:
+    derived: 'lambda As: 1e9*As'
+    latex: 10^9 A_\mathrm{s}
+  clggamp:
+    derived: 'lambda As, tau: 1e9*As*np.exp(-2*tau)'
+    latex: 10^9 A_\mathrm{s} e^{-2\tau}
+  age:
+    latex: '{\rm{Age}}/\mathrm{Gyr}'
+  rdrag:
+    latex: r_\mathrm{drag}
+sampler:
+  evaluate:
+    override:
+      beta_DE: -0.4
+
+output: ./beta/1-beta
+debug: true
+ 2025-01-15 16:51:35,905 [output] Output to be read-from/written-into folder './beta', with prefix '1-beta'
+ 2025-01-15 16:51:35,905 [output] Found existing info files with the requested output prefix: './beta/1-beta'
+ 2025-01-15 16:51:36,369 [prior] Loading external prior 'SZ' from: 'lambda ksz_norm, A_sz: stats.norm.logpdf(ksz_norm+1.6*A_sz, loc=9.5, scale=3.0)'
+ 2025-01-15 16:51:36,370 [prior] *WARNING* External prior 'SZ' loaded. Mind that it might not be normalized!
+ 2025-01-15 16:51:36,371 [camb] Attempting import from /users/smp24dhl/cosmo/code/CAMB_beta.
+ 2025-01-15 16:51:36,371 [camb] 'camb' to be imported from (sub)directory /users/smp24dhl/cosmo/code/CAMB_beta
+ 2025-01-15 16:51:36,421 [camb] `camb` module loaded successfully from /users/smp24dhl/cosmo/code/CAMB_beta/camb
+ 2025-01-15 16:51:36,423 [planck_2018_highl_plik.ttteee] Attempting import of Cobaya-installed version, but defaulting to global import if not found.
+ 2025-01-15 16:51:36,424 [planck_2018_highl_plik.ttteee] 'clik' to be imported from (sub)directory /users/smp24dhl/cosmo/code/planck/clik/lib/python/site-packages
+ 2025-01-15 16:51:36,486 [planck_2018_highl_plik.ttteee] Could not import 'clik' from /users/smp24dhl/cosmo/code/planck: Module clik successfully loaded, but not from requested path: /users/smp24dhl/cosmo/code/planck/clik/lib/python/site-packages, but instead from /users/smp24dhl/cosmo/code/planck/clik/lib/python3.9/site-packages/clik
+ 2025-01-15 16:51:36,486 [planck_2018_highl_plik.ttteee] Defaulting to global import.
+ 2025-01-15 16:51:36,486 [planck_2018_highl_plik.ttteee] `clik` module loaded successfully from /users/smp24dhl/cosmo/code/planck/clik/lib/python3.9/site-packages/clik
+----
+clik version clik_16.0b1-2-g63c889f3aa9c MAKEFILE
+  smica
+Checking likelihood '/users/smp24dhl/cosmo/data/planck_2018/baseline/plc_3.0/hi_l/plik/plik_rd12_HM_v22b_TTTEEE.clik' on test data. got -1172.47 expected -1172.47 (diff -4.34054e-07)
+----
+ 2025-01-15 16:51:36,946 [model] Parameters were assigned as follows:
+ 2025-01-15 16:51:36,946 [model] - planck_2018_highl_plik.TTTEEE:
+ 2025-01-15 16:51:36,946 [model]      Input:  ['A_planck', 'calib_100T', 'calib_217T', 'A_pol', 'calib_100P', 'calib_143P', 'calib_217P', 'cib_index', 'A_cib_217', 'xi_sz_cib', 'A_sz', 'ksz_norm', 'gal545_A_100', 'gal545_A_143', 'gal545_A_143_217', 'gal545_A_217', 'A_sbpx_100_100_TT', 'A_sbpx_143_143_TT', 'A_sbpx_143_217_TT', 'A_sbpx_217_217_TT', 'ps_A_100_100', 'ps_A_143_143', 'ps_A_143_217', 'ps_A_217_217', 'galf_TE_index', 'galf_TE_A_100', 'galf_TE_A_100_143', 'galf_TE_A_100_217', 'galf_TE_A_143', 'galf_TE_A_143_217', 'galf_TE_A_217', 'galf_EE_index', 'galf_EE_A_100', 'galf_EE_A_100_143', 'galf_EE_A_100_217', 'galf_EE_A_143', 'galf_EE_A_143_217', 'galf_EE_A_217', 'A_cnoise_e2e_100_100_EE', 'A_cnoise_e2e_143_143_EE', 'A_cnoise_e2e_217_217_EE', 'A_sbpx_100_100_EE', 'A_sbpx_100_143_EE', 'A_sbpx_100_217_EE', 'A_sbpx_143_143_EE', 'A_sbpx_143_217_EE', 'A_sbpx_217_217_EE']
+ 2025-01-15 16:51:36,946 [model]      Output: []
+ 2025-01-15 16:51:36,946 [model] - planck_2018_lowl.TT:
+ 2025-01-15 16:51:36,947 [model]      Input:  ['A_planck']
+ 2025-01-15 16:51:36,947 [model]      Output: []
+ 2025-01-15 16:51:36,947 [model] - planck_2018_lowl.EE:
+ 2025-01-15 16:51:36,947 [model]      Input:  ['A_planck']
+ 2025-01-15 16:51:36,947 [model]      Output: []
+ 2025-01-15 16:51:36,947 [model] - camb.transfers:
+ 2025-01-15 16:51:36,947 [model]      Input:  ['H0', 'ombh2', 'omch2', 'mnu', 'w', 'wa', 'beta_DE', 'tau']
+ 2025-01-15 16:51:36,947 [model]      Output: []
+ 2025-01-15 16:51:36,947 [model] - camb:
+ 2025-01-15 16:51:36,947 [model]      Input:  ['As', 'ns']
+ 2025-01-15 16:51:36,947 [model]      Output: ['omegam', 'YHe', 'Y_p', 'zrei', 'sigma8', 'age', 'rdrag', 'DH']
+ 2025-01-15 16:51:36,952 [model] Components will be computed in the order:
+ 2025-01-15 16:51:36,952 [model]  - [camb.transfers, camb, planck_2018_highl_plik.TTTEEE, planck_2018_lowl.TT, planck_2018_lowl.EE]
+ 2025-01-15 16:51:36,952 [model] Requirements will be calculated by these components:
+ 2025-01-15 16:51:36,953 [model] - Cl: camb
+ 2025-01-15 16:51:36,953 [model] - CAMB_transfers: camb.transfers
+ 2025-01-15 16:51:37,015 [evaluate] Initialized!
+ 2025-01-15 16:51:37,038 [evaluate] Looking for a reference point with non-zero prior.
+ 2025-01-15 16:51:37,039 [prior] Evaluating prior at array([9.96641435e-01, 9.98953055e-01, 9.98959069e-01, 6.05306117e+01,
+       1.46445243e-01, 6.97890621e+00, 5.97900831e+00, 7.67796198e+00,
+       7.61746294e+00, 2.58138750e+01, 8.37678263e+01, 2.86067691e+02,
+       4.65337668e+01, 4.84482155e+01, 9.89607192e+01, 3.16694699e-01,
+       3.05745797e-01, 3.62795237e-01, 1.20095722e-01, 8.15212240e-01,
+       2.28373705e+00])
+ 2025-01-15 16:51:37,040 [prior] Got logpriors (internal) = -46.270705497887135
+ 2025-01-15 16:51:37,040 [prior] Got logpriors (external) = [-5.264771583416367]
+ 2025-01-15 16:51:37,040 [evaluate] *ERROR* Parameter 'beta_DE' used in override not known. Known parameters names are {'A_planck': 0.9966414350334878, 'calib_100T': 0.9989530547770182, 'calib_217T': 0.998959068666195, 'A_cib_217': 60.53061169975115, 'xi_sz_cib': 0.1464452429470949, 'A_sz': 6.978906209888244, 'ksz_norm': 5.97900831408669, 'gal545_A_100': 7.677961981110485, 'gal545_A_143': 7.61746293537432, 'gal545_A_143_217': 25.813875021918943, 'gal545_A_217': 83.76782630417343, 'ps_A_100_100': 286.06769107929887, 'ps_A_143_143': 46.533766810588425, 'ps_A_143_217': 48.44821553495122, 'ps_A_217_217': 98.96071919591681, 'galf_TE_A_100': 0.31669469932444116, 'galf_TE_A_100_143': 0.30574579720603745, 'galf_TE_A_100_217': 0.36279523720464457, 'galf_TE_A_143': 0.12009572154198944, 'galf_TE_A_143_217': 0.8152122403903646, 'galf_TE_A_217': 2.283737045705191}.
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun detected that one or more processes exited with non-zero status, thus causing
+the job to be terminated. The first process to do so was:
+
+  Process name: [[41522,1],0]
+  Exit code:    1
+--------------------------------------------------------------------------
+Running for beta = -0.3
+sed: -e expression #1, char 29: unknown option to `s'
+theory:
+  camb:
+    path: /users/smp24dhl/cosmo/code/CAMB_beta
+    extra_args:
+      lens_potential_accuracy: 1
+      num_massive_neutrinos: 1
+      nnu: 3.044
+      theta_H0_range:
+      - 20
+      - 100
+likelihood:
+  planck_2018_highl_plik.TTTEEE:
+  planck_2018_lowl.TT:
+  planck_2018_lowl.EE:
+
+params:
+  logA:
+    value: 3.06958
+    latex: \log(10^{10} A_\mathrm{s})
+    drop: true
+  As:
+    value: 'lambda logA: 1e-10*np.exp(logA)'
+    latex: A_\mathrm{s}
+  ns:
+    value: 0.9659111
+    latex: n_\mathrm{s}
+  H0:
+    latex: H_0
+    value: 68.07373
+  ombh2:
+    value: 0.02230531
+    latex: \Omega_\mathrm{b} h^2
+  omch2:
+    value: 0.1201717
+    latex: \Omega_\mathrm{c} h^2
+  omegam:
+    latex: \Omega_\mathrm{m}
+  omegamh2:
+    derived: 'lambda omegam, H0: omegam*(H0/100)**2'
+    latex: \Omega_\mathrm{m} h^2
+  mnu: 0.06
+  w:
+    value: -1.032966
+    latex: w_{0,\mathrm{DE}}
+  wa:
+    value: 0.00819477
+    latex: w_{a, \mathrm{DE}}
+  beta_DE:
+    value: 1.091425
+    latex: \beta_{\mathrm{DE}}
+  YHe:
+    latex: Y_\mathrm{P}
+  Y_p:
+    latex: Y_P^\mathrm{BBN}
+  DHBBN:
+    derived: 'lambda DH: 10**5*DH'
+    latex: 10^5 \mathrm{D}/\mathrm{H}
+  tau:
+    value: 0.06997392
+    latex: \tau_\mathrm{reio}
+  zrei:
+    latex: z_\mathrm{re}
+  sigma8:
+    latex: \sigma_8
+  s8h5:
+    derived: 'lambda sigma8, H0: sigma8*(H0*1e-2)**(-0.5)'
+    latex: \sigma_8/h^{0.5}
+  s8omegamp5:
+    derived: 'lambda sigma8, omegam: sigma8*omegam**0.5'
+    latex: \sigma_8 \Omega_\mathrm{m}^{0.5}
+  s8omegamp25:
+    derived: 'lambda sigma8, omegam: sigma8*omegam**0.25'
+    latex: \sigma_8 \Omega_\mathrm{m}^{0.25}
+  A:
+    derived: 'lambda As: 1e9*As'
+    latex: 10^9 A_\mathrm{s}
+  clggamp:
+    derived: 'lambda As, tau: 1e9*As*np.exp(-2*tau)'
+    latex: 10^9 A_\mathrm{s} e^{-2\tau}
+  age:
+    latex: '{\rm{Age}}/\mathrm{Gyr}'
+  rdrag:
+    latex: r_\mathrm{drag}
+sampler:
+  evaluate:
+    override:
+      beta_DE: -0.3
+
+output: ./beta/1-beta
+debug: true
+ 2025-01-15 16:51:38,242 [output] Output to be read-from/written-into folder './beta', with prefix '1-beta'
+ 2025-01-15 16:51:38,243 [output] Found existing info files with the requested output prefix: './beta/1-beta'
+ 2025-01-15 16:51:38,659 [input] is_equal_info: different content of [sampler:evaluate] -- (re-run with `debug: True` for more info)
+ 2025-01-15 16:51:38,659 [input] {'override': {'beta_DE': -0.4}} (old) vs {'override': {'beta_DE': -0.3}} (new)
+ 2025-01-15 16:51:38,659 [sampler] *ERROR* Found old Sampler information which is not compatible with the new one. Delete the previous output manually, or automatically with either '-f', '--force', 'force: True'
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun detected that one or more processes exited with non-zero status, thus causing
+the job to be terminated. The first process to do so was:
+
+  Process name: [[44570,1],0]
+  Exit code:    1
+--------------------------------------------------------------------------
+Running for beta = -0.2
+sed: -e expression #1, char 29: unknown option to `s'
+theory:
+  camb:
+    path: /users/smp24dhl/cosmo/code/CAMB_beta
+    extra_args:
+      lens_potential_accuracy: 1
+      num_massive_neutrinos: 1
+      nnu: 3.044
+      theta_H0_range:
+      - 20
+      - 100
+likelihood:
+  planck_2018_highl_plik.TTTEEE:
+  planck_2018_lowl.TT:
+  planck_2018_lowl.EE:
+
+params:
+  logA:
+    value: 3.06958
+    latex: \log(10^{10} A_\mathrm{s})
+    drop: true
+  As:
+    value: 'lambda logA: 1e-10*np.exp(logA)'
+    latex: A_\mathrm{s}
+  ns:
+    value: 0.9659111
+    latex: n_\mathrm{s}
+  H0:
+    latex: H_0
+    value: 68.07373
+  ombh2:
+    value: 0.02230531
+    latex: \Omega_\mathrm{b} h^2
+  omch2:
+    value: 0.1201717
+    latex: \Omega_\mathrm{c} h^2
+  omegam:
+    latex: \Omega_\mathrm{m}
+  omegamh2:
+    derived: 'lambda omegam, H0: omegam*(H0/100)**2'
+    latex: \Omega_\mathrm{m} h^2
+  mnu: 0.06
+  w:
+    value: -1.032966
+    latex: w_{0,\mathrm{DE}}
+  wa:
+    value: 0.00819477
+    latex: w_{a, \mathrm{DE}}
+  beta_DE:
+    value: 1.091425
+    latex: \beta_{\mathrm{DE}}
+  YHe:
+    latex: Y_\mathrm{P}
+  Y_p:
+    latex: Y_P^\mathrm{BBN}
+  DHBBN:
+    derived: 'lambda DH: 10**5*DH'
+    latex: 10^5 \mathrm{D}/\mathrm{H}
+  tau:
+    value: 0.06997392
+    latex: \tau_\mathrm{reio}
+  zrei:
+    latex: z_\mathrm{re}
+  sigma8:
+    latex: \sigma_8
+  s8h5:
+    derived: 'lambda sigma8, H0: sigma8*(H0*1e-2)**(-0.5)'
+    latex: \sigma_8/h^{0.5}
+  s8omegamp5:
+    derived: 'lambda sigma8, omegam: sigma8*omegam**0.5'
+    latex: \sigma_8 \Omega_\mathrm{m}^{0.5}
+  s8omegamp25:
+    derived: 'lambda sigma8, omegam: sigma8*omegam**0.25'
+    latex: \sigma_8 \Omega_\mathrm{m}^{0.25}
+  A:
+    derived: 'lambda As: 1e9*As'
+    latex: 10^9 A_\mathrm{s}
+  clggamp:
+    derived: 'lambda As, tau: 1e9*As*np.exp(-2*tau)'
+    latex: 10^9 A_\mathrm{s} e^{-2\tau}
+  age:
+    latex: '{\rm{Age}}/\mathrm{Gyr}'
+  rdrag:
+    latex: r_\mathrm{drag}
+sampler:
+  evaluate:
+    override:
+      beta_DE: -0.2
+
+output: ./beta/1-beta
+debug: true
+ 2025-01-15 16:51:39,819 [output] Output to be read-from/written-into folder './beta', with prefix '1-beta'
+ 2025-01-15 16:51:39,819 [output] Found existing info files with the requested output prefix: './beta/1-beta'
+ 2025-01-15 16:51:40,273 [prior] Loading external prior 'SZ' from: 'lambda ksz_norm, A_sz: stats.norm.logpdf(ksz_norm+1.6*A_sz, loc=9.5, scale=3.0)'
+ 2025-01-15 16:51:40,274 [prior] *WARNING* External prior 'SZ' loaded. Mind that it might not be normalized!
+ 2025-01-15 16:51:40,275 [camb] Attempting import from /users/smp24dhl/cosmo/code/CAMB_beta.
+ 2025-01-15 16:51:40,275 [camb] 'camb' to be imported from (sub)directory /users/smp24dhl/cosmo/code/CAMB_beta
+ 2025-01-15 16:51:40,324 [camb] `camb` module loaded successfully from /users/smp24dhl/cosmo/code/CAMB_beta/camb
+ 2025-01-15 16:51:40,326 [planck_2018_highl_plik.ttteee] Attempting import of Cobaya-installed version, but defaulting to global import if not found.
+ 2025-01-15 16:51:40,327 [planck_2018_highl_plik.ttteee] 'clik' to be imported from (sub)directory /users/smp24dhl/cosmo/code/planck/clik/lib/python/site-packages
+ 2025-01-15 16:51:40,389 [planck_2018_highl_plik.ttteee] Could not import 'clik' from /users/smp24dhl/cosmo/code/planck: Module clik successfully loaded, but not from requested path: /users/smp24dhl/cosmo/code/planck/clik/lib/python/site-packages, but instead from /users/smp24dhl/cosmo/code/planck/clik/lib/python3.9/site-packages/clik
+ 2025-01-15 16:51:40,389 [planck_2018_highl_plik.ttteee] Defaulting to global import.
+ 2025-01-15 16:51:40,389 [planck_2018_highl_plik.ttteee] `clik` module loaded successfully from /users/smp24dhl/cosmo/code/planck/clik/lib/python3.9/site-packages/clik
+----
+clik version clik_16.0b1-2-g63c889f3aa9c MAKEFILE
+  smica
+Checking likelihood '/users/smp24dhl/cosmo/data/planck_2018/baseline/plc_3.0/hi_l/plik/plik_rd12_HM_v22b_TTTEEE.clik' on test data. got -1172.47 expected -1172.47 (diff -4.34054e-07)
+----
+ 2025-01-15 16:51:40,840 [model] Parameters were assigned as follows:
+ 2025-01-15 16:51:40,840 [model] - planck_2018_highl_plik.TTTEEE:
+ 2025-01-15 16:51:40,841 [model]      Input:  ['A_planck', 'calib_100T', 'calib_217T', 'A_pol', 'calib_100P', 'calib_143P', 'calib_217P', 'cib_index', 'A_cib_217', 'xi_sz_cib', 'A_sz', 'ksz_norm', 'gal545_A_100', 'gal545_A_143', 'gal545_A_143_217', 'gal545_A_217', 'A_sbpx_100_100_TT', 'A_sbpx_143_143_TT', 'A_sbpx_143_217_TT', 'A_sbpx_217_217_TT', 'ps_A_100_100', 'ps_A_143_143', 'ps_A_143_217', 'ps_A_217_217', 'galf_TE_index', 'galf_TE_A_100', 'galf_TE_A_100_143', 'galf_TE_A_100_217', 'galf_TE_A_143', 'galf_TE_A_143_217', 'galf_TE_A_217', 'galf_EE_index', 'galf_EE_A_100', 'galf_EE_A_100_143', 'galf_EE_A_100_217', 'galf_EE_A_143', 'galf_EE_A_143_217', 'galf_EE_A_217', 'A_cnoise_e2e_100_100_EE', 'A_cnoise_e2e_143_143_EE', 'A_cnoise_e2e_217_217_EE', 'A_sbpx_100_100_EE', 'A_sbpx_100_143_EE', 'A_sbpx_100_217_EE', 'A_sbpx_143_143_EE', 'A_sbpx_143_217_EE', 'A_sbpx_217_217_EE']
+ 2025-01-15 16:51:40,841 [model]      Output: []
+ 2025-01-15 16:51:40,841 [model] - planck_2018_lowl.TT:
+ 2025-01-15 16:51:40,841 [model]      Input:  ['A_planck']
+ 2025-01-15 16:51:40,841 [model]      Output: []
+ 2025-01-15 16:51:40,841 [model] - planck_2018_lowl.EE:
+ 2025-01-15 16:51:40,841 [model]      Input:  ['A_planck']
+ 2025-01-15 16:51:40,841 [model]      Output: []
+ 2025-01-15 16:51:40,841 [model] - camb.transfers:
+ 2025-01-15 16:51:40,841 [model]      Input:  ['H0', 'ombh2', 'omch2', 'mnu', 'w', 'wa', 'beta_DE', 'tau']
+ 2025-01-15 16:51:40,841 [model]      Output: []
+ 2025-01-15 16:51:40,841 [model] - camb:
+ 2025-01-15 16:51:40,841 [model]      Input:  ['As', 'ns']
+ 2025-01-15 16:51:40,841 [model]      Output: ['omegam', 'YHe', 'Y_p', 'zrei', 'sigma8', 'age', 'rdrag', 'DH']
+ 2025-01-15 16:51:40,846 [model] Components will be computed in the order:
+ 2025-01-15 16:51:40,846 [model]  - [camb.transfers, camb, planck_2018_highl_plik.TTTEEE, planck_2018_lowl.TT, planck_2018_lowl.EE]
+ 2025-01-15 16:51:40,846 [model] Requirements will be calculated by these components:
+ 2025-01-15 16:51:40,846 [model] - Cl: camb
+ 2025-01-15 16:51:40,846 [model] - CAMB_transfers: camb.transfers
+ 2025-01-15 16:51:40,908 [evaluate] Initialized!
+ 2025-01-15 16:51:40,931 [evaluate] Looking for a reference point with non-zero prior.
+ 2025-01-15 16:51:40,932 [prior] Evaluating prior at array([1.00060585e+00, 1.00120943e+00, 9.97709586e-01, 8.04525419e+01,
+       3.66034130e-02, 4.47533315e+00, 3.26118729e+00, 3.45159917e+00,
+       6.52613195e+00, 2.18495329e+01, 7.98789005e+01, 2.52156510e+02,
+       4.18865436e+01, 6.59120058e+01, 9.56118730e+01, 2.04200803e-02,
+       1.74166581e-01, 3.63269303e-01, 1.61293856e-01, 6.24666394e-01,
+       1.79105603e+00])
+ 2025-01-15 16:51:40,932 [prior] Got logpriors (internal) = -29.214975932291186
+ 2025-01-15 16:51:40,932 [prior] Got logpriors (external) = [-2.0647490644927537]
+ 2025-01-15 16:51:40,933 [evaluate] *ERROR* Parameter 'beta_DE' used in override not known. Known parameters names are {'A_planck': 1.0006058511132565, 'calib_100T': 1.0012094300935572, 'calib_217T': 0.9977095861661073, 'A_cib_217': 80.45254189318996, 'xi_sz_cib': 0.03660341297783675, 'A_sz': 4.4753331480540535, 'ksz_norm': 3.2611872933436192, 'gal545_A_100': 3.4515991743721037, 'gal545_A_143': 6.526131951756392, 'gal545_A_143_217': 21.849532899418243, 'gal545_A_217': 79.87890048997352, 'ps_A_100_100': 252.1565101061107, 'ps_A_143_143': 41.886543581959536, 'ps_A_143_217': 65.91200581632506, 'ps_A_217_217': 95.61187296066781, 'galf_TE_A_100': 0.020420080252520997, 'galf_TE_A_100_143': 0.17416658116932474, 'galf_TE_A_100_217': 0.3632693027479543, 'galf_TE_A_143': 0.16129385590927592, 'galf_TE_A_143_217': 0.6246663938418457, 'galf_TE_A_217': 1.791056025702758}.
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun detected that one or more processes exited with non-zero status, thus causing
+the job to be terminated. The first process to do so was:
+
+  Process name: [[44932,1],0]
+  Exit code:    1
+--------------------------------------------------------------------------
+Running for beta = -0.1
+sed: -e expression #1, char 29: unknown option to `s'
+theory:
+  camb:
+    path: /users/smp24dhl/cosmo/code/CAMB_beta
+    extra_args:
+      lens_potential_accuracy: 1
+      num_massive_neutrinos: 1
+      nnu: 3.044
+      theta_H0_range:
+      - 20
+      - 100
+likelihood:
+  planck_2018_highl_plik.TTTEEE:
+  planck_2018_lowl.TT:
+  planck_2018_lowl.EE:
+
+params:
+  logA:
+    value: 3.06958
+    latex: \log(10^{10} A_\mathrm{s})
+    drop: true
+  As:
+    value: 'lambda logA: 1e-10*np.exp(logA)'
+    latex: A_\mathrm{s}
+  ns:
+    value: 0.9659111
+    latex: n_\mathrm{s}
+  H0:
+    latex: H_0
+    value: 68.07373
+  ombh2:
+    value: 0.02230531
+    latex: \Omega_\mathrm{b} h^2
+  omch2:
+    value: 0.1201717
+    latex: \Omega_\mathrm{c} h^2
+  omegam:
+    latex: \Omega_\mathrm{m}
+  omegamh2:
+    derived: 'lambda omegam, H0: omegam*(H0/100)**2'
+    latex: \Omega_\mathrm{m} h^2
+  mnu: 0.06
+  w:
+    value: -1.032966
+    latex: w_{0,\mathrm{DE}}
+  wa:
+    value: 0.00819477
+    latex: w_{a, \mathrm{DE}}
+  beta_DE:
+    value: 1.091425
+    latex: \beta_{\mathrm{DE}}
+  YHe:
+    latex: Y_\mathrm{P}
+  Y_p:
+    latex: Y_P^\mathrm{BBN}
+  DHBBN:
+    derived: 'lambda DH: 10**5*DH'
+    latex: 10^5 \mathrm{D}/\mathrm{H}
+  tau:
+    value: 0.06997392
+    latex: \tau_\mathrm{reio}
+  zrei:
+    latex: z_\mathrm{re}
+  sigma8:
+    latex: \sigma_8
+  s8h5:
+    derived: 'lambda sigma8, H0: sigma8*(H0*1e-2)**(-0.5)'
+    latex: \sigma_8/h^{0.5}
+  s8omegamp5:
+    derived: 'lambda sigma8, omegam: sigma8*omegam**0.5'
+    latex: \sigma_8 \Omega_\mathrm{m}^{0.5}
+  s8omegamp25:
+    derived: 'lambda sigma8, omegam: sigma8*omegam**0.25'
+    latex: \sigma_8 \Omega_\mathrm{m}^{0.25}
+  A:
+    derived: 'lambda As: 1e9*As'
+    latex: 10^9 A_\mathrm{s}
+  clggamp:
+    derived: 'lambda As, tau: 1e9*As*np.exp(-2*tau)'
+    latex: 10^9 A_\mathrm{s} e^{-2\tau}
+  age:
+    latex: '{\rm{Age}}/\mathrm{Gyr}'
+  rdrag:
+    latex: r_\mathrm{drag}
+sampler:
+  evaluate:
+    override:
+      beta_DE: -0.1
+
+output: ./beta/1-beta
+debug: true
+ 2025-01-15 16:51:42,129 [output] Output to be read-from/written-into folder './beta', with prefix '1-beta'
+ 2025-01-15 16:51:42,129 [output] Found existing info files with the requested output prefix: './beta/1-beta'
+ 2025-01-15 16:51:42,544 [input] is_equal_info: different content of [sampler:evaluate] -- (re-run with `debug: True` for more info)
+ 2025-01-15 16:51:42,544 [input] {'override': {'beta_DE': -0.2}} (old) vs {'override': {'beta_DE': -0.1}} (new)
+ 2025-01-15 16:51:42,544 [sampler] *ERROR* Found old Sampler information which is not compatible with the new one. Delete the previous output manually, or automatically with either '-f', '--force', 'force: True'
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun detected that one or more processes exited with non-zero status, thus causing
+the job to be terminated. The first process to do so was:
+
+  Process name: [[44913,1],0]
+  Exit code:    1
+--------------------------------------------------------------------------
+Running for beta = 0.0
+sed: -e expression #1, char 29: number option to `s' command may not be zero
+theory:
+  camb:
+    path: /users/smp24dhl/cosmo/code/CAMB_beta
+    extra_args:
+      lens_potential_accuracy: 1
+      num_massive_neutrinos: 1
+      nnu: 3.044
+      theta_H0_range:
+      - 20
+      - 100
+likelihood:
+  planck_2018_highl_plik.TTTEEE:
+  planck_2018_lowl.TT:
+  planck_2018_lowl.EE:
+
+params:
+  logA:
+    value: 3.06958
+    latex: \log(10^{10} A_\mathrm{s})
+    drop: true
+  As:
+    value: 'lambda logA: 1e-10*np.exp(logA)'
+    latex: A_\mathrm{s}
+  ns:
+    value: 0.9659111
+    latex: n_\mathrm{s}
+  H0:
+    latex: H_0
+    value: 68.07373
+  ombh2:
+    value: 0.02230531
+    latex: \Omega_\mathrm{b} h^2
+  omch2:
+    value: 0.1201717
+    latex: \Omega_\mathrm{c} h^2
+  omegam:
+    latex: \Omega_\mathrm{m}
+  omegamh2:
+    derived: 'lambda omegam, H0: omegam*(H0/100)**2'
+    latex: \Omega_\mathrm{m} h^2
+  mnu: 0.06
+  w:
+    value: -1.032966
+    latex: w_{0,\mathrm{DE}}
+  wa:
+    value: 0.00819477
+    latex: w_{a, \mathrm{DE}}
+  beta_DE:
+    value: 1.091425
+    latex: \beta_{\mathrm{DE}}
+  YHe:
+    latex: Y_\mathrm{P}
+  Y_p:
+    latex: Y_P^\mathrm{BBN}
+  DHBBN:
+    derived: 'lambda DH: 10**5*DH'
+    latex: 10^5 \mathrm{D}/\mathrm{H}
+  tau:
+    value: 0.06997392
+    latex: \tau_\mathrm{reio}
+  zrei:
+    latex: z_\mathrm{re}
+  sigma8:
+    latex: \sigma_8
+  s8h5:
+    derived: 'lambda sigma8, H0: sigma8*(H0*1e-2)**(-0.5)'
+    latex: \sigma_8/h^{0.5}
+  s8omegamp5:
+    derived: 'lambda sigma8, omegam: sigma8*omegam**0.5'
+    latex: \sigma_8 \Omega_\mathrm{m}^{0.5}
+  s8omegamp25:
+    derived: 'lambda sigma8, omegam: sigma8*omegam**0.25'
+    latex: \sigma_8 \Omega_\mathrm{m}^{0.25}
+  A:
+    derived: 'lambda As: 1e9*As'
+    latex: 10^9 A_\mathrm{s}
+  clggamp:
+    derived: 'lambda As, tau: 1e9*As*np.exp(-2*tau)'
+    latex: 10^9 A_\mathrm{s} e^{-2\tau}
+  age:
+    latex: '{\rm{Age}}/\mathrm{Gyr}'
+  rdrag:
+    latex: r_\mathrm{drag}
+sampler:
+  evaluate:
+    override:
+      beta_DE: 0.0
+
+output: ./beta/1-beta
+debug: true
+ 2025-01-15 16:51:43,732 [output] Output to be read-from/written-into folder './beta', with prefix '1-beta'
+ 2025-01-15 16:51:43,732 [output] Found existing info files with the requested output prefix: './beta/1-beta'
+ 2025-01-15 16:51:44,193 [prior] Loading external prior 'SZ' from: 'lambda ksz_norm, A_sz: stats.norm.logpdf(ksz_norm+1.6*A_sz, loc=9.5, scale=3.0)'
+ 2025-01-15 16:51:44,194 [prior] *WARNING* External prior 'SZ' loaded. Mind that it might not be normalized!
+ 2025-01-15 16:51:44,195 [camb] Attempting import from /users/smp24dhl/cosmo/code/CAMB_beta.
+ 2025-01-15 16:51:44,195 [camb] 'camb' to be imported from (sub)directory /users/smp24dhl/cosmo/code/CAMB_beta
+ 2025-01-15 16:51:44,244 [camb] `camb` module loaded successfully from /users/smp24dhl/cosmo/code/CAMB_beta/camb
+ 2025-01-15 16:51:44,246 [planck_2018_highl_plik.ttteee] Attempting import of Cobaya-installed version, but defaulting to global import if not found.
+ 2025-01-15 16:51:44,246 [planck_2018_highl_plik.ttteee] 'clik' to be imported from (sub)directory /users/smp24dhl/cosmo/code/planck/clik/lib/python/site-packages
+ 2025-01-15 16:51:44,309 [planck_2018_highl_plik.ttteee] Could not import 'clik' from /users/smp24dhl/cosmo/code/planck: Module clik successfully loaded, but not from requested path: /users/smp24dhl/cosmo/code/planck/clik/lib/python/site-packages, but instead from /users/smp24dhl/cosmo/code/planck/clik/lib/python3.9/site-packages/clik
+ 2025-01-15 16:51:44,309 [planck_2018_highl_plik.ttteee] Defaulting to global import.
+ 2025-01-15 16:51:44,309 [planck_2018_highl_plik.ttteee] `clik` module loaded successfully from /users/smp24dhl/cosmo/code/planck/clik/lib/python3.9/site-packages/clik
+----
+clik version clik_16.0b1-2-g63c889f3aa9c MAKEFILE
+  smica
+Checking likelihood '/users/smp24dhl/cosmo/data/planck_2018/baseline/plc_3.0/hi_l/plik/plik_rd12_HM_v22b_TTTEEE.clik' on test data. got -1172.47 expected -1172.47 (diff -4.34054e-07)
+----
+ 2025-01-15 16:51:44,780 [model] Parameters were assigned as follows:
+ 2025-01-15 16:51:44,780 [model] - planck_2018_highl_plik.TTTEEE:
+ 2025-01-15 16:51:44,781 [model]      Input:  ['A_planck', 'calib_100T', 'calib_217T', 'A_pol', 'calib_100P', 'calib_143P', 'calib_217P', 'cib_index', 'A_cib_217', 'xi_sz_cib', 'A_sz', 'ksz_norm', 'gal545_A_100', 'gal545_A_143', 'gal545_A_143_217', 'gal545_A_217', 'A_sbpx_100_100_TT', 'A_sbpx_143_143_TT', 'A_sbpx_143_217_TT', 'A_sbpx_217_217_TT', 'ps_A_100_100', 'ps_A_143_143', 'ps_A_143_217', 'ps_A_217_217', 'galf_TE_index', 'galf_TE_A_100', 'galf_TE_A_100_143', 'galf_TE_A_100_217', 'galf_TE_A_143', 'galf_TE_A_143_217', 'galf_TE_A_217', 'galf_EE_index', 'galf_EE_A_100', 'galf_EE_A_100_143', 'galf_EE_A_100_217', 'galf_EE_A_143', 'galf_EE_A_143_217', 'galf_EE_A_217', 'A_cnoise_e2e_100_100_EE', 'A_cnoise_e2e_143_143_EE', 'A_cnoise_e2e_217_217_EE', 'A_sbpx_100_100_EE', 'A_sbpx_100_143_EE', 'A_sbpx_100_217_EE', 'A_sbpx_143_143_EE', 'A_sbpx_143_217_EE', 'A_sbpx_217_217_EE']
+ 2025-01-15 16:51:44,781 [model]      Output: []
+ 2025-01-15 16:51:44,781 [model] - planck_2018_lowl.TT:
+ 2025-01-15 16:51:44,781 [model]      Input:  ['A_planck']
+ 2025-01-15 16:51:44,781 [model]      Output: []
+ 2025-01-15 16:51:44,781 [model] - planck_2018_lowl.EE:
+ 2025-01-15 16:51:44,781 [model]      Input:  ['A_planck']
+ 2025-01-15 16:51:44,781 [model]      Output: []
+ 2025-01-15 16:51:44,781 [model] - camb.transfers:
+ 2025-01-15 16:51:44,781 [model]      Input:  ['H0', 'ombh2', 'omch2', 'mnu', 'w', 'wa', 'beta_DE', 'tau']
+ 2025-01-15 16:51:44,781 [model]      Output: []
+ 2025-01-15 16:51:44,781 [model] - camb:
+ 2025-01-15 16:51:44,781 [model]      Input:  ['As', 'ns']
+ 2025-01-15 16:51:44,781 [model]      Output: ['omegam', 'YHe', 'Y_p', 'zrei', 'sigma8', 'age', 'rdrag', 'DH']
+ 2025-01-15 16:51:44,786 [model] Components will be computed in the order:
+ 2025-01-15 16:51:44,786 [model]  - [camb.transfers, camb, planck_2018_highl_plik.TTTEEE, planck_2018_lowl.TT, planck_2018_lowl.EE]
+ 2025-01-15 16:51:44,786 [model] Requirements will be calculated by these components:
+ 2025-01-15 16:51:44,786 [model] - Cl: camb
+ 2025-01-15 16:51:44,786 [model] - CAMB_transfers: camb.transfers
+ 2025-01-15 16:51:44,849 [evaluate] Initialized!
+ 2025-01-15 16:51:44,872 [evaluate] Looking for a reference point with non-zero prior.
+ 2025-01-15 16:51:44,873 [prior] Evaluating prior at array([ 1.00265041e+00,  9.98992418e-01,  9.97502458e-01,  5.69124072e+01,
+        5.03282278e-02,  7.47279893e+00,  2.30702693e+00,  7.87795556e+00,
+        6.72094971e+00,  1.64608785e+01,  7.85467321e+01,  2.79796502e+02,
+        5.37176056e+01,  3.71671738e+01,  1.00156951e+02, -4.63041580e-02,
+       -9.78699808e-02,  4.14297256e-01,  2.12430085e-01,  5.89664685e-01,
+        1.72856010e+00])
+ 2025-01-15 16:51:44,873 [prior] Got logpriors (internal) = -51.77387092723738
+ 2025-01-15 16:51:44,873 [prior] Got logpriors (external) = [-3.2781609325413488]
+ 2025-01-15 16:51:44,873 [evaluate] *ERROR* Parameter 'beta_DE' used in override not known. Known parameters names are {'A_planck': 1.0026504145735367, 'calib_100T': 0.9989924177324967, 'calib_217T': 0.9975024578826933, 'A_cib_217': 56.912407219007605, 'xi_sz_cib': 0.05032822780875367, 'A_sz': 7.472798933590124, 'ksz_norm': 2.3070269274174415, 'gal545_A_100': 7.877955563730299, 'gal545_A_143': 6.720949713817701, 'gal545_A_143_217': 16.460878513996022, 'gal545_A_217': 78.54673208737616, 'ps_A_100_100': 279.7965016841391, 'ps_A_143_143': 53.71760556637971, 'ps_A_143_217': 37.167173823669685, 'ps_A_217_217': 100.15695121237472, 'galf_TE_A_100': -0.04630415804503207, 'galf_TE_A_100_143': -0.0978699808310105, 'galf_TE_A_100_217': 0.41429725556058844, 'galf_TE_A_143': 0.2124300848800788, 'galf_TE_A_143_217': 0.5896646847545448, 'galf_TE_A_217': 1.7285600979785916}.
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun detected that one or more processes exited with non-zero status, thus causing
+the job to be terminated. The first process to do so was:
+
+  Process name: [[44894,1],0]
+  Exit code:    1
+--------------------------------------------------------------------------
+Running for beta = 0.1
+sed: -e expression #1, char 29: number option to `s' command may not be zero
+theory:
+  camb:
+    path: /users/smp24dhl/cosmo/code/CAMB_beta
+    extra_args:
+      lens_potential_accuracy: 1
+      num_massive_neutrinos: 1
+      nnu: 3.044
+      theta_H0_range:
+      - 20
+      - 100
+likelihood:
+  planck_2018_highl_plik.TTTEEE:
+  planck_2018_lowl.TT:
+  planck_2018_lowl.EE:
+
+params:
+  logA:
+    value: 3.06958
+    latex: \log(10^{10} A_\mathrm{s})
+    drop: true
+  As:
+    value: 'lambda logA: 1e-10*np.exp(logA)'
+    latex: A_\mathrm{s}
+  ns:
+    value: 0.9659111
+    latex: n_\mathrm{s}
+  H0:
+    latex: H_0
+    value: 68.07373
+  ombh2:
+    value: 0.02230531
+    latex: \Omega_\mathrm{b} h^2
+  omch2:
+    value: 0.1201717
+    latex: \Omega_\mathrm{c} h^2
+  omegam:
+    latex: \Omega_\mathrm{m}
+  omegamh2:
+    derived: 'lambda omegam, H0: omegam*(H0/100)**2'
+    latex: \Omega_\mathrm{m} h^2
+  mnu: 0.06
+  w:
+    value: -1.032966
+    latex: w_{0,\mathrm{DE}}
+  wa:
+    value: 0.00819477
+    latex: w_{a, \mathrm{DE}}
+  beta_DE:
+    value: 1.091425
+    latex: \beta_{\mathrm{DE}}
+  YHe:
+    latex: Y_\mathrm{P}
+  Y_p:
+    latex: Y_P^\mathrm{BBN}
+  DHBBN:
+    derived: 'lambda DH: 10**5*DH'
+    latex: 10^5 \mathrm{D}/\mathrm{H}
+  tau:
+    value: 0.06997392
+    latex: \tau_\mathrm{reio}
+  zrei:
+    latex: z_\mathrm{re}
+  sigma8:
+    latex: \sigma_8
+  s8h5:
+    derived: 'lambda sigma8, H0: sigma8*(H0*1e-2)**(-0.5)'
+    latex: \sigma_8/h^{0.5}
+  s8omegamp5:
+    derived: 'lambda sigma8, omegam: sigma8*omegam**0.5'
+    latex: \sigma_8 \Omega_\mathrm{m}^{0.5}
+  s8omegamp25:
+    derived: 'lambda sigma8, omegam: sigma8*omegam**0.25'
+    latex: \sigma_8 \Omega_\mathrm{m}^{0.25}
+  A:
+    derived: 'lambda As: 1e9*As'
+    latex: 10^9 A_\mathrm{s}
+  clggamp:
+    derived: 'lambda As, tau: 1e9*As*np.exp(-2*tau)'
+    latex: 10^9 A_\mathrm{s} e^{-2\tau}
+  age:
+    latex: '{\rm{Age}}/\mathrm{Gyr}'
+  rdrag:
+    latex: r_\mathrm{drag}
+sampler:
+  evaluate:
+    override:
+      beta_DE: 0.1
+
+output: ./beta/1-beta
+debug: true
+ 2025-01-15 16:51:46,093 [output] Output to be read-from/written-into folder './beta', with prefix '1-beta'
+ 2025-01-15 16:51:46,093 [output] Found existing info files with the requested output prefix: './beta/1-beta'
+ 2025-01-15 16:51:46,516 [input] is_equal_info: different content of [sampler:evaluate] -- (re-run with `debug: True` for more info)
+ 2025-01-15 16:51:46,516 [input] {'override': {'beta_DE': 0.0}} (old) vs {'override': {'beta_DE': 0.1}} (new)
+ 2025-01-15 16:51:46,516 [sampler] *ERROR* Found old Sampler information which is not compatible with the new one. Delete the previous output manually, or automatically with either '-f', '--force', 'force: True'
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun detected that one or more processes exited with non-zero status, thus causing
+the job to be terminated. The first process to do so was:
+
+  Process name: [[43271,1],0]
+  Exit code:    1
+--------------------------------------------------------------------------
+Running for beta = 0.2
+sed: -e expression #1, char 29: number option to `s' command may not be zero
+theory:
+  camb:
+    path: /users/smp24dhl/cosmo/code/CAMB_beta
+    extra_args:
+      lens_potential_accuracy: 1
+      num_massive_neutrinos: 1
+      nnu: 3.044
+      theta_H0_range:
+      - 20
+      - 100
+likelihood:
+  planck_2018_highl_plik.TTTEEE:
+  planck_2018_lowl.TT:
+  planck_2018_lowl.EE:
+
+params:
+  logA:
+    value: 3.06958
+    latex: \log(10^{10} A_\mathrm{s})
+    drop: true
+  As:
+    value: 'lambda logA: 1e-10*np.exp(logA)'
+    latex: A_\mathrm{s}
+  ns:
+    value: 0.9659111
+    latex: n_\mathrm{s}
+  H0:
+    latex: H_0
+    value: 68.07373
+  ombh2:
+    value: 0.02230531
+    latex: \Omega_\mathrm{b} h^2
+  omch2:
+    value: 0.1201717
+    latex: \Omega_\mathrm{c} h^2
+  omegam:
+    latex: \Omega_\mathrm{m}
+  omegamh2:
+    derived: 'lambda omegam, H0: omegam*(H0/100)**2'
+    latex: \Omega_\mathrm{m} h^2
+  mnu: 0.06
+  w:
+    value: -1.032966
+    latex: w_{0,\mathrm{DE}}
+  wa:
+    value: 0.00819477
+    latex: w_{a, \mathrm{DE}}
+  beta_DE:
+    value: 1.091425
+    latex: \beta_{\mathrm{DE}}
+  YHe:
+    latex: Y_\mathrm{P}
+  Y_p:
+    latex: Y_P^\mathrm{BBN}
+  DHBBN:
+    derived: 'lambda DH: 10**5*DH'
+    latex: 10^5 \mathrm{D}/\mathrm{H}
+  tau:
+    value: 0.06997392
+    latex: \tau_\mathrm{reio}
+  zrei:
+    latex: z_\mathrm{re}
+  sigma8:
+    latex: \sigma_8
+  s8h5:
+    derived: 'lambda sigma8, H0: sigma8*(H0*1e-2)**(-0.5)'
+    latex: \sigma_8/h^{0.5}
+  s8omegamp5:
+    derived: 'lambda sigma8, omegam: sigma8*omegam**0.5'
+    latex: \sigma_8 \Omega_\mathrm{m}^{0.5}
+  s8omegamp25:
+    derived: 'lambda sigma8, omegam: sigma8*omegam**0.25'
+    latex: \sigma_8 \Omega_\mathrm{m}^{0.25}
+  A:
+    derived: 'lambda As: 1e9*As'
+    latex: 10^9 A_\mathrm{s}
+  clggamp:
+    derived: 'lambda As, tau: 1e9*As*np.exp(-2*tau)'
+    latex: 10^9 A_\mathrm{s} e^{-2\tau}
+  age:
+    latex: '{\rm{Age}}/\mathrm{Gyr}'
+  rdrag:
+    latex: r_\mathrm{drag}
+sampler:
+  evaluate:
+    override:
+      beta_DE: 0.2
+
+output: ./beta/1-beta
+debug: true
+ 2025-01-15 16:51:47,690 [output] Output to be read-from/written-into folder './beta', with prefix '1-beta'
+ 2025-01-15 16:51:47,691 [output] Found existing info files with the requested output prefix: './beta/1-beta'
+ 2025-01-15 16:51:48,142 [prior] Loading external prior 'SZ' from: 'lambda ksz_norm, A_sz: stats.norm.logpdf(ksz_norm+1.6*A_sz, loc=9.5, scale=3.0)'
+ 2025-01-15 16:51:48,143 [prior] *WARNING* External prior 'SZ' loaded. Mind that it might not be normalized!
+ 2025-01-15 16:51:48,144 [camb] Attempting import from /users/smp24dhl/cosmo/code/CAMB_beta.
+ 2025-01-15 16:51:48,144 [camb] 'camb' to be imported from (sub)directory /users/smp24dhl/cosmo/code/CAMB_beta
+ 2025-01-15 16:51:48,194 [camb] `camb` module loaded successfully from /users/smp24dhl/cosmo/code/CAMB_beta/camb
+ 2025-01-15 16:51:48,196 [planck_2018_highl_plik.ttteee] Attempting import of Cobaya-installed version, but defaulting to global import if not found.
+ 2025-01-15 16:51:48,196 [planck_2018_highl_plik.ttteee] 'clik' to be imported from (sub)directory /users/smp24dhl/cosmo/code/planck/clik/lib/python/site-packages
+ 2025-01-15 16:51:48,262 [planck_2018_highl_plik.ttteee] Could not import 'clik' from /users/smp24dhl/cosmo/code/planck: Module clik successfully loaded, but not from requested path: /users/smp24dhl/cosmo/code/planck/clik/lib/python/site-packages, but instead from /users/smp24dhl/cosmo/code/planck/clik/lib/python3.9/site-packages/clik
+ 2025-01-15 16:51:48,262 [planck_2018_highl_plik.ttteee] Defaulting to global import.
+ 2025-01-15 16:51:48,262 [planck_2018_highl_plik.ttteee] `clik` module loaded successfully from /users/smp24dhl/cosmo/code/planck/clik/lib/python3.9/site-packages/clik
+----
+clik version clik_16.0b1-2-g63c889f3aa9c MAKEFILE
+  smica
+Checking likelihood '/users/smp24dhl/cosmo/data/planck_2018/baseline/plc_3.0/hi_l/plik/plik_rd12_HM_v22b_TTTEEE.clik' on test data. got -1172.47 expected -1172.47 (diff -4.34054e-07)
+----
+ 2025-01-15 16:51:48,713 [model] Parameters were assigned as follows:
+ 2025-01-15 16:51:48,714 [model] - planck_2018_highl_plik.TTTEEE:
+ 2025-01-15 16:51:48,714 [model]      Input:  ['A_planck', 'calib_100T', 'calib_217T', 'A_pol', 'calib_100P', 'calib_143P', 'calib_217P', 'cib_index', 'A_cib_217', 'xi_sz_cib', 'A_sz', 'ksz_norm', 'gal545_A_100', 'gal545_A_143', 'gal545_A_143_217', 'gal545_A_217', 'A_sbpx_100_100_TT', 'A_sbpx_143_143_TT', 'A_sbpx_143_217_TT', 'A_sbpx_217_217_TT', 'ps_A_100_100', 'ps_A_143_143', 'ps_A_143_217', 'ps_A_217_217', 'galf_TE_index', 'galf_TE_A_100', 'galf_TE_A_100_143', 'galf_TE_A_100_217', 'galf_TE_A_143', 'galf_TE_A_143_217', 'galf_TE_A_217', 'galf_EE_index', 'galf_EE_A_100', 'galf_EE_A_100_143', 'galf_EE_A_100_217', 'galf_EE_A_143', 'galf_EE_A_143_217', 'galf_EE_A_217', 'A_cnoise_e2e_100_100_EE', 'A_cnoise_e2e_143_143_EE', 'A_cnoise_e2e_217_217_EE', 'A_sbpx_100_100_EE', 'A_sbpx_100_143_EE', 'A_sbpx_100_217_EE', 'A_sbpx_143_143_EE', 'A_sbpx_143_217_EE', 'A_sbpx_217_217_EE']
+ 2025-01-15 16:51:48,714 [model]      Output: []
+ 2025-01-15 16:51:48,714 [model] - planck_2018_lowl.TT:
+ 2025-01-15 16:51:48,714 [model]      Input:  ['A_planck']
+ 2025-01-15 16:51:48,714 [model]      Output: []
+ 2025-01-15 16:51:48,714 [model] - planck_2018_lowl.EE:
+ 2025-01-15 16:51:48,714 [model]      Input:  ['A_planck']
+ 2025-01-15 16:51:48,714 [model]      Output: []
+ 2025-01-15 16:51:48,714 [model] - camb.transfers:
+ 2025-01-15 16:51:48,714 [model]      Input:  ['H0', 'ombh2', 'omch2', 'mnu', 'w', 'wa', 'beta_DE', 'tau']
+ 2025-01-15 16:51:48,714 [model]      Output: []
+ 2025-01-15 16:51:48,714 [model] - camb:
+ 2025-01-15 16:51:48,714 [model]      Input:  ['As', 'ns']
+ 2025-01-15 16:51:48,715 [model]      Output: ['omegam', 'YHe', 'Y_p', 'zrei', 'sigma8', 'age', 'rdrag', 'DH']
+ 2025-01-15 16:51:48,719 [model] Components will be computed in the order:
+ 2025-01-15 16:51:48,719 [model]  - [camb.transfers, camb, planck_2018_highl_plik.TTTEEE, planck_2018_lowl.TT, planck_2018_lowl.EE]
+ 2025-01-15 16:51:48,719 [model] Requirements will be calculated by these components:
+ 2025-01-15 16:51:48,719 [model] - Cl: camb
+ 2025-01-15 16:51:48,719 [model] - CAMB_transfers: camb.transfers
+ 2025-01-15 16:51:48,784 [evaluate] Initialized!
+ 2025-01-15 16:51:48,807 [evaluate] Looking for a reference point with non-zero prior.
+ 2025-01-15 16:51:48,808 [prior] Evaluating prior at array([ 1.00205960e+00,  1.00026485e+00,  9.97499950e-01,  7.56213059e+01,
+        7.68190777e-02,  7.14992235e+00,  1.81042223e+00,  1.25673007e+01,
+        9.22026480e+00,  1.69967023e+01,  9.99228027e+01,  2.41391169e+02,
+        4.31743759e+01,  5.56377458e+01,  1.07943265e+02, -6.84841448e-04,
+        4.73112229e-02,  4.25713964e-01,  3.09570463e-01,  9.57630622e-01,
+        2.17322651e+00])
+ 2025-01-15 16:51:48,809 [prior] Got logpriors (internal) = -33.5482411981139
+ 2025-01-15 16:51:48,809 [prior] Got logpriors (external) = [-2.7989249895213044]
+ 2025-01-15 16:51:48,809 [evaluate] *ERROR* Parameter 'beta_DE' used in override not known. Known parameters names are {'A_planck': 1.002059604988764, 'calib_100T': 1.0002648505038971, 'calib_217T': 0.9974999495499275, 'A_cib_217': 75.62130592629592, 'xi_sz_cib': 0.07681907771604793, 'A_sz': 7.1499223522274065, 'ksz_norm': 1.8104222269528236, 'gal545_A_100': 12.567300715469834, 'gal545_A_143': 9.220264797766802, 'gal545_A_143_217': 16.996702346053244, 'gal545_A_217': 99.92280270469021, 'ps_A_100_100': 241.39116895018188, 'ps_A_143_143': 43.17437590883276, 'ps_A_143_217': 55.63774583326684, 'ps_A_217_217': 107.94326526969961, 'galf_TE_A_100': -0.0006848414484393051, 'galf_TE_A_100_143': 0.04731122290147194, 'galf_TE_A_100_217': 0.42571396409611073, 'galf_TE_A_143': 0.3095704627468029, 'galf_TE_A_143_217': 0.9576306223914817, 'galf_TE_A_217': 2.173226506479445}.
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun detected that one or more processes exited with non-zero status, thus causing
+the job to be terminated. The first process to do so was:
+
+  Process name: [[54956,1],0]
+  Exit code:    1
+--------------------------------------------------------------------------
+Running for beta = 0.3
+sed: -e expression #1, char 29: number option to `s' command may not be zero
+theory:
+  camb:
+    path: /users/smp24dhl/cosmo/code/CAMB_beta
+    extra_args:
+      lens_potential_accuracy: 1
+      num_massive_neutrinos: 1
+      nnu: 3.044
+      theta_H0_range:
+      - 20
+      - 100
+likelihood:
+  planck_2018_highl_plik.TTTEEE:
+  planck_2018_lowl.TT:
+  planck_2018_lowl.EE:
+
+params:
+  logA:
+    value: 3.06958
+    latex: \log(10^{10} A_\mathrm{s})
+    drop: true
+  As:
+    value: 'lambda logA: 1e-10*np.exp(logA)'
+    latex: A_\mathrm{s}
+  ns:
+    value: 0.9659111
+    latex: n_\mathrm{s}
+  H0:
+    latex: H_0
+    value: 68.07373
+  ombh2:
+    value: 0.02230531
+    latex: \Omega_\mathrm{b} h^2
+  omch2:
+    value: 0.1201717
+    latex: \Omega_\mathrm{c} h^2
+  omegam:
+    latex: \Omega_\mathrm{m}
+  omegamh2:
+    derived: 'lambda omegam, H0: omegam*(H0/100)**2'
+    latex: \Omega_\mathrm{m} h^2
+  mnu: 0.06
+  w:
+    value: -1.032966
+    latex: w_{0,\mathrm{DE}}
+  wa:
+    value: 0.00819477
+    latex: w_{a, \mathrm{DE}}
+  beta_DE:
+    value: 1.091425
+    latex: \beta_{\mathrm{DE}}
+  YHe:
+    latex: Y_\mathrm{P}
+  Y_p:
+    latex: Y_P^\mathrm{BBN}
+  DHBBN:
+    derived: 'lambda DH: 10**5*DH'
+    latex: 10^5 \mathrm{D}/\mathrm{H}
+  tau:
+    value: 0.06997392
+    latex: \tau_\mathrm{reio}
+  zrei:
+    latex: z_\mathrm{re}
+  sigma8:
+    latex: \sigma_8
+  s8h5:
+    derived: 'lambda sigma8, H0: sigma8*(H0*1e-2)**(-0.5)'
+    latex: \sigma_8/h^{0.5}
+  s8omegamp5:
+    derived: 'lambda sigma8, omegam: sigma8*omegam**0.5'
+    latex: \sigma_8 \Omega_\mathrm{m}^{0.5}
+  s8omegamp25:
+    derived: 'lambda sigma8, omegam: sigma8*omegam**0.25'
+    latex: \sigma_8 \Omega_\mathrm{m}^{0.25}
+  A:
+    derived: 'lambda As: 1e9*As'
+    latex: 10^9 A_\mathrm{s}
+  clggamp:
+    derived: 'lambda As, tau: 1e9*As*np.exp(-2*tau)'
+    latex: 10^9 A_\mathrm{s} e^{-2\tau}
+  age:
+    latex: '{\rm{Age}}/\mathrm{Gyr}'
+  rdrag:
+    latex: r_\mathrm{drag}
+sampler:
+  evaluate:
+    override:
+      beta_DE: 0.3
+
+output: ./beta/1-beta
+debug: true
+ 2025-01-15 16:51:50,050 [output] Output to be read-from/written-into folder './beta', with prefix '1-beta'
+ 2025-01-15 16:51:50,050 [output] Found existing info files with the requested output prefix: './beta/1-beta'
+ 2025-01-15 16:51:50,459 [input] is_equal_info: different content of [sampler:evaluate] -- (re-run with `debug: True` for more info)
+ 2025-01-15 16:51:50,459 [input] {'override': {'beta_DE': 0.2}} (old) vs {'override': {'beta_DE': 0.3}} (new)
+ 2025-01-15 16:51:50,459 [sampler] *ERROR* Found old Sampler information which is not compatible with the new one. Delete the previous output manually, or automatically with either '-f', '--force', 'force: True'
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun detected that one or more processes exited with non-zero status, thus causing
+the job to be terminated. The first process to do so was:
+
+  Process name: [[53650,1],0]
+  Exit code:    1
+--------------------------------------------------------------------------
+Running for beta = 0.4
+sed: -e expression #1, char 29: number option to `s' command may not be zero
+theory:
+  camb:
+    path: /users/smp24dhl/cosmo/code/CAMB_beta
+    extra_args:
+      lens_potential_accuracy: 1
+      num_massive_neutrinos: 1
+      nnu: 3.044
+      theta_H0_range:
+      - 20
+      - 100
+likelihood:
+  planck_2018_highl_plik.TTTEEE:
+  planck_2018_lowl.TT:
+  planck_2018_lowl.EE:
+
+params:
+  logA:
+    value: 3.06958
+    latex: \log(10^{10} A_\mathrm{s})
+    drop: true
+  As:
+    value: 'lambda logA: 1e-10*np.exp(logA)'
+    latex: A_\mathrm{s}
+  ns:
+    value: 0.9659111
+    latex: n_\mathrm{s}
+  H0:
+    latex: H_0
+    value: 68.07373
+  ombh2:
+    value: 0.02230531
+    latex: \Omega_\mathrm{b} h^2
+  omch2:
+    value: 0.1201717
+    latex: \Omega_\mathrm{c} h^2
+  omegam:
+    latex: \Omega_\mathrm{m}
+  omegamh2:
+    derived: 'lambda omegam, H0: omegam*(H0/100)**2'
+    latex: \Omega_\mathrm{m} h^2
+  mnu: 0.06
+  w:
+    value: -1.032966
+    latex: w_{0,\mathrm{DE}}
+  wa:
+    value: 0.00819477
+    latex: w_{a, \mathrm{DE}}
+  beta_DE:
+    value: 1.091425
+    latex: \beta_{\mathrm{DE}}
+  YHe:
+    latex: Y_\mathrm{P}
+  Y_p:
+    latex: Y_P^\mathrm{BBN}
+  DHBBN:
+    derived: 'lambda DH: 10**5*DH'
+    latex: 10^5 \mathrm{D}/\mathrm{H}
+  tau:
+    value: 0.06997392
+    latex: \tau_\mathrm{reio}
+  zrei:
+    latex: z_\mathrm{re}
+  sigma8:
+    latex: \sigma_8
+  s8h5:
+    derived: 'lambda sigma8, H0: sigma8*(H0*1e-2)**(-0.5)'
+    latex: \sigma_8/h^{0.5}
+  s8omegamp5:
+    derived: 'lambda sigma8, omegam: sigma8*omegam**0.5'
+    latex: \sigma_8 \Omega_\mathrm{m}^{0.5}
+  s8omegamp25:
+    derived: 'lambda sigma8, omegam: sigma8*omegam**0.25'
+    latex: \sigma_8 \Omega_\mathrm{m}^{0.25}
+  A:
+    derived: 'lambda As: 1e9*As'
+    latex: 10^9 A_\mathrm{s}
+  clggamp:
+    derived: 'lambda As, tau: 1e9*As*np.exp(-2*tau)'
+    latex: 10^9 A_\mathrm{s} e^{-2\tau}
+  age:
+    latex: '{\rm{Age}}/\mathrm{Gyr}'
+  rdrag:
+    latex: r_\mathrm{drag}
+sampler:
+  evaluate:
+    override:
+      beta_DE: 0.4
+
+output: ./beta/1-beta
+debug: true
+ 2025-01-15 16:51:51,643 [output] Output to be read-from/written-into folder './beta', with prefix '1-beta'
+ 2025-01-15 16:51:51,643 [output] Found existing info files with the requested output prefix: './beta/1-beta'
+ 2025-01-15 16:51:52,097 [prior] Loading external prior 'SZ' from: 'lambda ksz_norm, A_sz: stats.norm.logpdf(ksz_norm+1.6*A_sz, loc=9.5, scale=3.0)'
+ 2025-01-15 16:51:52,098 [prior] *WARNING* External prior 'SZ' loaded. Mind that it might not be normalized!
+ 2025-01-15 16:51:52,099 [camb] Attempting import from /users/smp24dhl/cosmo/code/CAMB_beta.
+ 2025-01-15 16:51:52,100 [camb] 'camb' to be imported from (sub)directory /users/smp24dhl/cosmo/code/CAMB_beta
+ 2025-01-15 16:51:52,147 [camb] `camb` module loaded successfully from /users/smp24dhl/cosmo/code/CAMB_beta/camb
+ 2025-01-15 16:51:52,149 [planck_2018_highl_plik.ttteee] Attempting import of Cobaya-installed version, but defaulting to global import if not found.
+ 2025-01-15 16:51:52,150 [planck_2018_highl_plik.ttteee] 'clik' to be imported from (sub)directory /users/smp24dhl/cosmo/code/planck/clik/lib/python/site-packages
+ 2025-01-15 16:51:52,212 [planck_2018_highl_plik.ttteee] Could not import 'clik' from /users/smp24dhl/cosmo/code/planck: Module clik successfully loaded, but not from requested path: /users/smp24dhl/cosmo/code/planck/clik/lib/python/site-packages, but instead from /users/smp24dhl/cosmo/code/planck/clik/lib/python3.9/site-packages/clik
+ 2025-01-15 16:51:52,212 [planck_2018_highl_plik.ttteee] Defaulting to global import.
+ 2025-01-15 16:51:52,212 [planck_2018_highl_plik.ttteee] `clik` module loaded successfully from /users/smp24dhl/cosmo/code/planck/clik/lib/python3.9/site-packages/clik
+----
+clik version clik_16.0b1-2-g63c889f3aa9c MAKEFILE
+  smica
+Checking likelihood '/users/smp24dhl/cosmo/data/planck_2018/baseline/plc_3.0/hi_l/plik/plik_rd12_HM_v22b_TTTEEE.clik' on test data. got -1172.47 expected -1172.47 (diff -4.34054e-07)
+----
+ 2025-01-15 16:51:52,671 [model] Parameters were assigned as follows:
+ 2025-01-15 16:51:52,671 [model] - planck_2018_highl_plik.TTTEEE:
+ 2025-01-15 16:51:52,672 [model]      Input:  ['A_planck', 'calib_100T', 'calib_217T', 'A_pol', 'calib_100P', 'calib_143P', 'calib_217P', 'cib_index', 'A_cib_217', 'xi_sz_cib', 'A_sz', 'ksz_norm', 'gal545_A_100', 'gal545_A_143', 'gal545_A_143_217', 'gal545_A_217', 'A_sbpx_100_100_TT', 'A_sbpx_143_143_TT', 'A_sbpx_143_217_TT', 'A_sbpx_217_217_TT', 'ps_A_100_100', 'ps_A_143_143', 'ps_A_143_217', 'ps_A_217_217', 'galf_TE_index', 'galf_TE_A_100', 'galf_TE_A_100_143', 'galf_TE_A_100_217', 'galf_TE_A_143', 'galf_TE_A_143_217', 'galf_TE_A_217', 'galf_EE_index', 'galf_EE_A_100', 'galf_EE_A_100_143', 'galf_EE_A_100_217', 'galf_EE_A_143', 'galf_EE_A_143_217', 'galf_EE_A_217', 'A_cnoise_e2e_100_100_EE', 'A_cnoise_e2e_143_143_EE', 'A_cnoise_e2e_217_217_EE', 'A_sbpx_100_100_EE', 'A_sbpx_100_143_EE', 'A_sbpx_100_217_EE', 'A_sbpx_143_143_EE', 'A_sbpx_143_217_EE', 'A_sbpx_217_217_EE']
+ 2025-01-15 16:51:52,672 [model]      Output: []
+ 2025-01-15 16:51:52,672 [model] - planck_2018_lowl.TT:
+ 2025-01-15 16:51:52,672 [model]      Input:  ['A_planck']
+ 2025-01-15 16:51:52,672 [model]      Output: []
+ 2025-01-15 16:51:52,672 [model] - planck_2018_lowl.EE:
+ 2025-01-15 16:51:52,672 [model]      Input:  ['A_planck']
+ 2025-01-15 16:51:52,672 [model]      Output: []
+ 2025-01-15 16:51:52,672 [model] - camb.transfers:
+ 2025-01-15 16:51:52,672 [model]      Input:  ['H0', 'ombh2', 'omch2', 'mnu', 'w', 'wa', 'beta_DE', 'tau']
+ 2025-01-15 16:51:52,672 [model]      Output: []
+ 2025-01-15 16:51:52,672 [model] - camb:
+ 2025-01-15 16:51:52,672 [model]      Input:  ['As', 'ns']
+ 2025-01-15 16:51:52,672 [model]      Output: ['omegam', 'YHe', 'Y_p', 'zrei', 'sigma8', 'age', 'rdrag', 'DH']
+ 2025-01-15 16:51:52,677 [model] Components will be computed in the order:
+ 2025-01-15 16:51:52,677 [model]  - [camb.transfers, camb, planck_2018_highl_plik.TTTEEE, planck_2018_lowl.TT, planck_2018_lowl.EE]
+ 2025-01-15 16:51:52,677 [model] Requirements will be calculated by these components:
+ 2025-01-15 16:51:52,678 [model] - Cl: camb
+ 2025-01-15 16:51:52,678 [model] - CAMB_transfers: camb.transfers
+ 2025-01-15 16:51:52,740 [evaluate] Initialized!
+ 2025-01-15 16:51:52,762 [evaluate] Looking for a reference point with non-zero prior.
+ 2025-01-15 16:51:52,763 [prior] Evaluating prior at array([ 1.00182009e+00,  9.99552370e-01,  9.97091033e-01,  8.15734680e+01,
+        4.90876396e-02,  5.90889777e+00,  3.48795356e+00,  4.66344423e+00,
+        1.15584383e+01,  2.53013510e+01,  9.75400120e+01,  2.74354650e+02,
+        3.91434546e+01,  2.59302267e+01,  9.50646313e+01,  5.52413192e-02,
+       -4.18856604e-02,  5.03544801e-01,  2.49488462e-01,  5.39704407e-01,
+        2.26948445e+00])
+ 2025-01-15 16:51:52,763 [prior] Got logpriors (internal) = -35.93762694558243
+ 2025-01-15 16:51:52,764 [prior] Got logpriors (external) = [-2.67581037584759]
+ 2025-01-15 16:51:52,764 [evaluate] *ERROR* Parameter 'beta_DE' used in override not known. Known parameters names are {'A_planck': 1.0018200858385975, 'calib_100T': 0.9995523702563022, 'calib_217T': 0.9970910330063901, 'A_cib_217': 81.57346797007557, 'xi_sz_cib': 0.04908763961388765, 'A_sz': 5.90889777361504, 'ksz_norm': 3.487953558649391, 'gal545_A_100': 4.663444231927567, 'gal545_A_143': 11.558438306773494, 'gal545_A_143_217': 25.301351023331033, 'gal545_A_217': 97.54001204576906, 'ps_A_100_100': 274.354650004148, 'ps_A_143_143': 39.14345458679124, 'ps_A_143_217': 25.930226661221155, 'ps_A_217_217': 95.06463132495699, 'galf_TE_A_100': 0.055241319193828325, 'galf_TE_A_100_143': -0.04188566035116059, 'galf_TE_A_100_217': 0.5035448010664033, 'galf_TE_A_143': 0.24948846156549814, 'galf_TE_A_143_217': 0.5397044068128647, 'galf_TE_A_217': 2.2694844478757332}.
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun detected that one or more processes exited with non-zero status, thus causing
+the job to be terminated. The first process to do so was:
+
+  Process name: [[56761,1],0]
+  Exit code:    1
+--------------------------------------------------------------------------
+Running for beta = 0.5
+sed: -e expression #1, char 29: number option to `s' command may not be zero
+theory:
+  camb:
+    path: /users/smp24dhl/cosmo/code/CAMB_beta
+    extra_args:
+      lens_potential_accuracy: 1
+      num_massive_neutrinos: 1
+      nnu: 3.044
+      theta_H0_range:
+      - 20
+      - 100
+likelihood:
+  planck_2018_highl_plik.TTTEEE:
+  planck_2018_lowl.TT:
+  planck_2018_lowl.EE:
+
+params:
+  logA:
+    value: 3.06958
+    latex: \log(10^{10} A_\mathrm{s})
+    drop: true
+  As:
+    value: 'lambda logA: 1e-10*np.exp(logA)'
+    latex: A_\mathrm{s}
+  ns:
+    value: 0.9659111
+    latex: n_\mathrm{s}
+  H0:
+    latex: H_0
+    value: 68.07373
+  ombh2:
+    value: 0.02230531
+    latex: \Omega_\mathrm{b} h^2
+  omch2:
+    value: 0.1201717
+    latex: \Omega_\mathrm{c} h^2
+  omegam:
+    latex: \Omega_\mathrm{m}
+  omegamh2:
+    derived: 'lambda omegam, H0: omegam*(H0/100)**2'
+    latex: \Omega_\mathrm{m} h^2
+  mnu: 0.06
+  w:
+    value: -1.032966
+    latex: w_{0,\mathrm{DE}}
+  wa:
+    value: 0.00819477
+    latex: w_{a, \mathrm{DE}}
+  beta_DE:
+    value: 1.091425
+    latex: \beta_{\mathrm{DE}}
+  YHe:
+    latex: Y_\mathrm{P}
+  Y_p:
+    latex: Y_P^\mathrm{BBN}
+  DHBBN:
+    derived: 'lambda DH: 10**5*DH'
+    latex: 10^5 \mathrm{D}/\mathrm{H}
+  tau:
+    value: 0.06997392
+    latex: \tau_\mathrm{reio}
+  zrei:
+    latex: z_\mathrm{re}
+  sigma8:
+    latex: \sigma_8
+  s8h5:
+    derived: 'lambda sigma8, H0: sigma8*(H0*1e-2)**(-0.5)'
+    latex: \sigma_8/h^{0.5}
+  s8omegamp5:
+    derived: 'lambda sigma8, omegam: sigma8*omegam**0.5'
+    latex: \sigma_8 \Omega_\mathrm{m}^{0.5}
+  s8omegamp25:
+    derived: 'lambda sigma8, omegam: sigma8*omegam**0.25'
+    latex: \sigma_8 \Omega_\mathrm{m}^{0.25}
+  A:
+    derived: 'lambda As: 1e9*As'
+    latex: 10^9 A_\mathrm{s}
+  clggamp:
+    derived: 'lambda As, tau: 1e9*As*np.exp(-2*tau)'
+    latex: 10^9 A_\mathrm{s} e^{-2\tau}
+  age:
+    latex: '{\rm{Age}}/\mathrm{Gyr}'
+  rdrag:
+    latex: r_\mathrm{drag}
+sampler:
+  evaluate:
+    override:
+      beta_DE: 0.5
+
+output: ./beta/1-beta
+debug: true
+ 2025-01-15 16:51:53,976 [output] Output to be read-from/written-into folder './beta', with prefix '1-beta'
+ 2025-01-15 16:51:53,976 [output] Found existing info files with the requested output prefix: './beta/1-beta'
+ 2025-01-15 16:51:54,397 [input] is_equal_info: different content of [sampler:evaluate] -- (re-run with `debug: True` for more info)
+ 2025-01-15 16:51:54,398 [input] {'override': {'beta_DE': 0.4}} (old) vs {'override': {'beta_DE': 0.5}} (new)
+ 2025-01-15 16:51:54,398 [sampler] *ERROR* Found old Sampler information which is not compatible with the new one. Delete the previous output manually, or automatically with either '-f', '--force', 'force: True'
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun detected that one or more processes exited with non-zero status, thus causing
+the job to be terminated. The first process to do so was:
+
+  Process name: [[56742,1],0]
+  Exit code:    1
+--------------------------------------------------------------------------
+Running for beta = 0.6
+sed: -e expression #1, char 29: number option to `s' command may not be zero
+theory:
+  camb:
+    path: /users/smp24dhl/cosmo/code/CAMB_beta
+    extra_args:
+      lens_potential_accuracy: 1
+      num_massive_neutrinos: 1
+      nnu: 3.044
+      theta_H0_range:
+      - 20
+      - 100
+likelihood:
+  planck_2018_highl_plik.TTTEEE:
+  planck_2018_lowl.TT:
+  planck_2018_lowl.EE:
+
+params:
+  logA:
+    value: 3.06958
+    latex: \log(10^{10} A_\mathrm{s})
+    drop: true
+  As:
+    value: 'lambda logA: 1e-10*np.exp(logA)'
+    latex: A_\mathrm{s}
+  ns:
+    value: 0.9659111
+    latex: n_\mathrm{s}
+  H0:
+    latex: H_0
+    value: 68.07373
+  ombh2:
+    value: 0.02230531
+    latex: \Omega_\mathrm{b} h^2
+  omch2:
+    value: 0.1201717
+    latex: \Omega_\mathrm{c} h^2
+  omegam:
+    latex: \Omega_\mathrm{m}
+  omegamh2:
+    derived: 'lambda omegam, H0: omegam*(H0/100)**2'
+    latex: \Omega_\mathrm{m} h^2
+  mnu: 0.06
+  w:
+    value: -1.032966
+    latex: w_{0,\mathrm{DE}}
+  wa:
+    value: 0.00819477
+    latex: w_{a, \mathrm{DE}}
+  beta_DE:
+    value: 1.091425
+    latex: \beta_{\mathrm{DE}}
+  YHe:
+    latex: Y_\mathrm{P}
+  Y_p:
+    latex: Y_P^\mathrm{BBN}
+  DHBBN:
+    derived: 'lambda DH: 10**5*DH'
+    latex: 10^5 \mathrm{D}/\mathrm{H}
+  tau:
+    value: 0.06997392
+    latex: \tau_\mathrm{reio}
+  zrei:
+    latex: z_\mathrm{re}
+  sigma8:
+    latex: \sigma_8
+  s8h5:
+    derived: 'lambda sigma8, H0: sigma8*(H0*1e-2)**(-0.5)'
+    latex: \sigma_8/h^{0.5}
+  s8omegamp5:
+    derived: 'lambda sigma8, omegam: sigma8*omegam**0.5'
+    latex: \sigma_8 \Omega_\mathrm{m}^{0.5}
+  s8omegamp25:
+    derived: 'lambda sigma8, omegam: sigma8*omegam**0.25'
+    latex: \sigma_8 \Omega_\mathrm{m}^{0.25}
+  A:
+    derived: 'lambda As: 1e9*As'
+    latex: 10^9 A_\mathrm{s}
+  clggamp:
+    derived: 'lambda As, tau: 1e9*As*np.exp(-2*tau)'
+    latex: 10^9 A_\mathrm{s} e^{-2\tau}
+  age:
+    latex: '{\rm{Age}}/\mathrm{Gyr}'
+  rdrag:
+    latex: r_\mathrm{drag}
+sampler:
+  evaluate:
+    override:
+      beta_DE: 0.6
+
+output: ./beta/1-beta
+debug: true
+ 2025-01-15 16:51:55,562 [output] Output to be read-from/written-into folder './beta', with prefix '1-beta'
+ 2025-01-15 16:51:55,562 [output] Found existing info files with the requested output prefix: './beta/1-beta'
+ 2025-01-15 16:51:56,032 [prior] Loading external prior 'SZ' from: 'lambda ksz_norm, A_sz: stats.norm.logpdf(ksz_norm+1.6*A_sz, loc=9.5, scale=3.0)'
+ 2025-01-15 16:51:56,033 [prior] *WARNING* External prior 'SZ' loaded. Mind that it might not be normalized!
+ 2025-01-15 16:51:56,034 [camb] Attempting import from /users/smp24dhl/cosmo/code/CAMB_beta.
+ 2025-01-15 16:51:56,034 [camb] 'camb' to be imported from (sub)directory /users/smp24dhl/cosmo/code/CAMB_beta
+ 2025-01-15 16:51:56,083 [camb] `camb` module loaded successfully from /users/smp24dhl/cosmo/code/CAMB_beta/camb
+ 2025-01-15 16:51:56,085 [planck_2018_highl_plik.ttteee] Attempting import of Cobaya-installed version, but defaulting to global import if not found.
+ 2025-01-15 16:51:56,085 [planck_2018_highl_plik.ttteee] 'clik' to be imported from (sub)directory /users/smp24dhl/cosmo/code/planck/clik/lib/python/site-packages
+ 2025-01-15 16:51:56,144 [planck_2018_highl_plik.ttteee] Could not import 'clik' from /users/smp24dhl/cosmo/code/planck: Module clik successfully loaded, but not from requested path: /users/smp24dhl/cosmo/code/planck/clik/lib/python/site-packages, but instead from /users/smp24dhl/cosmo/code/planck/clik/lib/python3.9/site-packages/clik
+ 2025-01-15 16:51:56,144 [planck_2018_highl_plik.ttteee] Defaulting to global import.
+ 2025-01-15 16:51:56,144 [planck_2018_highl_plik.ttteee] `clik` module loaded successfully from /users/smp24dhl/cosmo/code/planck/clik/lib/python3.9/site-packages/clik
+----
+clik version clik_16.0b1-2-g63c889f3aa9c MAKEFILE
+  smica
+Checking likelihood '/users/smp24dhl/cosmo/data/planck_2018/baseline/plc_3.0/hi_l/plik/plik_rd12_HM_v22b_TTTEEE.clik' on test data. got -1172.47 expected -1172.47 (diff -4.34054e-07)
+----
+ 2025-01-15 16:51:56,576 [model] Parameters were assigned as follows:
+ 2025-01-15 16:51:56,576 [model] - planck_2018_highl_plik.TTTEEE:
+ 2025-01-15 16:51:56,576 [model]      Input:  ['A_planck', 'calib_100T', 'calib_217T', 'A_pol', 'calib_100P', 'calib_143P', 'calib_217P', 'cib_index', 'A_cib_217', 'xi_sz_cib', 'A_sz', 'ksz_norm', 'gal545_A_100', 'gal545_A_143', 'gal545_A_143_217', 'gal545_A_217', 'A_sbpx_100_100_TT', 'A_sbpx_143_143_TT', 'A_sbpx_143_217_TT', 'A_sbpx_217_217_TT', 'ps_A_100_100', 'ps_A_143_143', 'ps_A_143_217', 'ps_A_217_217', 'galf_TE_index', 'galf_TE_A_100', 'galf_TE_A_100_143', 'galf_TE_A_100_217', 'galf_TE_A_143', 'galf_TE_A_143_217', 'galf_TE_A_217', 'galf_EE_index', 'galf_EE_A_100', 'galf_EE_A_100_143', 'galf_EE_A_100_217', 'galf_EE_A_143', 'galf_EE_A_143_217', 'galf_EE_A_217', 'A_cnoise_e2e_100_100_EE', 'A_cnoise_e2e_143_143_EE', 'A_cnoise_e2e_217_217_EE', 'A_sbpx_100_100_EE', 'A_sbpx_100_143_EE', 'A_sbpx_100_217_EE', 'A_sbpx_143_143_EE', 'A_sbpx_143_217_EE', 'A_sbpx_217_217_EE']
+ 2025-01-15 16:51:56,576 [model]      Output: []
+ 2025-01-15 16:51:56,576 [model] - planck_2018_lowl.TT:
+ 2025-01-15 16:51:56,576 [model]      Input:  ['A_planck']
+ 2025-01-15 16:51:56,576 [model]      Output: []
+ 2025-01-15 16:51:56,576 [model] - planck_2018_lowl.EE:
+ 2025-01-15 16:51:56,576 [model]      Input:  ['A_planck']
+ 2025-01-15 16:51:56,576 [model]      Output: []
+ 2025-01-15 16:51:56,576 [model] - camb.transfers:
+ 2025-01-15 16:51:56,577 [model]      Input:  ['H0', 'ombh2', 'omch2', 'mnu', 'w', 'wa', 'beta_DE', 'tau']
+ 2025-01-15 16:51:56,577 [model]      Output: []
+ 2025-01-15 16:51:56,577 [model] - camb:
+ 2025-01-15 16:51:56,577 [model]      Input:  ['As', 'ns']
+ 2025-01-15 16:51:56,577 [model]      Output: ['omegam', 'YHe', 'Y_p', 'zrei', 'sigma8', 'age', 'rdrag', 'DH']
+ 2025-01-15 16:51:56,581 [model] Components will be computed in the order:
+ 2025-01-15 16:51:56,581 [model]  - [camb.transfers, camb, planck_2018_highl_plik.TTTEEE, planck_2018_lowl.TT, planck_2018_lowl.EE]
+ 2025-01-15 16:51:56,581 [model] Requirements will be calculated by these components:
+ 2025-01-15 16:51:56,581 [model] - Cl: camb
+ 2025-01-15 16:51:56,581 [model] - CAMB_transfers: camb.transfers
+ 2025-01-15 16:51:56,642 [evaluate] Initialized!
+ 2025-01-15 16:51:56,665 [evaluate] Looking for a reference point with non-zero prior.
+ 2025-01-15 16:51:56,666 [prior] Evaluating prior at array([9.99390350e-01, 1.00060664e+00, 9.98375568e-01, 8.32382706e+01,
+       8.17638394e-02, 7.52640788e+00, 1.33477791e+00, 7.84607645e+00,
+       8.36912073e+00, 1.69020640e+01, 8.86981805e+01, 2.40534539e+02,
+       4.26031454e+01, 2.77836006e+01, 1.18570663e+02, 1.05048593e-01,
+       9.41620075e-02, 3.25303010e-01, 2.22210521e-01, 6.83383059e-01,
+       2.03108192e+00])
+ 2025-01-15 16:51:56,667 [prior] Got logpriors (internal) = -20.348653159202662
+ 2025-01-15 16:51:56,667 [prior] Got logpriors (external) = [-2.8526266890423493]
+ 2025-01-15 16:51:56,667 [evaluate] *ERROR* Parameter 'beta_DE' used in override not known. Known parameters names are {'A_planck': 0.9993903500604978, 'calib_100T': 1.00060663514845, 'calib_217T': 0.9983755675160282, 'A_cib_217': 83.23827064517238, 'xi_sz_cib': 0.08176383941622363, 'A_sz': 7.526407879503265, 'ksz_norm': 1.334777907125584, 'gal545_A_100': 7.846076445943084, 'gal545_A_143': 8.369120733854214, 'gal545_A_143_217': 16.902063975197223, 'gal545_A_217': 88.69818051038396, 'ps_A_100_100': 240.53453899462278, 'ps_A_143_143': 42.60314535617321, 'ps_A_143_217': 27.78360056637248, 'ps_A_217_217': 118.57066304770007, 'galf_TE_A_100': 0.10504859346884327, 'galf_TE_A_100_143': 0.09416200745937561, 'galf_TE_A_100_217': 0.3253030100258204, 'galf_TE_A_143': 0.22221052077530157, 'galf_TE_A_143_217': 0.6833830585671689, 'galf_TE_A_217': 2.0310819214743883}.
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun detected that one or more processes exited with non-zero status, thus causing
+the job to be terminated. The first process to do so was:
+
+  Process name: [[56723,1],0]
+  Exit code:    1
+--------------------------------------------------------------------------
+Running for beta = 0.7
+sed: -e expression #1, char 29: number option to `s' command may not be zero
+theory:
+  camb:
+    path: /users/smp24dhl/cosmo/code/CAMB_beta
+    extra_args:
+      lens_potential_accuracy: 1
+      num_massive_neutrinos: 1
+      nnu: 3.044
+      theta_H0_range:
+      - 20
+      - 100
+likelihood:
+  planck_2018_highl_plik.TTTEEE:
+  planck_2018_lowl.TT:
+  planck_2018_lowl.EE:
+
+params:
+  logA:
+    value: 3.06958
+    latex: \log(10^{10} A_\mathrm{s})
+    drop: true
+  As:
+    value: 'lambda logA: 1e-10*np.exp(logA)'
+    latex: A_\mathrm{s}
+  ns:
+    value: 0.9659111
+    latex: n_\mathrm{s}
+  H0:
+    latex: H_0
+    value: 68.07373
+  ombh2:
+    value: 0.02230531
+    latex: \Omega_\mathrm{b} h^2
+  omch2:
+    value: 0.1201717
+    latex: \Omega_\mathrm{c} h^2
+  omegam:
+    latex: \Omega_\mathrm{m}
+  omegamh2:
+    derived: 'lambda omegam, H0: omegam*(H0/100)**2'
+    latex: \Omega_\mathrm{m} h^2
+  mnu: 0.06
+  w:
+    value: -1.032966
+    latex: w_{0,\mathrm{DE}}
+  wa:
+    value: 0.00819477
+    latex: w_{a, \mathrm{DE}}
+  beta_DE:
+    value: 1.091425
+    latex: \beta_{\mathrm{DE}}
+  YHe:
+    latex: Y_\mathrm{P}
+  Y_p:
+    latex: Y_P^\mathrm{BBN}
+  DHBBN:
+    derived: 'lambda DH: 10**5*DH'
+    latex: 10^5 \mathrm{D}/\mathrm{H}
+  tau:
+    value: 0.06997392
+    latex: \tau_\mathrm{reio}
+  zrei:
+    latex: z_\mathrm{re}
+  sigma8:
+    latex: \sigma_8
+  s8h5:
+    derived: 'lambda sigma8, H0: sigma8*(H0*1e-2)**(-0.5)'
+    latex: \sigma_8/h^{0.5}
+  s8omegamp5:
+    derived: 'lambda sigma8, omegam: sigma8*omegam**0.5'
+    latex: \sigma_8 \Omega_\mathrm{m}^{0.5}
+  s8omegamp25:
+    derived: 'lambda sigma8, omegam: sigma8*omegam**0.25'
+    latex: \sigma_8 \Omega_\mathrm{m}^{0.25}
+  A:
+    derived: 'lambda As: 1e9*As'
+    latex: 10^9 A_\mathrm{s}
+  clggamp:
+    derived: 'lambda As, tau: 1e9*As*np.exp(-2*tau)'
+    latex: 10^9 A_\mathrm{s} e^{-2\tau}
+  age:
+    latex: '{\rm{Age}}/\mathrm{Gyr}'
+  rdrag:
+    latex: r_\mathrm{drag}
+sampler:
+  evaluate:
+    override:
+      beta_DE: 0.7
+
+output: ./beta/1-beta
+debug: true
+ 2025-01-15 16:51:57,886 [output] Output to be read-from/written-into folder './beta', with prefix '1-beta'
+ 2025-01-15 16:51:57,886 [output] Found existing info files with the requested output prefix: './beta/1-beta'
+ 2025-01-15 16:51:58,311 [input] is_equal_info: different content of [sampler:evaluate] -- (re-run with `debug: True` for more info)
+ 2025-01-15 16:51:58,311 [input] {'override': {'beta_DE': 0.6}} (old) vs {'override': {'beta_DE': 0.7}} (new)
+ 2025-01-15 16:51:58,311 [sampler] *ERROR* Found old Sampler information which is not compatible with the new one. Delete the previous output manually, or automatically with either '-f', '--force', 'force: True'
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun detected that one or more processes exited with non-zero status, thus causing
+the job to be terminated. The first process to do so was:
+
+  Process name: [[56640,1],0]
+  Exit code:    1
+--------------------------------------------------------------------------
+Running for beta = 0.8
+sed: -e expression #1, char 29: number option to `s' command may not be zero
+theory:
+  camb:
+    path: /users/smp24dhl/cosmo/code/CAMB_beta
+    extra_args:
+      lens_potential_accuracy: 1
+      num_massive_neutrinos: 1
+      nnu: 3.044
+      theta_H0_range:
+      - 20
+      - 100
+likelihood:
+  planck_2018_highl_plik.TTTEEE:
+  planck_2018_lowl.TT:
+  planck_2018_lowl.EE:
+
+params:
+  logA:
+    value: 3.06958
+    latex: \log(10^{10} A_\mathrm{s})
+    drop: true
+  As:
+    value: 'lambda logA: 1e-10*np.exp(logA)'
+    latex: A_\mathrm{s}
+  ns:
+    value: 0.9659111
+    latex: n_\mathrm{s}
+  H0:
+    latex: H_0
+    value: 68.07373
+  ombh2:
+    value: 0.02230531
+    latex: \Omega_\mathrm{b} h^2
+  omch2:
+    value: 0.1201717
+    latex: \Omega_\mathrm{c} h^2
+  omegam:
+    latex: \Omega_\mathrm{m}
+  omegamh2:
+    derived: 'lambda omegam, H0: omegam*(H0/100)**2'
+    latex: \Omega_\mathrm{m} h^2
+  mnu: 0.06
+  w:
+    value: -1.032966
+    latex: w_{0,\mathrm{DE}}
+  wa:
+    value: 0.00819477
+    latex: w_{a, \mathrm{DE}}
+  beta_DE:
+    value: 1.091425
+    latex: \beta_{\mathrm{DE}}
+  YHe:
+    latex: Y_\mathrm{P}
+  Y_p:
+    latex: Y_P^\mathrm{BBN}
+  DHBBN:
+    derived: 'lambda DH: 10**5*DH'
+    latex: 10^5 \mathrm{D}/\mathrm{H}
+  tau:
+    value: 0.06997392
+    latex: \tau_\mathrm{reio}
+  zrei:
+    latex: z_\mathrm{re}
+  sigma8:
+    latex: \sigma_8
+  s8h5:
+    derived: 'lambda sigma8, H0: sigma8*(H0*1e-2)**(-0.5)'
+    latex: \sigma_8/h^{0.5}
+  s8omegamp5:
+    derived: 'lambda sigma8, omegam: sigma8*omegam**0.5'
+    latex: \sigma_8 \Omega_\mathrm{m}^{0.5}
+  s8omegamp25:
+    derived: 'lambda sigma8, omegam: sigma8*omegam**0.25'
+    latex: \sigma_8 \Omega_\mathrm{m}^{0.25}
+  A:
+    derived: 'lambda As: 1e9*As'
+    latex: 10^9 A_\mathrm{s}
+  clggamp:
+    derived: 'lambda As, tau: 1e9*As*np.exp(-2*tau)'
+    latex: 10^9 A_\mathrm{s} e^{-2\tau}
+  age:
+    latex: '{\rm{Age}}/\mathrm{Gyr}'
+  rdrag:
+    latex: r_\mathrm{drag}
+sampler:
+  evaluate:
+    override:
+      beta_DE: 0.8
+
+output: ./beta/1-beta
+debug: true
+ 2025-01-15 16:51:59,470 [output] Output to be read-from/written-into folder './beta', with prefix '1-beta'
+ 2025-01-15 16:51:59,470 [output] Found existing info files with the requested output prefix: './beta/1-beta'
+ 2025-01-15 16:51:59,931 [prior] Loading external prior 'SZ' from: 'lambda ksz_norm, A_sz: stats.norm.logpdf(ksz_norm+1.6*A_sz, loc=9.5, scale=3.0)'
+ 2025-01-15 16:51:59,932 [prior] *WARNING* External prior 'SZ' loaded. Mind that it might not be normalized!
+ 2025-01-15 16:51:59,933 [camb] Attempting import from /users/smp24dhl/cosmo/code/CAMB_beta.
+ 2025-01-15 16:51:59,933 [camb] 'camb' to be imported from (sub)directory /users/smp24dhl/cosmo/code/CAMB_beta
+ 2025-01-15 16:51:59,982 [camb] `camb` module loaded successfully from /users/smp24dhl/cosmo/code/CAMB_beta/camb
+ 2025-01-15 16:51:59,984 [planck_2018_highl_plik.ttteee] Attempting import of Cobaya-installed version, but defaulting to global import if not found.
+ 2025-01-15 16:51:59,984 [planck_2018_highl_plik.ttteee] 'clik' to be imported from (sub)directory /users/smp24dhl/cosmo/code/planck/clik/lib/python/site-packages
+ 2025-01-15 16:52:00,045 [planck_2018_highl_plik.ttteee] Could not import 'clik' from /users/smp24dhl/cosmo/code/planck: Module clik successfully loaded, but not from requested path: /users/smp24dhl/cosmo/code/planck/clik/lib/python/site-packages, but instead from /users/smp24dhl/cosmo/code/planck/clik/lib/python3.9/site-packages/clik
+ 2025-01-15 16:52:00,045 [planck_2018_highl_plik.ttteee] Defaulting to global import.
+ 2025-01-15 16:52:00,046 [planck_2018_highl_plik.ttteee] `clik` module loaded successfully from /users/smp24dhl/cosmo/code/planck/clik/lib/python3.9/site-packages/clik
+----
+clik version clik_16.0b1-2-g63c889f3aa9c MAKEFILE
+  smica
+Checking likelihood '/users/smp24dhl/cosmo/data/planck_2018/baseline/plc_3.0/hi_l/plik/plik_rd12_HM_v22b_TTTEEE.clik' on test data. got -1172.47 expected -1172.47 (diff -4.34054e-07)
+----
+ 2025-01-15 16:52:00,477 [model] Parameters were assigned as follows:
+ 2025-01-15 16:52:00,478 [model] - planck_2018_highl_plik.TTTEEE:
+ 2025-01-15 16:52:00,478 [model]      Input:  ['A_planck', 'calib_100T', 'calib_217T', 'A_pol', 'calib_100P', 'calib_143P', 'calib_217P', 'cib_index', 'A_cib_217', 'xi_sz_cib', 'A_sz', 'ksz_norm', 'gal545_A_100', 'gal545_A_143', 'gal545_A_143_217', 'gal545_A_217', 'A_sbpx_100_100_TT', 'A_sbpx_143_143_TT', 'A_sbpx_143_217_TT', 'A_sbpx_217_217_TT', 'ps_A_100_100', 'ps_A_143_143', 'ps_A_143_217', 'ps_A_217_217', 'galf_TE_index', 'galf_TE_A_100', 'galf_TE_A_100_143', 'galf_TE_A_100_217', 'galf_TE_A_143', 'galf_TE_A_143_217', 'galf_TE_A_217', 'galf_EE_index', 'galf_EE_A_100', 'galf_EE_A_100_143', 'galf_EE_A_100_217', 'galf_EE_A_143', 'galf_EE_A_143_217', 'galf_EE_A_217', 'A_cnoise_e2e_100_100_EE', 'A_cnoise_e2e_143_143_EE', 'A_cnoise_e2e_217_217_EE', 'A_sbpx_100_100_EE', 'A_sbpx_100_143_EE', 'A_sbpx_100_217_EE', 'A_sbpx_143_143_EE', 'A_sbpx_143_217_EE', 'A_sbpx_217_217_EE']
+ 2025-01-15 16:52:00,478 [model]      Output: []
+ 2025-01-15 16:52:00,478 [model] - planck_2018_lowl.TT:
+ 2025-01-15 16:52:00,478 [model]      Input:  ['A_planck']
+ 2025-01-15 16:52:00,478 [model]      Output: []
+ 2025-01-15 16:52:00,478 [model] - planck_2018_lowl.EE:
+ 2025-01-15 16:52:00,478 [model]      Input:  ['A_planck']
+ 2025-01-15 16:52:00,478 [model]      Output: []
+ 2025-01-15 16:52:00,478 [model] - camb.transfers:
+ 2025-01-15 16:52:00,478 [model]      Input:  ['H0', 'ombh2', 'omch2', 'mnu', 'w', 'wa', 'beta_DE', 'tau']
+ 2025-01-15 16:52:00,478 [model]      Output: []
+ 2025-01-15 16:52:00,478 [model] - camb:
+ 2025-01-15 16:52:00,478 [model]      Input:  ['As', 'ns']
+ 2025-01-15 16:52:00,478 [model]      Output: ['omegam', 'YHe', 'Y_p', 'zrei', 'sigma8', 'age', 'rdrag', 'DH']
+ 2025-01-15 16:52:00,483 [model] Components will be computed in the order:
+ 2025-01-15 16:52:00,483 [model]  - [camb.transfers, camb, planck_2018_highl_plik.TTTEEE, planck_2018_lowl.TT, planck_2018_lowl.EE]
+ 2025-01-15 16:52:00,483 [model] Requirements will be calculated by these components:
+ 2025-01-15 16:52:00,483 [model] - Cl: camb
+ 2025-01-15 16:52:00,483 [model] - CAMB_transfers: camb.transfers
+ 2025-01-15 16:52:00,545 [evaluate] Initialized!
+ 2025-01-15 16:52:00,567 [evaluate] Looking for a reference point with non-zero prior.
+ 2025-01-15 16:52:00,569 [prior] Evaluating prior at array([9.96389737e-01, 1.00032715e+00, 9.99673263e-01, 4.93953475e+01,
+       9.85633924e-04, 6.96092922e+00, 7.98879006e-01, 5.16084108e+00,
+       1.10145252e+01, 2.17702762e+01, 7.73209815e+01, 2.58476826e+02,
+       3.18987470e+01, 3.55368678e+01, 1.15364391e+02, 1.86733161e-01,
+       1.89110446e-01, 3.19547303e-01, 3.52530887e-01, 6.69347427e-01,
+       1.94266314e+00])
+ 2025-01-15 16:52:00,569 [prior] Got logpriors (internal) = -28.696761056791324
+ 2025-01-15 16:52:00,569 [prior] Got logpriors (external) = [-2.3473218296652236]
+ 2025-01-15 16:52:00,569 [evaluate] *ERROR* Parameter 'beta_DE' used in override not known. Known parameters names are {'A_planck': 0.996389736867188, 'calib_100T': 1.0003271463446255, 'calib_217T': 0.9996732631309958, 'A_cib_217': 49.39534754388816, 'xi_sz_cib': 0.0009856339238601228, 'A_sz': 6.960929224014737, 'ksz_norm': 0.7988790064532686, 'gal545_A_100': 5.160841080153389, 'gal545_A_143': 11.014525196077457, 'gal545_A_143_217': 21.77027623268405, 'gal545_A_217': 77.32098153458497, 'ps_A_100_100': 258.47682604329833, 'ps_A_143_143': 31.89874698594879, 'ps_A_143_217': 35.53686784447952, 'ps_A_217_217': 115.36439119544485, 'galf_TE_A_100': 0.18673316077634097, 'galf_TE_A_100_143': 0.18911044590720705, 'galf_TE_A_100_217': 0.3195473033231041, 'galf_TE_A_143': 0.35253088661221865, 'galf_TE_A_143_217': 0.6693474267280883, 'galf_TE_A_217': 1.9426631373126395}.
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun detected that one or more processes exited with non-zero status, thus causing
+the job to be terminated. The first process to do so was:
+
+  Process name: [[56621,1],0]
+  Exit code:    1
+--------------------------------------------------------------------------
+Running for beta = 0.9
+sed: -e expression #1, char 29: number option to `s' command may not be zero
+theory:
+  camb:
+    path: /users/smp24dhl/cosmo/code/CAMB_beta
+    extra_args:
+      lens_potential_accuracy: 1
+      num_massive_neutrinos: 1
+      nnu: 3.044
+      theta_H0_range:
+      - 20
+      - 100
+likelihood:
+  planck_2018_highl_plik.TTTEEE:
+  planck_2018_lowl.TT:
+  planck_2018_lowl.EE:
+
+params:
+  logA:
+    value: 3.06958
+    latex: \log(10^{10} A_\mathrm{s})
+    drop: true
+  As:
+    value: 'lambda logA: 1e-10*np.exp(logA)'
+    latex: A_\mathrm{s}
+  ns:
+    value: 0.9659111
+    latex: n_\mathrm{s}
+  H0:
+    latex: H_0
+    value: 68.07373
+  ombh2:
+    value: 0.02230531
+    latex: \Omega_\mathrm{b} h^2
+  omch2:
+    value: 0.1201717
+    latex: \Omega_\mathrm{c} h^2
+  omegam:
+    latex: \Omega_\mathrm{m}
+  omegamh2:
+    derived: 'lambda omegam, H0: omegam*(H0/100)**2'
+    latex: \Omega_\mathrm{m} h^2
+  mnu: 0.06
+  w:
+    value: -1.032966
+    latex: w_{0,\mathrm{DE}}
+  wa:
+    value: 0.00819477
+    latex: w_{a, \mathrm{DE}}
+  beta_DE:
+    value: 1.091425
+    latex: \beta_{\mathrm{DE}}
+  YHe:
+    latex: Y_\mathrm{P}
+  Y_p:
+    latex: Y_P^\mathrm{BBN}
+  DHBBN:
+    derived: 'lambda DH: 10**5*DH'
+    latex: 10^5 \mathrm{D}/\mathrm{H}
+  tau:
+    value: 0.06997392
+    latex: \tau_\mathrm{reio}
+  zrei:
+    latex: z_\mathrm{re}
+  sigma8:
+    latex: \sigma_8
+  s8h5:
+    derived: 'lambda sigma8, H0: sigma8*(H0*1e-2)**(-0.5)'
+    latex: \sigma_8/h^{0.5}
+  s8omegamp5:
+    derived: 'lambda sigma8, omegam: sigma8*omegam**0.5'
+    latex: \sigma_8 \Omega_\mathrm{m}^{0.5}
+  s8omegamp25:
+    derived: 'lambda sigma8, omegam: sigma8*omegam**0.25'
+    latex: \sigma_8 \Omega_\mathrm{m}^{0.25}
+  A:
+    derived: 'lambda As: 1e9*As'
+    latex: 10^9 A_\mathrm{s}
+  clggamp:
+    derived: 'lambda As, tau: 1e9*As*np.exp(-2*tau)'
+    latex: 10^9 A_\mathrm{s} e^{-2\tau}
+  age:
+    latex: '{\rm{Age}}/\mathrm{Gyr}'
+  rdrag:
+    latex: r_\mathrm{drag}
+sampler:
+  evaluate:
+    override:
+      beta_DE: 0.9
+
+output: ./beta/1-beta
+debug: true
+ 2025-01-15 16:52:01,755 [output] Output to be read-from/written-into folder './beta', with prefix '1-beta'
+ 2025-01-15 16:52:01,756 [output] Found existing info files with the requested output prefix: './beta/1-beta'
+ 2025-01-15 16:52:02,166 [input] is_equal_info: different content of [sampler:evaluate] -- (re-run with `debug: True` for more info)
+ 2025-01-15 16:52:02,166 [input] {'override': {'beta_DE': 0.8}} (old) vs {'override': {'beta_DE': 0.9}} (new)
+ 2025-01-15 16:52:02,166 [sampler] *ERROR* Found old Sampler information which is not compatible with the new one. Delete the previous output manually, or automatically with either '-f', '--force', 'force: True'
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun detected that one or more processes exited with non-zero status, thus causing
+the job to be terminated. The first process to do so was:
+
+  Process name: [[56602,1],0]
+  Exit code:    1
+--------------------------------------------------------------------------
+Running for beta = 1.0
+sed: -e expression #1, char 30: unknown option to `s'
+theory:
+  camb:
+    path: /users/smp24dhl/cosmo/code/CAMB_beta
+    extra_args:
+      lens_potential_accuracy: 1
+      num_massive_neutrinos: 1
+      nnu: 3.044
+      theta_H0_range:
+      - 20
+      - 100
+likelihood:
+  planck_2018_highl_plik.TTTEEE:
+  planck_2018_lowl.TT:
+  planck_2018_lowl.EE:
+
+params:
+  logA:
+    value: 3.06958
+    latex: \log(10^{10} A_\mathrm{s})
+    drop: true
+  As:
+    value: 'lambda logA: 1e-10*np.exp(logA)'
+    latex: A_\mathrm{s}
+  ns:
+    value: 0.9659111
+    latex: n_\mathrm{s}
+  H0:
+    latex: H_0
+    value: 68.07373
+  ombh2:
+    value: 0.02230531
+    latex: \Omega_\mathrm{b} h^2
+  omch2:
+    value: 0.1201717
+    latex: \Omega_\mathrm{c} h^2
+  omegam:
+    latex: \Omega_\mathrm{m}
+  omegamh2:
+    derived: 'lambda omegam, H0: omegam*(H0/100)**2'
+    latex: \Omega_\mathrm{m} h^2
+  mnu: 0.06
+  w:
+    value: -1.032966
+    latex: w_{0,\mathrm{DE}}
+  wa:
+    value: 0.00819477
+    latex: w_{a, \mathrm{DE}}
+  beta_DE:
+    value: 1.091425
+    latex: \beta_{\mathrm{DE}}
+  YHe:
+    latex: Y_\mathrm{P}
+  Y_p:
+    latex: Y_P^\mathrm{BBN}
+  DHBBN:
+    derived: 'lambda DH: 10**5*DH'
+    latex: 10^5 \mathrm{D}/\mathrm{H}
+  tau:
+    value: 0.06997392
+    latex: \tau_\mathrm{reio}
+  zrei:
+    latex: z_\mathrm{re}
+  sigma8:
+    latex: \sigma_8
+  s8h5:
+    derived: 'lambda sigma8, H0: sigma8*(H0*1e-2)**(-0.5)'
+    latex: \sigma_8/h^{0.5}
+  s8omegamp5:
+    derived: 'lambda sigma8, omegam: sigma8*omegam**0.5'
+    latex: \sigma_8 \Omega_\mathrm{m}^{0.5}
+  s8omegamp25:
+    derived: 'lambda sigma8, omegam: sigma8*omegam**0.25'
+    latex: \sigma_8 \Omega_\mathrm{m}^{0.25}
+  A:
+    derived: 'lambda As: 1e9*As'
+    latex: 10^9 A_\mathrm{s}
+  clggamp:
+    derived: 'lambda As, tau: 1e9*As*np.exp(-2*tau)'
+    latex: 10^9 A_\mathrm{s} e^{-2\tau}
+  age:
+    latex: '{\rm{Age}}/\mathrm{Gyr}'
+  rdrag:
+    latex: r_\mathrm{drag}
+sampler:
+  evaluate:
+    override:
+      beta_DE: 1.0
+
+output: ./beta/1-beta
+debug: true
+ 2025-01-15 16:52:03,366 [output] Output to be read-from/written-into folder './beta', with prefix '1-beta'
+ 2025-01-15 16:52:03,366 [output] Found existing info files with the requested output prefix: './beta/1-beta'
+ 2025-01-15 16:52:03,823 [prior] Loading external prior 'SZ' from: 'lambda ksz_norm, A_sz: stats.norm.logpdf(ksz_norm+1.6*A_sz, loc=9.5, scale=3.0)'
+ 2025-01-15 16:52:03,824 [prior] *WARNING* External prior 'SZ' loaded. Mind that it might not be normalized!
+ 2025-01-15 16:52:03,825 [camb] Attempting import from /users/smp24dhl/cosmo/code/CAMB_beta.
+ 2025-01-15 16:52:03,825 [camb] 'camb' to be imported from (sub)directory /users/smp24dhl/cosmo/code/CAMB_beta
+ 2025-01-15 16:52:03,874 [camb] `camb` module loaded successfully from /users/smp24dhl/cosmo/code/CAMB_beta/camb
+ 2025-01-15 16:52:03,876 [planck_2018_highl_plik.ttteee] Attempting import of Cobaya-installed version, but defaulting to global import if not found.
+ 2025-01-15 16:52:03,876 [planck_2018_highl_plik.ttteee] 'clik' to be imported from (sub)directory /users/smp24dhl/cosmo/code/planck/clik/lib/python/site-packages
+ 2025-01-15 16:52:03,943 [planck_2018_highl_plik.ttteee] Could not import 'clik' from /users/smp24dhl/cosmo/code/planck: Module clik successfully loaded, but not from requested path: /users/smp24dhl/cosmo/code/planck/clik/lib/python/site-packages, but instead from /users/smp24dhl/cosmo/code/planck/clik/lib/python3.9/site-packages/clik
+ 2025-01-15 16:52:03,944 [planck_2018_highl_plik.ttteee] Defaulting to global import.
+ 2025-01-15 16:52:03,944 [planck_2018_highl_plik.ttteee] `clik` module loaded successfully from /users/smp24dhl/cosmo/code/planck/clik/lib/python3.9/site-packages/clik
+----
+clik version clik_16.0b1-2-g63c889f3aa9c MAKEFILE
+  smica
+Checking likelihood '/users/smp24dhl/cosmo/data/planck_2018/baseline/plc_3.0/hi_l/plik/plik_rd12_HM_v22b_TTTEEE.clik' on test data. got -1172.47 expected -1172.47 (diff -4.34054e-07)
+----
+ 2025-01-15 16:52:04,394 [model] Parameters were assigned as follows:
+ 2025-01-15 16:52:04,394 [model] - planck_2018_highl_plik.TTTEEE:
+ 2025-01-15 16:52:04,394 [model]      Input:  ['A_planck', 'calib_100T', 'calib_217T', 'A_pol', 'calib_100P', 'calib_143P', 'calib_217P', 'cib_index', 'A_cib_217', 'xi_sz_cib', 'A_sz', 'ksz_norm', 'gal545_A_100', 'gal545_A_143', 'gal545_A_143_217', 'gal545_A_217', 'A_sbpx_100_100_TT', 'A_sbpx_143_143_TT', 'A_sbpx_143_217_TT', 'A_sbpx_217_217_TT', 'ps_A_100_100', 'ps_A_143_143', 'ps_A_143_217', 'ps_A_217_217', 'galf_TE_index', 'galf_TE_A_100', 'galf_TE_A_100_143', 'galf_TE_A_100_217', 'galf_TE_A_143', 'galf_TE_A_143_217', 'galf_TE_A_217', 'galf_EE_index', 'galf_EE_A_100', 'galf_EE_A_100_143', 'galf_EE_A_100_217', 'galf_EE_A_143', 'galf_EE_A_143_217', 'galf_EE_A_217', 'A_cnoise_e2e_100_100_EE', 'A_cnoise_e2e_143_143_EE', 'A_cnoise_e2e_217_217_EE', 'A_sbpx_100_100_EE', 'A_sbpx_100_143_EE', 'A_sbpx_100_217_EE', 'A_sbpx_143_143_EE', 'A_sbpx_143_217_EE', 'A_sbpx_217_217_EE']
+ 2025-01-15 16:52:04,394 [model]      Output: []
+ 2025-01-15 16:52:04,394 [model] - planck_2018_lowl.TT:
+ 2025-01-15 16:52:04,394 [model]      Input:  ['A_planck']
+ 2025-01-15 16:52:04,394 [model]      Output: []
+ 2025-01-15 16:52:04,394 [model] - planck_2018_lowl.EE:
+ 2025-01-15 16:52:04,394 [model]      Input:  ['A_planck']
+ 2025-01-15 16:52:04,394 [model]      Output: []
+ 2025-01-15 16:52:04,394 [model] - camb.transfers:
+ 2025-01-15 16:52:04,394 [model]      Input:  ['H0', 'ombh2', 'omch2', 'mnu', 'w', 'wa', 'beta_DE', 'tau']
+ 2025-01-15 16:52:04,394 [model]      Output: []
+ 2025-01-15 16:52:04,395 [model] - camb:
+ 2025-01-15 16:52:04,395 [model]      Input:  ['As', 'ns']
+ 2025-01-15 16:52:04,395 [model]      Output: ['omegam', 'YHe', 'Y_p', 'zrei', 'sigma8', 'age', 'rdrag', 'DH']
+ 2025-01-15 16:52:04,399 [model] Components will be computed in the order:
+ 2025-01-15 16:52:04,399 [model]  - [camb.transfers, camb, planck_2018_highl_plik.TTTEEE, planck_2018_lowl.TT, planck_2018_lowl.EE]
+ 2025-01-15 16:52:04,399 [model] Requirements will be calculated by these components:
+ 2025-01-15 16:52:04,399 [model] - Cl: camb
+ 2025-01-15 16:52:04,399 [model] - CAMB_transfers: camb.transfers
+ 2025-01-15 16:52:04,461 [evaluate] Initialized!
+ 2025-01-15 16:52:04,483 [evaluate] Looking for a reference point with non-zero prior.
+ 2025-01-15 16:52:04,484 [prior] Evaluating prior at array([9.99457649e-01, 1.00021386e+00, 9.98003469e-01, 8.12350668e+01,
+       1.48453075e-01, 7.78376335e+00, 8.13073942e-01, 9.12010120e+00,
+       1.00040412e+01, 1.82496496e+01, 6.56443997e+01, 2.49573245e+02,
+       5.17001922e+01, 3.13187512e+01, 1.14981282e+02, 1.29286197e-01,
+       1.13538501e-01, 4.24378439e-01, 1.48837406e-01, 5.73609921e-01,
+       1.92927845e+00])
+ 2025-01-15 16:52:04,485 [prior] Got logpriors (internal) = -19.688323330975518
+ 2025-01-15 16:52:04,485 [prior] Got logpriors (external) = [-2.805940101169748]
+ 2025-01-15 16:52:04,485 [evaluate] *ERROR* Parameter 'beta_DE' used in override not known. Known parameters names are {'A_planck': 0.9994576492512275, 'calib_100T': 1.0002138568269159, 'calib_217T': 0.998003468614624, 'A_cib_217': 81.23506683157706, 'xi_sz_cib': 0.14845307502586688, 'A_sz': 7.783763350947039, 'ksz_norm': 0.8130739422095297, 'gal545_A_100': 9.120101197140027, 'gal545_A_143': 10.004041242613946, 'gal545_A_143_217': 18.249649555949954, 'gal545_A_217': 65.64439974855995, 'ps_A_100_100': 249.57324460388904, 'ps_A_143_143': 51.700192232459315, 'ps_A_143_217': 31.318751165387354, 'ps_A_217_217': 114.9812818912665, 'galf_TE_A_100': 0.12928619719310636, 'galf_TE_A_100_143': 0.11353850053140206, 'galf_TE_A_100_217': 0.42437843870857556, 'galf_TE_A_143': 0.1488374062647606, 'galf_TE_A_143_217': 0.573609920607569, 'galf_TE_A_217': 1.9292784458529053}.
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun detected that one or more processes exited with non-zero status, thus causing
+the job to be terminated. The first process to do so was:
+
+  Process name: [[57072,1],0]
+  Exit code:    1
+--------------------------------------------------------------------------

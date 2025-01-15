@@ -1,0 +1,3518 @@
+Running for beta = -1.0
+theory:
+  camb:
+    path: /users/smp24dhl/cosmo/code/CAMB_beta
+    extra_args:
+      lens_potential_accuracy: 1
+      num_massive_neutrinos: 1
+      nnu: 3.044
+      theta_H0_range:
+      - 20
+      - 100
+likelihood:
+  planck_2018_highl_plik.TTTEEE:
+  planck_2018_lowl.TT:
+  planck_2018_lowl.EE:
+
+params:
+  logA:
+    value: 3.06958
+    latex: \log(10^{10} A_\mathrm{s})
+    drop: true
+  As:
+    value: 'lambda logA: 1e-10*np.exp(logA)'
+    latex: A_\mathrm{s}
+  ns:
+    value: 0.9659111
+    latex: n_\mathrm{s}
+  H0:
+    latex: H_0
+    value: 68.07373
+  ombh2:
+    value: 0.02230531
+    latex: \Omega_\mathrm{b} h^2
+  omch2:
+    value: 0.1201717
+    latex: \Omega_\mathrm{c} h^2
+  omegam:
+    latex: \Omega_\mathrm{m}
+  omegamh2:
+    derived: 'lambda omegam, H0: omegam*(H0/100)**2'
+    latex: \Omega_\mathrm{m} h^2
+  mnu: 0.06
+  w:
+    value: -1.032966
+    latex: w_{0,\mathrm{DE}}
+  wa:
+    value: 0.00819477
+    latex: w_{a, \mathrm{DE}}
+  beta_DE:
+    value: 1.091425
+    latex: \beta_{\mathrm{DE}}
+  YHe:
+    latex: Y_\mathrm{P}
+  Y_p:
+    latex: Y_P^\mathrm{BBN}
+  DHBBN:
+    derived: 'lambda DH: 10**5*DH'
+    latex: 10^5 \mathrm{D}/\mathrm{H}
+  tau:
+    value: 0.06997392
+    latex: \tau_\mathrm{reio}
+  zrei:
+    latex: z_\mathrm{re}
+  sigma8:
+    latex: \sigma_8
+  s8h5:
+    derived: 'lambda sigma8, H0: sigma8*(H0*1e-2)**(-0.5)'
+    latex: \sigma_8/h^{0.5}
+  s8omegamp5:
+    derived: 'lambda sigma8, omegam: sigma8*omegam**0.5'
+    latex: \sigma_8 \Omega_\mathrm{m}^{0.5}
+  s8omegamp25:
+    derived: 'lambda sigma8, omegam: sigma8*omegam**0.25'
+    latex: \sigma_8 \Omega_\mathrm{m}^{0.25}
+  A:
+    derived: 'lambda As: 1e9*As'
+    latex: 10^9 A_\mathrm{s}
+  clggamp:
+    derived: 'lambda As, tau: 1e9*As*np.exp(-2*tau)'
+    latex: 10^9 A_\mathrm{s} e^{-2\tau}
+  age:
+    latex: '{\rm{Age}}/\mathrm{Gyr}'
+  rdrag:
+    latex: r_\mathrm{drag}
+sampler:
+  evaluate:
+    override:
+      beta_DE: -1.0
+
+output: -1.0
+debug: true
+ 2025-01-15 17:00:55,439 [exception handler] ---------------------------------------
+
+Traceback (most recent call last):
+  File "/users/smp24dhl/.conda/envs/cosmos/bin/cobaya-run", line 8, in <module>
+    sys.exit(run_script())
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/run.py", line 198, in run_script
+    run(info, **arguments.__dict__)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/run.py", line 94, in run
+    with get_output(prefix=info.get("output"), resume=info.get("resume"),
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/output.py", line 676, in get_output
+    return Output(*args, **kwargs)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/mpi.py", line 274, in wrapper
+    result = method(self, *args, **kwargs)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/output.py", line 353, in __init__
+    OutputReadOnly.__init__(self, prefix, infix)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/output.py", line 152, in __init__
+    self.folder, self.prefix = split_prefix(prefix)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/input.py", line 162, in split_prefix
+    folder = os.path.dirname(prefix) or "."
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/posixpath.py", line 152, in dirname
+    p = os.fspath(p)
+TypeError: expected str, bytes or os.PathLike object, not float
+-------------------------------------------------------------
+
+ 2025-01-15 17:00:55,439 [exception handler] Some unexpected ERROR occurred. You can see the exception information above.
+We recommend trying to reproduce this error with 'debug:True' in the input.
+If you cannot solve it yourself and need to report it, include the debug output,
+which you can send it to a file setting 'debug:[some_file_name]'.
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun detected that one or more processes exited with non-zero status, thus causing
+the job to be terminated. The first process to do so was:
+
+  Process name: [[32040,1],0]
+  Exit code:    1
+--------------------------------------------------------------------------
+Running for beta = -0.9
+theory:
+  camb:
+    path: /users/smp24dhl/cosmo/code/CAMB_beta
+    extra_args:
+      lens_potential_accuracy: 1
+      num_massive_neutrinos: 1
+      nnu: 3.044
+      theta_H0_range:
+      - 20
+      - 100
+likelihood:
+  planck_2018_highl_plik.TTTEEE:
+  planck_2018_lowl.TT:
+  planck_2018_lowl.EE:
+
+params:
+  logA:
+    value: 3.06958
+    latex: \log(10^{10} A_\mathrm{s})
+    drop: true
+  As:
+    value: 'lambda logA: 1e-10*np.exp(logA)'
+    latex: A_\mathrm{s}
+  ns:
+    value: 0.9659111
+    latex: n_\mathrm{s}
+  H0:
+    latex: H_0
+    value: 68.07373
+  ombh2:
+    value: 0.02230531
+    latex: \Omega_\mathrm{b} h^2
+  omch2:
+    value: 0.1201717
+    latex: \Omega_\mathrm{c} h^2
+  omegam:
+    latex: \Omega_\mathrm{m}
+  omegamh2:
+    derived: 'lambda omegam, H0: omegam*(H0/100)**2'
+    latex: \Omega_\mathrm{m} h^2
+  mnu: 0.06
+  w:
+    value: -1.032966
+    latex: w_{0,\mathrm{DE}}
+  wa:
+    value: 0.00819477
+    latex: w_{a, \mathrm{DE}}
+  beta_DE:
+    value: 1.091425
+    latex: \beta_{\mathrm{DE}}
+  YHe:
+    latex: Y_\mathrm{P}
+  Y_p:
+    latex: Y_P^\mathrm{BBN}
+  DHBBN:
+    derived: 'lambda DH: 10**5*DH'
+    latex: 10^5 \mathrm{D}/\mathrm{H}
+  tau:
+    value: 0.06997392
+    latex: \tau_\mathrm{reio}
+  zrei:
+    latex: z_\mathrm{re}
+  sigma8:
+    latex: \sigma_8
+  s8h5:
+    derived: 'lambda sigma8, H0: sigma8*(H0*1e-2)**(-0.5)'
+    latex: \sigma_8/h^{0.5}
+  s8omegamp5:
+    derived: 'lambda sigma8, omegam: sigma8*omegam**0.5'
+    latex: \sigma_8 \Omega_\mathrm{m}^{0.5}
+  s8omegamp25:
+    derived: 'lambda sigma8, omegam: sigma8*omegam**0.25'
+    latex: \sigma_8 \Omega_\mathrm{m}^{0.25}
+  A:
+    derived: 'lambda As: 1e9*As'
+    latex: 10^9 A_\mathrm{s}
+  clggamp:
+    derived: 'lambda As, tau: 1e9*As*np.exp(-2*tau)'
+    latex: 10^9 A_\mathrm{s} e^{-2\tau}
+  age:
+    latex: '{\rm{Age}}/\mathrm{Gyr}'
+  rdrag:
+    latex: r_\mathrm{drag}
+sampler:
+  evaluate:
+    override:
+      beta_DE: -0.9
+
+output: -0.9
+debug: true
+ 2025-01-15 17:00:56,557 [exception handler] ---------------------------------------
+
+Traceback (most recent call last):
+  File "/users/smp24dhl/.conda/envs/cosmos/bin/cobaya-run", line 8, in <module>
+    sys.exit(run_script())
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/run.py", line 198, in run_script
+    run(info, **arguments.__dict__)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/run.py", line 94, in run
+    with get_output(prefix=info.get("output"), resume=info.get("resume"),
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/output.py", line 676, in get_output
+    return Output(*args, **kwargs)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/mpi.py", line 274, in wrapper
+    result = method(self, *args, **kwargs)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/output.py", line 353, in __init__
+    OutputReadOnly.__init__(self, prefix, infix)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/output.py", line 152, in __init__
+    self.folder, self.prefix = split_prefix(prefix)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/input.py", line 162, in split_prefix
+    folder = os.path.dirname(prefix) or "."
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/posixpath.py", line 152, in dirname
+    p = os.fspath(p)
+TypeError: expected str, bytes or os.PathLike object, not float
+-------------------------------------------------------------
+
+ 2025-01-15 17:00:56,557 [exception handler] Some unexpected ERROR occurred. You can see the exception information above.
+We recommend trying to reproduce this error with 'debug:True' in the input.
+If you cannot solve it yourself and need to report it, include the debug output,
+which you can send it to a file setting 'debug:[some_file_name]'.
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun detected that one or more processes exited with non-zero status, thus causing
+the job to be terminated. The first process to do so was:
+
+  Process name: [[32276,1],0]
+  Exit code:    1
+--------------------------------------------------------------------------
+Running for beta = -0.8
+theory:
+  camb:
+    path: /users/smp24dhl/cosmo/code/CAMB_beta
+    extra_args:
+      lens_potential_accuracy: 1
+      num_massive_neutrinos: 1
+      nnu: 3.044
+      theta_H0_range:
+      - 20
+      - 100
+likelihood:
+  planck_2018_highl_plik.TTTEEE:
+  planck_2018_lowl.TT:
+  planck_2018_lowl.EE:
+
+params:
+  logA:
+    value: 3.06958
+    latex: \log(10^{10} A_\mathrm{s})
+    drop: true
+  As:
+    value: 'lambda logA: 1e-10*np.exp(logA)'
+    latex: A_\mathrm{s}
+  ns:
+    value: 0.9659111
+    latex: n_\mathrm{s}
+  H0:
+    latex: H_0
+    value: 68.07373
+  ombh2:
+    value: 0.02230531
+    latex: \Omega_\mathrm{b} h^2
+  omch2:
+    value: 0.1201717
+    latex: \Omega_\mathrm{c} h^2
+  omegam:
+    latex: \Omega_\mathrm{m}
+  omegamh2:
+    derived: 'lambda omegam, H0: omegam*(H0/100)**2'
+    latex: \Omega_\mathrm{m} h^2
+  mnu: 0.06
+  w:
+    value: -1.032966
+    latex: w_{0,\mathrm{DE}}
+  wa:
+    value: 0.00819477
+    latex: w_{a, \mathrm{DE}}
+  beta_DE:
+    value: 1.091425
+    latex: \beta_{\mathrm{DE}}
+  YHe:
+    latex: Y_\mathrm{P}
+  Y_p:
+    latex: Y_P^\mathrm{BBN}
+  DHBBN:
+    derived: 'lambda DH: 10**5*DH'
+    latex: 10^5 \mathrm{D}/\mathrm{H}
+  tau:
+    value: 0.06997392
+    latex: \tau_\mathrm{reio}
+  zrei:
+    latex: z_\mathrm{re}
+  sigma8:
+    latex: \sigma_8
+  s8h5:
+    derived: 'lambda sigma8, H0: sigma8*(H0*1e-2)**(-0.5)'
+    latex: \sigma_8/h^{0.5}
+  s8omegamp5:
+    derived: 'lambda sigma8, omegam: sigma8*omegam**0.5'
+    latex: \sigma_8 \Omega_\mathrm{m}^{0.5}
+  s8omegamp25:
+    derived: 'lambda sigma8, omegam: sigma8*omegam**0.25'
+    latex: \sigma_8 \Omega_\mathrm{m}^{0.25}
+  A:
+    derived: 'lambda As: 1e9*As'
+    latex: 10^9 A_\mathrm{s}
+  clggamp:
+    derived: 'lambda As, tau: 1e9*As*np.exp(-2*tau)'
+    latex: 10^9 A_\mathrm{s} e^{-2\tau}
+  age:
+    latex: '{\rm{Age}}/\mathrm{Gyr}'
+  rdrag:
+    latex: r_\mathrm{drag}
+sampler:
+  evaluate:
+    override:
+      beta_DE: -0.8
+
+output: -0.8
+debug: true
+ 2025-01-15 17:00:57,724 [exception handler] ---------------------------------------
+
+Traceback (most recent call last):
+  File "/users/smp24dhl/.conda/envs/cosmos/bin/cobaya-run", line 8, in <module>
+    sys.exit(run_script())
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/run.py", line 198, in run_script
+    run(info, **arguments.__dict__)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/run.py", line 94, in run
+    with get_output(prefix=info.get("output"), resume=info.get("resume"),
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/output.py", line 676, in get_output
+    return Output(*args, **kwargs)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/mpi.py", line 274, in wrapper
+    result = method(self, *args, **kwargs)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/output.py", line 353, in __init__
+    OutputReadOnly.__init__(self, prefix, infix)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/output.py", line 152, in __init__
+    self.folder, self.prefix = split_prefix(prefix)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/input.py", line 162, in split_prefix
+    folder = os.path.dirname(prefix) or "."
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/posixpath.py", line 152, in dirname
+    p = os.fspath(p)
+TypeError: expected str, bytes or os.PathLike object, not float
+-------------------------------------------------------------
+
+ 2025-01-15 17:00:57,725 [exception handler] Some unexpected ERROR occurred. You can see the exception information above.
+We recommend trying to reproduce this error with 'debug:True' in the input.
+If you cannot solve it yourself and need to report it, include the debug output,
+which you can send it to a file setting 'debug:[some_file_name]'.
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun detected that one or more processes exited with non-zero status, thus causing
+the job to be terminated. The first process to do so was:
+
+  Process name: [[32705,1],0]
+  Exit code:    1
+--------------------------------------------------------------------------
+Running for beta = -0.7
+theory:
+  camb:
+    path: /users/smp24dhl/cosmo/code/CAMB_beta
+    extra_args:
+      lens_potential_accuracy: 1
+      num_massive_neutrinos: 1
+      nnu: 3.044
+      theta_H0_range:
+      - 20
+      - 100
+likelihood:
+  planck_2018_highl_plik.TTTEEE:
+  planck_2018_lowl.TT:
+  planck_2018_lowl.EE:
+
+params:
+  logA:
+    value: 3.06958
+    latex: \log(10^{10} A_\mathrm{s})
+    drop: true
+  As:
+    value: 'lambda logA: 1e-10*np.exp(logA)'
+    latex: A_\mathrm{s}
+  ns:
+    value: 0.9659111
+    latex: n_\mathrm{s}
+  H0:
+    latex: H_0
+    value: 68.07373
+  ombh2:
+    value: 0.02230531
+    latex: \Omega_\mathrm{b} h^2
+  omch2:
+    value: 0.1201717
+    latex: \Omega_\mathrm{c} h^2
+  omegam:
+    latex: \Omega_\mathrm{m}
+  omegamh2:
+    derived: 'lambda omegam, H0: omegam*(H0/100)**2'
+    latex: \Omega_\mathrm{m} h^2
+  mnu: 0.06
+  w:
+    value: -1.032966
+    latex: w_{0,\mathrm{DE}}
+  wa:
+    value: 0.00819477
+    latex: w_{a, \mathrm{DE}}
+  beta_DE:
+    value: 1.091425
+    latex: \beta_{\mathrm{DE}}
+  YHe:
+    latex: Y_\mathrm{P}
+  Y_p:
+    latex: Y_P^\mathrm{BBN}
+  DHBBN:
+    derived: 'lambda DH: 10**5*DH'
+    latex: 10^5 \mathrm{D}/\mathrm{H}
+  tau:
+    value: 0.06997392
+    latex: \tau_\mathrm{reio}
+  zrei:
+    latex: z_\mathrm{re}
+  sigma8:
+    latex: \sigma_8
+  s8h5:
+    derived: 'lambda sigma8, H0: sigma8*(H0*1e-2)**(-0.5)'
+    latex: \sigma_8/h^{0.5}
+  s8omegamp5:
+    derived: 'lambda sigma8, omegam: sigma8*omegam**0.5'
+    latex: \sigma_8 \Omega_\mathrm{m}^{0.5}
+  s8omegamp25:
+    derived: 'lambda sigma8, omegam: sigma8*omegam**0.25'
+    latex: \sigma_8 \Omega_\mathrm{m}^{0.25}
+  A:
+    derived: 'lambda As: 1e9*As'
+    latex: 10^9 A_\mathrm{s}
+  clggamp:
+    derived: 'lambda As, tau: 1e9*As*np.exp(-2*tau)'
+    latex: 10^9 A_\mathrm{s} e^{-2\tau}
+  age:
+    latex: '{\rm{Age}}/\mathrm{Gyr}'
+  rdrag:
+    latex: r_\mathrm{drag}
+sampler:
+  evaluate:
+    override:
+      beta_DE: -0.7
+
+output: -0.7
+debug: true
+ 2025-01-15 17:00:58,872 [exception handler] ---------------------------------------
+
+Traceback (most recent call last):
+  File "/users/smp24dhl/.conda/envs/cosmos/bin/cobaya-run", line 8, in <module>
+    sys.exit(run_script())
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/run.py", line 198, in run_script
+    run(info, **arguments.__dict__)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/run.py", line 94, in run
+    with get_output(prefix=info.get("output"), resume=info.get("resume"),
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/output.py", line 676, in get_output
+    return Output(*args, **kwargs)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/mpi.py", line 274, in wrapper
+    result = method(self, *args, **kwargs)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/output.py", line 353, in __init__
+    OutputReadOnly.__init__(self, prefix, infix)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/output.py", line 152, in __init__
+    self.folder, self.prefix = split_prefix(prefix)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/input.py", line 162, in split_prefix
+    folder = os.path.dirname(prefix) or "."
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/posixpath.py", line 152, in dirname
+    p = os.fspath(p)
+TypeError: expected str, bytes or os.PathLike object, not float
+-------------------------------------------------------------
+
+ 2025-01-15 17:00:58,872 [exception handler] Some unexpected ERROR occurred. You can see the exception information above.
+We recommend trying to reproduce this error with 'debug:True' in the input.
+If you cannot solve it yourself and need to report it, include the debug output,
+which you can send it to a file setting 'debug:[some_file_name]'.
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun detected that one or more processes exited with non-zero status, thus causing
+the job to be terminated. The first process to do so was:
+
+  Process name: [[32685,1],0]
+  Exit code:    1
+--------------------------------------------------------------------------
+Running for beta = -0.6
+theory:
+  camb:
+    path: /users/smp24dhl/cosmo/code/CAMB_beta
+    extra_args:
+      lens_potential_accuracy: 1
+      num_massive_neutrinos: 1
+      nnu: 3.044
+      theta_H0_range:
+      - 20
+      - 100
+likelihood:
+  planck_2018_highl_plik.TTTEEE:
+  planck_2018_lowl.TT:
+  planck_2018_lowl.EE:
+
+params:
+  logA:
+    value: 3.06958
+    latex: \log(10^{10} A_\mathrm{s})
+    drop: true
+  As:
+    value: 'lambda logA: 1e-10*np.exp(logA)'
+    latex: A_\mathrm{s}
+  ns:
+    value: 0.9659111
+    latex: n_\mathrm{s}
+  H0:
+    latex: H_0
+    value: 68.07373
+  ombh2:
+    value: 0.02230531
+    latex: \Omega_\mathrm{b} h^2
+  omch2:
+    value: 0.1201717
+    latex: \Omega_\mathrm{c} h^2
+  omegam:
+    latex: \Omega_\mathrm{m}
+  omegamh2:
+    derived: 'lambda omegam, H0: omegam*(H0/100)**2'
+    latex: \Omega_\mathrm{m} h^2
+  mnu: 0.06
+  w:
+    value: -1.032966
+    latex: w_{0,\mathrm{DE}}
+  wa:
+    value: 0.00819477
+    latex: w_{a, \mathrm{DE}}
+  beta_DE:
+    value: 1.091425
+    latex: \beta_{\mathrm{DE}}
+  YHe:
+    latex: Y_\mathrm{P}
+  Y_p:
+    latex: Y_P^\mathrm{BBN}
+  DHBBN:
+    derived: 'lambda DH: 10**5*DH'
+    latex: 10^5 \mathrm{D}/\mathrm{H}
+  tau:
+    value: 0.06997392
+    latex: \tau_\mathrm{reio}
+  zrei:
+    latex: z_\mathrm{re}
+  sigma8:
+    latex: \sigma_8
+  s8h5:
+    derived: 'lambda sigma8, H0: sigma8*(H0*1e-2)**(-0.5)'
+    latex: \sigma_8/h^{0.5}
+  s8omegamp5:
+    derived: 'lambda sigma8, omegam: sigma8*omegam**0.5'
+    latex: \sigma_8 \Omega_\mathrm{m}^{0.5}
+  s8omegamp25:
+    derived: 'lambda sigma8, omegam: sigma8*omegam**0.25'
+    latex: \sigma_8 \Omega_\mathrm{m}^{0.25}
+  A:
+    derived: 'lambda As: 1e9*As'
+    latex: 10^9 A_\mathrm{s}
+  clggamp:
+    derived: 'lambda As, tau: 1e9*As*np.exp(-2*tau)'
+    latex: 10^9 A_\mathrm{s} e^{-2\tau}
+  age:
+    latex: '{\rm{Age}}/\mathrm{Gyr}'
+  rdrag:
+    latex: r_\mathrm{drag}
+sampler:
+  evaluate:
+    override:
+      beta_DE: -0.6
+
+output: -0.6
+debug: true
+ 2025-01-15 17:01:00,033 [exception handler] ---------------------------------------
+
+Traceback (most recent call last):
+  File "/users/smp24dhl/.conda/envs/cosmos/bin/cobaya-run", line 8, in <module>
+    sys.exit(run_script())
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/run.py", line 198, in run_script
+    run(info, **arguments.__dict__)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/run.py", line 94, in run
+    with get_output(prefix=info.get("output"), resume=info.get("resume"),
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/output.py", line 676, in get_output
+    return Output(*args, **kwargs)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/mpi.py", line 274, in wrapper
+    result = method(self, *args, **kwargs)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/output.py", line 353, in __init__
+    OutputReadOnly.__init__(self, prefix, infix)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/output.py", line 152, in __init__
+    self.folder, self.prefix = split_prefix(prefix)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/input.py", line 162, in split_prefix
+    folder = os.path.dirname(prefix) or "."
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/posixpath.py", line 152, in dirname
+    p = os.fspath(p)
+TypeError: expected str, bytes or os.PathLike object, not float
+-------------------------------------------------------------
+
+ 2025-01-15 17:01:00,033 [exception handler] Some unexpected ERROR occurred. You can see the exception information above.
+We recommend trying to reproduce this error with 'debug:True' in the input.
+If you cannot solve it yourself and need to report it, include the debug output,
+which you can send it to a file setting 'debug:[some_file_name]'.
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun detected that one or more processes exited with non-zero status, thus causing
+the job to be terminated. The first process to do so was:
+
+  Process name: [[32666,1],0]
+  Exit code:    1
+--------------------------------------------------------------------------
+Running for beta = -0.5
+theory:
+  camb:
+    path: /users/smp24dhl/cosmo/code/CAMB_beta
+    extra_args:
+      lens_potential_accuracy: 1
+      num_massive_neutrinos: 1
+      nnu: 3.044
+      theta_H0_range:
+      - 20
+      - 100
+likelihood:
+  planck_2018_highl_plik.TTTEEE:
+  planck_2018_lowl.TT:
+  planck_2018_lowl.EE:
+
+params:
+  logA:
+    value: 3.06958
+    latex: \log(10^{10} A_\mathrm{s})
+    drop: true
+  As:
+    value: 'lambda logA: 1e-10*np.exp(logA)'
+    latex: A_\mathrm{s}
+  ns:
+    value: 0.9659111
+    latex: n_\mathrm{s}
+  H0:
+    latex: H_0
+    value: 68.07373
+  ombh2:
+    value: 0.02230531
+    latex: \Omega_\mathrm{b} h^2
+  omch2:
+    value: 0.1201717
+    latex: \Omega_\mathrm{c} h^2
+  omegam:
+    latex: \Omega_\mathrm{m}
+  omegamh2:
+    derived: 'lambda omegam, H0: omegam*(H0/100)**2'
+    latex: \Omega_\mathrm{m} h^2
+  mnu: 0.06
+  w:
+    value: -1.032966
+    latex: w_{0,\mathrm{DE}}
+  wa:
+    value: 0.00819477
+    latex: w_{a, \mathrm{DE}}
+  beta_DE:
+    value: 1.091425
+    latex: \beta_{\mathrm{DE}}
+  YHe:
+    latex: Y_\mathrm{P}
+  Y_p:
+    latex: Y_P^\mathrm{BBN}
+  DHBBN:
+    derived: 'lambda DH: 10**5*DH'
+    latex: 10^5 \mathrm{D}/\mathrm{H}
+  tau:
+    value: 0.06997392
+    latex: \tau_\mathrm{reio}
+  zrei:
+    latex: z_\mathrm{re}
+  sigma8:
+    latex: \sigma_8
+  s8h5:
+    derived: 'lambda sigma8, H0: sigma8*(H0*1e-2)**(-0.5)'
+    latex: \sigma_8/h^{0.5}
+  s8omegamp5:
+    derived: 'lambda sigma8, omegam: sigma8*omegam**0.5'
+    latex: \sigma_8 \Omega_\mathrm{m}^{0.5}
+  s8omegamp25:
+    derived: 'lambda sigma8, omegam: sigma8*omegam**0.25'
+    latex: \sigma_8 \Omega_\mathrm{m}^{0.25}
+  A:
+    derived: 'lambda As: 1e9*As'
+    latex: 10^9 A_\mathrm{s}
+  clggamp:
+    derived: 'lambda As, tau: 1e9*As*np.exp(-2*tau)'
+    latex: 10^9 A_\mathrm{s} e^{-2\tau}
+  age:
+    latex: '{\rm{Age}}/\mathrm{Gyr}'
+  rdrag:
+    latex: r_\mathrm{drag}
+sampler:
+  evaluate:
+    override:
+      beta_DE: -0.5
+
+output: -0.5
+debug: true
+ 2025-01-15 17:01:01,173 [exception handler] ---------------------------------------
+
+Traceback (most recent call last):
+  File "/users/smp24dhl/.conda/envs/cosmos/bin/cobaya-run", line 8, in <module>
+    sys.exit(run_script())
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/run.py", line 198, in run_script
+    run(info, **arguments.__dict__)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/run.py", line 94, in run
+    with get_output(prefix=info.get("output"), resume=info.get("resume"),
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/output.py", line 676, in get_output
+    return Output(*args, **kwargs)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/mpi.py", line 274, in wrapper
+    result = method(self, *args, **kwargs)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/output.py", line 353, in __init__
+    OutputReadOnly.__init__(self, prefix, infix)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/output.py", line 152, in __init__
+    self.folder, self.prefix = split_prefix(prefix)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/input.py", line 162, in split_prefix
+    folder = os.path.dirname(prefix) or "."
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/posixpath.py", line 152, in dirname
+    p = os.fspath(p)
+TypeError: expected str, bytes or os.PathLike object, not float
+-------------------------------------------------------------
+
+ 2025-01-15 17:01:01,173 [exception handler] Some unexpected ERROR occurred. You can see the exception information above.
+We recommend trying to reproduce this error with 'debug:True' in the input.
+If you cannot solve it yourself and need to report it, include the debug output,
+which you can send it to a file setting 'debug:[some_file_name]'.
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun detected that one or more processes exited with non-zero status, thus causing
+the job to be terminated. The first process to do so was:
+
+  Process name: [[32647,1],0]
+  Exit code:    1
+--------------------------------------------------------------------------
+Running for beta = -0.4
+theory:
+  camb:
+    path: /users/smp24dhl/cosmo/code/CAMB_beta
+    extra_args:
+      lens_potential_accuracy: 1
+      num_massive_neutrinos: 1
+      nnu: 3.044
+      theta_H0_range:
+      - 20
+      - 100
+likelihood:
+  planck_2018_highl_plik.TTTEEE:
+  planck_2018_lowl.TT:
+  planck_2018_lowl.EE:
+
+params:
+  logA:
+    value: 3.06958
+    latex: \log(10^{10} A_\mathrm{s})
+    drop: true
+  As:
+    value: 'lambda logA: 1e-10*np.exp(logA)'
+    latex: A_\mathrm{s}
+  ns:
+    value: 0.9659111
+    latex: n_\mathrm{s}
+  H0:
+    latex: H_0
+    value: 68.07373
+  ombh2:
+    value: 0.02230531
+    latex: \Omega_\mathrm{b} h^2
+  omch2:
+    value: 0.1201717
+    latex: \Omega_\mathrm{c} h^2
+  omegam:
+    latex: \Omega_\mathrm{m}
+  omegamh2:
+    derived: 'lambda omegam, H0: omegam*(H0/100)**2'
+    latex: \Omega_\mathrm{m} h^2
+  mnu: 0.06
+  w:
+    value: -1.032966
+    latex: w_{0,\mathrm{DE}}
+  wa:
+    value: 0.00819477
+    latex: w_{a, \mathrm{DE}}
+  beta_DE:
+    value: 1.091425
+    latex: \beta_{\mathrm{DE}}
+  YHe:
+    latex: Y_\mathrm{P}
+  Y_p:
+    latex: Y_P^\mathrm{BBN}
+  DHBBN:
+    derived: 'lambda DH: 10**5*DH'
+    latex: 10^5 \mathrm{D}/\mathrm{H}
+  tau:
+    value: 0.06997392
+    latex: \tau_\mathrm{reio}
+  zrei:
+    latex: z_\mathrm{re}
+  sigma8:
+    latex: \sigma_8
+  s8h5:
+    derived: 'lambda sigma8, H0: sigma8*(H0*1e-2)**(-0.5)'
+    latex: \sigma_8/h^{0.5}
+  s8omegamp5:
+    derived: 'lambda sigma8, omegam: sigma8*omegam**0.5'
+    latex: \sigma_8 \Omega_\mathrm{m}^{0.5}
+  s8omegamp25:
+    derived: 'lambda sigma8, omegam: sigma8*omegam**0.25'
+    latex: \sigma_8 \Omega_\mathrm{m}^{0.25}
+  A:
+    derived: 'lambda As: 1e9*As'
+    latex: 10^9 A_\mathrm{s}
+  clggamp:
+    derived: 'lambda As, tau: 1e9*As*np.exp(-2*tau)'
+    latex: 10^9 A_\mathrm{s} e^{-2\tau}
+  age:
+    latex: '{\rm{Age}}/\mathrm{Gyr}'
+  rdrag:
+    latex: r_\mathrm{drag}
+sampler:
+  evaluate:
+    override:
+      beta_DE: -0.4
+
+output: -0.4
+debug: true
+ 2025-01-15 17:01:02,331 [exception handler] ---------------------------------------
+
+Traceback (most recent call last):
+  File "/users/smp24dhl/.conda/envs/cosmos/bin/cobaya-run", line 8, in <module>
+    sys.exit(run_script())
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/run.py", line 198, in run_script
+    run(info, **arguments.__dict__)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/run.py", line 94, in run
+    with get_output(prefix=info.get("output"), resume=info.get("resume"),
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/output.py", line 676, in get_output
+    return Output(*args, **kwargs)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/mpi.py", line 274, in wrapper
+    result = method(self, *args, **kwargs)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/output.py", line 353, in __init__
+    OutputReadOnly.__init__(self, prefix, infix)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/output.py", line 152, in __init__
+    self.folder, self.prefix = split_prefix(prefix)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/input.py", line 162, in split_prefix
+    folder = os.path.dirname(prefix) or "."
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/posixpath.py", line 152, in dirname
+    p = os.fspath(p)
+TypeError: expected str, bytes or os.PathLike object, not float
+-------------------------------------------------------------
+
+ 2025-01-15 17:01:02,331 [exception handler] Some unexpected ERROR occurred. You can see the exception information above.
+We recommend trying to reproduce this error with 'debug:True' in the input.
+If you cannot solve it yourself and need to report it, include the debug output,
+which you can send it to a file setting 'debug:[some_file_name]'.
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun detected that one or more processes exited with non-zero status, thus causing
+the job to be terminated. The first process to do so was:
+
+  Process name: [[32628,1],0]
+  Exit code:    1
+--------------------------------------------------------------------------
+Running for beta = -0.3
+theory:
+  camb:
+    path: /users/smp24dhl/cosmo/code/CAMB_beta
+    extra_args:
+      lens_potential_accuracy: 1
+      num_massive_neutrinos: 1
+      nnu: 3.044
+      theta_H0_range:
+      - 20
+      - 100
+likelihood:
+  planck_2018_highl_plik.TTTEEE:
+  planck_2018_lowl.TT:
+  planck_2018_lowl.EE:
+
+params:
+  logA:
+    value: 3.06958
+    latex: \log(10^{10} A_\mathrm{s})
+    drop: true
+  As:
+    value: 'lambda logA: 1e-10*np.exp(logA)'
+    latex: A_\mathrm{s}
+  ns:
+    value: 0.9659111
+    latex: n_\mathrm{s}
+  H0:
+    latex: H_0
+    value: 68.07373
+  ombh2:
+    value: 0.02230531
+    latex: \Omega_\mathrm{b} h^2
+  omch2:
+    value: 0.1201717
+    latex: \Omega_\mathrm{c} h^2
+  omegam:
+    latex: \Omega_\mathrm{m}
+  omegamh2:
+    derived: 'lambda omegam, H0: omegam*(H0/100)**2'
+    latex: \Omega_\mathrm{m} h^2
+  mnu: 0.06
+  w:
+    value: -1.032966
+    latex: w_{0,\mathrm{DE}}
+  wa:
+    value: 0.00819477
+    latex: w_{a, \mathrm{DE}}
+  beta_DE:
+    value: 1.091425
+    latex: \beta_{\mathrm{DE}}
+  YHe:
+    latex: Y_\mathrm{P}
+  Y_p:
+    latex: Y_P^\mathrm{BBN}
+  DHBBN:
+    derived: 'lambda DH: 10**5*DH'
+    latex: 10^5 \mathrm{D}/\mathrm{H}
+  tau:
+    value: 0.06997392
+    latex: \tau_\mathrm{reio}
+  zrei:
+    latex: z_\mathrm{re}
+  sigma8:
+    latex: \sigma_8
+  s8h5:
+    derived: 'lambda sigma8, H0: sigma8*(H0*1e-2)**(-0.5)'
+    latex: \sigma_8/h^{0.5}
+  s8omegamp5:
+    derived: 'lambda sigma8, omegam: sigma8*omegam**0.5'
+    latex: \sigma_8 \Omega_\mathrm{m}^{0.5}
+  s8omegamp25:
+    derived: 'lambda sigma8, omegam: sigma8*omegam**0.25'
+    latex: \sigma_8 \Omega_\mathrm{m}^{0.25}
+  A:
+    derived: 'lambda As: 1e9*As'
+    latex: 10^9 A_\mathrm{s}
+  clggamp:
+    derived: 'lambda As, tau: 1e9*As*np.exp(-2*tau)'
+    latex: 10^9 A_\mathrm{s} e^{-2\tau}
+  age:
+    latex: '{\rm{Age}}/\mathrm{Gyr}'
+  rdrag:
+    latex: r_\mathrm{drag}
+sampler:
+  evaluate:
+    override:
+      beta_DE: -0.3
+
+output: -0.3
+debug: true
+ 2025-01-15 17:01:03,504 [exception handler] ---------------------------------------
+
+Traceback (most recent call last):
+  File "/users/smp24dhl/.conda/envs/cosmos/bin/cobaya-run", line 8, in <module>
+    sys.exit(run_script())
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/run.py", line 198, in run_script
+    run(info, **arguments.__dict__)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/run.py", line 94, in run
+    with get_output(prefix=info.get("output"), resume=info.get("resume"),
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/output.py", line 676, in get_output
+    return Output(*args, **kwargs)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/mpi.py", line 274, in wrapper
+    result = method(self, *args, **kwargs)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/output.py", line 353, in __init__
+    OutputReadOnly.__init__(self, prefix, infix)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/output.py", line 152, in __init__
+    self.folder, self.prefix = split_prefix(prefix)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/input.py", line 162, in split_prefix
+    folder = os.path.dirname(prefix) or "."
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/posixpath.py", line 152, in dirname
+    p = os.fspath(p)
+TypeError: expected str, bytes or os.PathLike object, not float
+-------------------------------------------------------------
+
+ 2025-01-15 17:01:03,504 [exception handler] Some unexpected ERROR occurred. You can see the exception information above.
+We recommend trying to reproduce this error with 'debug:True' in the input.
+If you cannot solve it yourself and need to report it, include the debug output,
+which you can send it to a file setting 'debug:[some_file_name]'.
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun detected that one or more processes exited with non-zero status, thus causing
+the job to be terminated. The first process to do so was:
+
+  Process name: [[31483,1],0]
+  Exit code:    1
+--------------------------------------------------------------------------
+Running for beta = -0.2
+theory:
+  camb:
+    path: /users/smp24dhl/cosmo/code/CAMB_beta
+    extra_args:
+      lens_potential_accuracy: 1
+      num_massive_neutrinos: 1
+      nnu: 3.044
+      theta_H0_range:
+      - 20
+      - 100
+likelihood:
+  planck_2018_highl_plik.TTTEEE:
+  planck_2018_lowl.TT:
+  planck_2018_lowl.EE:
+
+params:
+  logA:
+    value: 3.06958
+    latex: \log(10^{10} A_\mathrm{s})
+    drop: true
+  As:
+    value: 'lambda logA: 1e-10*np.exp(logA)'
+    latex: A_\mathrm{s}
+  ns:
+    value: 0.9659111
+    latex: n_\mathrm{s}
+  H0:
+    latex: H_0
+    value: 68.07373
+  ombh2:
+    value: 0.02230531
+    latex: \Omega_\mathrm{b} h^2
+  omch2:
+    value: 0.1201717
+    latex: \Omega_\mathrm{c} h^2
+  omegam:
+    latex: \Omega_\mathrm{m}
+  omegamh2:
+    derived: 'lambda omegam, H0: omegam*(H0/100)**2'
+    latex: \Omega_\mathrm{m} h^2
+  mnu: 0.06
+  w:
+    value: -1.032966
+    latex: w_{0,\mathrm{DE}}
+  wa:
+    value: 0.00819477
+    latex: w_{a, \mathrm{DE}}
+  beta_DE:
+    value: 1.091425
+    latex: \beta_{\mathrm{DE}}
+  YHe:
+    latex: Y_\mathrm{P}
+  Y_p:
+    latex: Y_P^\mathrm{BBN}
+  DHBBN:
+    derived: 'lambda DH: 10**5*DH'
+    latex: 10^5 \mathrm{D}/\mathrm{H}
+  tau:
+    value: 0.06997392
+    latex: \tau_\mathrm{reio}
+  zrei:
+    latex: z_\mathrm{re}
+  sigma8:
+    latex: \sigma_8
+  s8h5:
+    derived: 'lambda sigma8, H0: sigma8*(H0*1e-2)**(-0.5)'
+    latex: \sigma_8/h^{0.5}
+  s8omegamp5:
+    derived: 'lambda sigma8, omegam: sigma8*omegam**0.5'
+    latex: \sigma_8 \Omega_\mathrm{m}^{0.5}
+  s8omegamp25:
+    derived: 'lambda sigma8, omegam: sigma8*omegam**0.25'
+    latex: \sigma_8 \Omega_\mathrm{m}^{0.25}
+  A:
+    derived: 'lambda As: 1e9*As'
+    latex: 10^9 A_\mathrm{s}
+  clggamp:
+    derived: 'lambda As, tau: 1e9*As*np.exp(-2*tau)'
+    latex: 10^9 A_\mathrm{s} e^{-2\tau}
+  age:
+    latex: '{\rm{Age}}/\mathrm{Gyr}'
+  rdrag:
+    latex: r_\mathrm{drag}
+sampler:
+  evaluate:
+    override:
+      beta_DE: -0.2
+
+output: -0.2
+debug: true
+ 2025-01-15 17:01:04,651 [exception handler] ---------------------------------------
+
+Traceback (most recent call last):
+  File "/users/smp24dhl/.conda/envs/cosmos/bin/cobaya-run", line 8, in <module>
+    sys.exit(run_script())
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/run.py", line 198, in run_script
+    run(info, **arguments.__dict__)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/run.py", line 94, in run
+    with get_output(prefix=info.get("output"), resume=info.get("resume"),
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/output.py", line 676, in get_output
+    return Output(*args, **kwargs)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/mpi.py", line 274, in wrapper
+    result = method(self, *args, **kwargs)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/output.py", line 353, in __init__
+    OutputReadOnly.__init__(self, prefix, infix)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/output.py", line 152, in __init__
+    self.folder, self.prefix = split_prefix(prefix)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/input.py", line 162, in split_prefix
+    folder = os.path.dirname(prefix) or "."
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/posixpath.py", line 152, in dirname
+    p = os.fspath(p)
+TypeError: expected str, bytes or os.PathLike object, not float
+-------------------------------------------------------------
+
+ 2025-01-15 17:01:04,652 [exception handler] Some unexpected ERROR occurred. You can see the exception information above.
+We recommend trying to reproduce this error with 'debug:True' in the input.
+If you cannot solve it yourself and need to report it, include the debug output,
+which you can send it to a file setting 'debug:[some_file_name]'.
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun detected that one or more processes exited with non-zero status, thus causing
+the job to be terminated. The first process to do so was:
+
+  Process name: [[31332,1],0]
+  Exit code:    1
+--------------------------------------------------------------------------
+Running for beta = -0.1
+theory:
+  camb:
+    path: /users/smp24dhl/cosmo/code/CAMB_beta
+    extra_args:
+      lens_potential_accuracy: 1
+      num_massive_neutrinos: 1
+      nnu: 3.044
+      theta_H0_range:
+      - 20
+      - 100
+likelihood:
+  planck_2018_highl_plik.TTTEEE:
+  planck_2018_lowl.TT:
+  planck_2018_lowl.EE:
+
+params:
+  logA:
+    value: 3.06958
+    latex: \log(10^{10} A_\mathrm{s})
+    drop: true
+  As:
+    value: 'lambda logA: 1e-10*np.exp(logA)'
+    latex: A_\mathrm{s}
+  ns:
+    value: 0.9659111
+    latex: n_\mathrm{s}
+  H0:
+    latex: H_0
+    value: 68.07373
+  ombh2:
+    value: 0.02230531
+    latex: \Omega_\mathrm{b} h^2
+  omch2:
+    value: 0.1201717
+    latex: \Omega_\mathrm{c} h^2
+  omegam:
+    latex: \Omega_\mathrm{m}
+  omegamh2:
+    derived: 'lambda omegam, H0: omegam*(H0/100)**2'
+    latex: \Omega_\mathrm{m} h^2
+  mnu: 0.06
+  w:
+    value: -1.032966
+    latex: w_{0,\mathrm{DE}}
+  wa:
+    value: 0.00819477
+    latex: w_{a, \mathrm{DE}}
+  beta_DE:
+    value: 1.091425
+    latex: \beta_{\mathrm{DE}}
+  YHe:
+    latex: Y_\mathrm{P}
+  Y_p:
+    latex: Y_P^\mathrm{BBN}
+  DHBBN:
+    derived: 'lambda DH: 10**5*DH'
+    latex: 10^5 \mathrm{D}/\mathrm{H}
+  tau:
+    value: 0.06997392
+    latex: \tau_\mathrm{reio}
+  zrei:
+    latex: z_\mathrm{re}
+  sigma8:
+    latex: \sigma_8
+  s8h5:
+    derived: 'lambda sigma8, H0: sigma8*(H0*1e-2)**(-0.5)'
+    latex: \sigma_8/h^{0.5}
+  s8omegamp5:
+    derived: 'lambda sigma8, omegam: sigma8*omegam**0.5'
+    latex: \sigma_8 \Omega_\mathrm{m}^{0.5}
+  s8omegamp25:
+    derived: 'lambda sigma8, omegam: sigma8*omegam**0.25'
+    latex: \sigma_8 \Omega_\mathrm{m}^{0.25}
+  A:
+    derived: 'lambda As: 1e9*As'
+    latex: 10^9 A_\mathrm{s}
+  clggamp:
+    derived: 'lambda As, tau: 1e9*As*np.exp(-2*tau)'
+    latex: 10^9 A_\mathrm{s} e^{-2\tau}
+  age:
+    latex: '{\rm{Age}}/\mathrm{Gyr}'
+  rdrag:
+    latex: r_\mathrm{drag}
+sampler:
+  evaluate:
+    override:
+      beta_DE: -0.1
+
+output: -0.1
+debug: true
+ 2025-01-15 17:01:05,839 [exception handler] ---------------------------------------
+
+Traceback (most recent call last):
+  File "/users/smp24dhl/.conda/envs/cosmos/bin/cobaya-run", line 8, in <module>
+    sys.exit(run_script())
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/run.py", line 198, in run_script
+    run(info, **arguments.__dict__)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/run.py", line 94, in run
+    with get_output(prefix=info.get("output"), resume=info.get("resume"),
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/output.py", line 676, in get_output
+    return Output(*args, **kwargs)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/mpi.py", line 274, in wrapper
+    result = method(self, *args, **kwargs)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/output.py", line 353, in __init__
+    OutputReadOnly.__init__(self, prefix, infix)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/output.py", line 152, in __init__
+    self.folder, self.prefix = split_prefix(prefix)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/input.py", line 162, in split_prefix
+    folder = os.path.dirname(prefix) or "."
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/posixpath.py", line 152, in dirname
+    p = os.fspath(p)
+TypeError: expected str, bytes or os.PathLike object, not float
+-------------------------------------------------------------
+
+ 2025-01-15 17:01:05,839 [exception handler] Some unexpected ERROR occurred. You can see the exception information above.
+We recommend trying to reproduce this error with 'debug:True' in the input.
+If you cannot solve it yourself and need to report it, include the debug output,
+which you can send it to a file setting 'debug:[some_file_name]'.
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun detected that one or more processes exited with non-zero status, thus causing
+the job to be terminated. The first process to do so was:
+
+  Process name: [[26253,1],0]
+  Exit code:    1
+--------------------------------------------------------------------------
+Running for beta = 0.0
+theory:
+  camb:
+    path: /users/smp24dhl/cosmo/code/CAMB_beta
+    extra_args:
+      lens_potential_accuracy: 1
+      num_massive_neutrinos: 1
+      nnu: 3.044
+      theta_H0_range:
+      - 20
+      - 100
+likelihood:
+  planck_2018_highl_plik.TTTEEE:
+  planck_2018_lowl.TT:
+  planck_2018_lowl.EE:
+
+params:
+  logA:
+    value: 3.06958
+    latex: \log(10^{10} A_\mathrm{s})
+    drop: true
+  As:
+    value: 'lambda logA: 1e-10*np.exp(logA)'
+    latex: A_\mathrm{s}
+  ns:
+    value: 0.9659111
+    latex: n_\mathrm{s}
+  H0:
+    latex: H_0
+    value: 68.07373
+  ombh2:
+    value: 0.02230531
+    latex: \Omega_\mathrm{b} h^2
+  omch2:
+    value: 0.1201717
+    latex: \Omega_\mathrm{c} h^2
+  omegam:
+    latex: \Omega_\mathrm{m}
+  omegamh2:
+    derived: 'lambda omegam, H0: omegam*(H0/100)**2'
+    latex: \Omega_\mathrm{m} h^2
+  mnu: 0.06
+  w:
+    value: -1.032966
+    latex: w_{0,\mathrm{DE}}
+  wa:
+    value: 0.00819477
+    latex: w_{a, \mathrm{DE}}
+  beta_DE:
+    value: 1.091425
+    latex: \beta_{\mathrm{DE}}
+  YHe:
+    latex: Y_\mathrm{P}
+  Y_p:
+    latex: Y_P^\mathrm{BBN}
+  DHBBN:
+    derived: 'lambda DH: 10**5*DH'
+    latex: 10^5 \mathrm{D}/\mathrm{H}
+  tau:
+    value: 0.06997392
+    latex: \tau_\mathrm{reio}
+  zrei:
+    latex: z_\mathrm{re}
+  sigma8:
+    latex: \sigma_8
+  s8h5:
+    derived: 'lambda sigma8, H0: sigma8*(H0*1e-2)**(-0.5)'
+    latex: \sigma_8/h^{0.5}
+  s8omegamp5:
+    derived: 'lambda sigma8, omegam: sigma8*omegam**0.5'
+    latex: \sigma_8 \Omega_\mathrm{m}^{0.5}
+  s8omegamp25:
+    derived: 'lambda sigma8, omegam: sigma8*omegam**0.25'
+    latex: \sigma_8 \Omega_\mathrm{m}^{0.25}
+  A:
+    derived: 'lambda As: 1e9*As'
+    latex: 10^9 A_\mathrm{s}
+  clggamp:
+    derived: 'lambda As, tau: 1e9*As*np.exp(-2*tau)'
+    latex: 10^9 A_\mathrm{s} e^{-2\tau}
+  age:
+    latex: '{\rm{Age}}/\mathrm{Gyr}'
+  rdrag:
+    latex: r_\mathrm{drag}
+sampler:
+  evaluate:
+    override:
+      beta_DE: 0.0
+
+output: 0.0
+debug: true
+ 2025-01-15 17:01:07,007 [outputdummy] No output requested. Doing nothing.
+ 2025-01-15 17:01:07,242 [run] Input info updated with defaults (dumped to YAML):
+theory:
+  camb:
+    version: null
+    path: /users/smp24dhl/cosmo/code/CAMB_beta
+    speed: 0.3
+    stop_at_error: false
+    extra_args:
+      lens_potential_accuracy: 1
+      num_massive_neutrinos: 1
+      nnu: 3.044
+      theta_H0_range:
+      - 20
+      - 100
+    ignore_obsolete: false
+    use_renames: false
+    external_primordial_pk: false
+    renames:
+      omegabh2: ombh2
+      omegach2: omch2
+      omegal: omega_de
+      omegak: omk
+      yhe: YHe
+      yheused: YHe
+      YpBBN: Y_p
+likelihood:
+  planck_2018_highl_plik.TTTEEE:
+    path: null
+    clik_file: baseline/plc_3.0/hi_l/plik/plik_rd12_HM_v22b_TTTEEE.clik
+    product_id: '151902'
+    aliases:
+    - plikHM_TTTEEE
+    speed: 30
+    params:
+      A_planck:
+        prior:
+          dist: norm
+          loc: 1
+          scale: 0.0025
+        ref:
+          dist: norm
+          loc: 1
+          scale: 0.002
+        proposal: 0.0005
+        latex: y_\mathrm{cal}
+        renames: calPlanck
+      calib_100T:
+        prior:
+          dist: norm
+          loc: 1.0002
+          scale: 0.0007
+        ref:
+          dist: norm
+          loc: 1.0002
+          scale: 0.001
+        proposal: 0.0005
+        latex: c_{100}
+        renames: cal0
+      calib_217T:
+        prior:
+          dist: norm
+          loc: 0.99805
+          scale: 0.00065
+        ref:
+          dist: norm
+          loc: 0.99805
+          scale: 0.001
+        proposal: 0.0005
+        latex: c_{217}
+        renames: cal2
+      A_pol: 1
+      calib_100P: 1.021
+      calib_143P: 0.966
+      calib_217P: 1.04
+      cib_index: -1.3
+      A_cib_217:
+        prior:
+          dist: uniform
+          min: 0
+          max: 200
+        ref:
+          dist: norm
+          loc: 67
+          scale: 10
+        proposal: 1.2
+        latex: A^\mathrm{CIB}_{217}
+        renames: acib217
+      xi_sz_cib:
+        prior:
+          dist: uniform
+          min: 0
+          max: 1
+        ref:
+          dist: halfnorm
+          loc: 0
+          scale: 0.1
+        proposal: 0.1
+        latex: \xi^{\mathrm{tSZ}\times\mathrm{CIB}}
+        renames: xi
+      A_sz:
+        prior:
+          dist: uniform
+          min: 0
+          max: 10
+        ref:
+          dist: norm
+          loc: 7
+          scale: 2
+        proposal: 0.6
+        latex: A^\mathrm{tSZ}_{143}
+        renames: asz143
+      ksz_norm:
+        prior:
+          dist: uniform
+          min: 0
+          max: 10
+        ref:
+          dist: halfnorm
+          loc: 0
+          scale: 3
+        proposal: 1
+        latex: A^\mathrm{kSZ}
+        renames: aksz
+      gal545_A_100:
+        prior:
+          dist: norm
+          loc: 8.6
+          scale: 2
+        ref:
+          dist: norm
+          loc: 7
+          scale: 2
+        proposal: 1
+        latex: A^\mathrm{dustTT}_{100}
+        renames: kgal100
+      gal545_A_143:
+        prior:
+          dist: norm
+          loc: 10.6
+          scale: 2
+        ref:
+          dist: norm
+          loc: 9
+          scale: 2
+        proposal: 1
+        latex: A^\mathrm{dustTT}_{143}
+        renames: kgal143
+      gal545_A_143_217:
+        prior:
+          dist: norm
+          loc: 23.5
+          scale: 8.5
+        ref:
+          dist: norm
+          loc: 21
+          scale: 4
+        proposal: 1.5
+        latex: A^\mathrm{dustTT}_{\mathrm{143}\times\mathrm{217}}
+        renames: kgal143217
+      gal545_A_217:
+        prior:
+          dist: norm
+          loc: 91.9
+          scale: 20
+        ref:
+          dist: norm
+          loc: 80
+          scale: 15
+        proposal: 2
+        latex: A^\mathrm{dustTT}_{217}
+        renames: kgal217
+      A_sbpx_100_100_TT: 1
+      A_sbpx_143_143_TT: 1
+      A_sbpx_143_217_TT: 1
+      A_sbpx_217_217_TT: 1
+      ps_A_100_100:
+        prior:
+          dist: uniform
+          min: 0
+          max: 400
+        ref:
+          dist: norm
+          loc: 257
+          scale: 24
+        proposal: 17
+        latex: A^\mathrm{PS}_{100}
+        renames: aps100
+      ps_A_143_143:
+        prior:
+          dist: uniform
+          min: 0
+          max: 400
+        ref:
+          dist: norm
+          loc: 47
+          scale: 10
+        proposal: 3
+        latex: A^\mathrm{PS}_{143}
+        renames: aps143
+      ps_A_143_217:
+        prior:
+          dist: uniform
+          min: 0
+          max: 400
+        ref:
+          dist: norm
+          loc: 40
+          scale: 12
+        proposal: 2
+        latex: A^\mathrm{PS}_{\mathrm{143}\times\mathrm{217}}
+        renames: aps143217
+      ps_A_217_217:
+        prior:
+          dist: uniform
+          min: 0
+          max: 400
+        ref:
+          dist: norm
+          loc: 104
+          scale: 13
+        proposal: 2.5
+        latex: A^\mathrm{PS}_{217}
+        renames: aps217
+      galf_TE_index: -2.4
+      galf_TE_A_100:
+        prior:
+          dist: norm
+          loc: 0.13
+          scale: 0.042
+        ref:
+          dist: norm
+          loc: 0.13
+          scale: 0.1
+        proposal: 0.1
+        latex: A^\mathrm{dustTE}_{100}
+        renames: galfTE100
+      galf_TE_A_100_143:
+        prior:
+          dist: norm
+          loc: 0.13
+          scale: 0.036
+        ref:
+          dist: norm
+          loc: 0.13
+          scale: 0.1
+        proposal: 0.1
+        latex: A^\mathrm{dustTE}_{\mathrm{100}\times\mathrm{143}}
+        renames: galfTE100143
+      galf_TE_A_100_217:
+        prior:
+          dist: norm
+          loc: 0.46
+          scale: 0.09
+        ref:
+          dist: norm
+          loc: 0.46
+          scale: 0.1
+        proposal: 0.1
+        latex: A^\mathrm{dustTE}_{\mathrm{100}\times\mathrm{217}}
+        renames: galfTE100217
+      galf_TE_A_143:
+        prior:
+          dist: norm
+          loc: 0.207
+          scale: 0.072
+        ref:
+          dist: norm
+          loc: 0.207
+          scale: 0.1
+        proposal: 0.1
+        latex: A^\mathrm{dustTE}_{143}
+        renames: galfTE143
+      galf_TE_A_143_217:
+        prior:
+          dist: norm
+          loc: 0.69
+          scale: 0.09
+        ref:
+          dist: norm
+          loc: 0.69
+          scale: 0.1
+        proposal: 0.1
+        latex: A^\mathrm{dustTE}_{\mathrm{143}\times\mathrm{217}}
+        renames: galfTE143217
+      galf_TE_A_217:
+        prior:
+          dist: norm
+          loc: 1.938
+          scale: 0.54
+        ref:
+          dist: norm
+          loc: 1.938
+          scale: 0.2
+        proposal: 0.2
+        latex: A^\mathrm{dustTE}_{217}
+        renames: galfTE217
+      galf_EE_index: -2.4
+      galf_EE_A_100:
+        value: 0.055
+        latex: A^\mathrm{dustEE}_{100}
+        renames: galfEE100
+      galf_EE_A_100_143:
+        value: 0.04
+        latex: A^\mathrm{dustEE}_{\mathrm{100}\times\mathrm{143}}
+        renames: galfEE100143
+      galf_EE_A_100_217:
+        value: 0.094
+        latex: A^\mathrm{dustEE}_{\mathrm{100}\times\mathrm{217}}
+        renames: galfEE100217
+      galf_EE_A_143:
+        value: 0.086
+        latex: A^\mathrm{dustEE}_{143}
+        renames: galfEE143
+      galf_EE_A_143_217:
+        value: 0.21
+        latex: A^\mathrm{dustEE}_{\mathrm{143}\times\mathrm{217}}
+        renames: galfEE143217
+      galf_EE_A_217:
+        value: 0.7
+        latex: A^\mathrm{dustEE}_{217}
+        renames: galfEE217
+      A_cnoise_e2e_100_100_EE: 1
+      A_cnoise_e2e_143_143_EE: 1
+      A_cnoise_e2e_217_217_EE: 1
+      A_sbpx_100_100_EE: 1
+      A_sbpx_100_143_EE: 1
+      A_sbpx_100_217_EE: 1
+      A_sbpx_143_143_EE: 1
+      A_sbpx_143_217_EE: 1
+      A_sbpx_217_217_EE: 1
+    prior:
+      SZ: 'lambda ksz_norm, A_sz: stats.norm.logpdf(ksz_norm+1.6*A_sz, loc=9.5, scale=3.0)'
+    type: CMB
+    stop_at_error: false
+    version: null
+  planck_2018_lowl.TT:
+    lmin: 2
+    lmax: 29
+    type: CMB
+    aliases:
+    - lowT
+    speed: -1
+    stop_at_error: false
+    version: null
+  planck_2018_lowl.EE:
+    type: CMB
+    aliases:
+    - lowE
+    speed: -1
+    stop_at_error: false
+    version: null
+prior:
+  SZ: 'lambda ksz_norm, A_sz: stats.norm.logpdf(ksz_norm+1.6*A_sz, loc=9.5, scale=3.0)'
+params:
+  logA:
+    value: 3.06958
+    latex: \log(10^{10} A_\mathrm{s})
+    drop: true
+  As:
+    value: 'lambda logA: 1e-10*np.exp(logA)'
+    latex: A_\mathrm{s}
+    derived: true
+  ns:
+    value: 0.9659111
+    latex: n_\mathrm{s}
+  H0:
+    latex: H_0
+    value: 68.07373
+  ombh2:
+    value: 0.02230531
+    latex: \Omega_\mathrm{b} h^2
+    renames:
+    - omegabh2
+  omch2:
+    value: 0.1201717
+    latex: \Omega_\mathrm{c} h^2
+    renames:
+    - omegach2
+  omegam:
+    latex: \Omega_\mathrm{m}
+    derived: true
+  omegamh2:
+    derived: 'lambda omegam, H0: omegam*(H0/100)**2'
+    latex: \Omega_\mathrm{m} h^2
+  mnu:
+    value: 0.06
+  w:
+    value: -1.032966
+    latex: w_{0,\mathrm{DE}}
+  wa:
+    value: 0.00819477
+    latex: w_{a, \mathrm{DE}}
+  beta_DE:
+    value: 1.091425
+    latex: \beta_{\mathrm{DE}}
+  YHe:
+    latex: Y_\mathrm{P}
+    derived: true
+    renames:
+    - yhe
+    - yheused
+  Y_p:
+    latex: Y_P^\mathrm{BBN}
+    derived: true
+    renames:
+    - YpBBN
+  DHBBN:
+    derived: 'lambda DH: 10**5*DH'
+    latex: 10^5 \mathrm{D}/\mathrm{H}
+  tau:
+    value: 0.06997392
+    latex: \tau_\mathrm{reio}
+  zrei:
+    latex: z_\mathrm{re}
+    derived: true
+  sigma8:
+    latex: \sigma_8
+    derived: true
+  s8h5:
+    derived: 'lambda sigma8, H0: sigma8*(H0*1e-2)**(-0.5)'
+    latex: \sigma_8/h^{0.5}
+  s8omegamp5:
+    derived: 'lambda sigma8, omegam: sigma8*omegam**0.5'
+    latex: \sigma_8 \Omega_\mathrm{m}^{0.5}
+  s8omegamp25:
+    derived: 'lambda sigma8, omegam: sigma8*omegam**0.25'
+    latex: \sigma_8 \Omega_\mathrm{m}^{0.25}
+  A:
+    derived: 'lambda As: 1e9*As'
+    latex: 10^9 A_\mathrm{s}
+  clggamp:
+    derived: 'lambda As, tau: 1e9*As*np.exp(-2*tau)'
+    latex: 10^9 A_\mathrm{s} e^{-2\tau}
+  age:
+    latex: '{\rm{Age}}/\mathrm{Gyr}'
+    derived: true
+  rdrag:
+    latex: r_\mathrm{drag}
+    derived: true
+  A_planck:
+    prior:
+      dist: norm
+      loc: 1
+      scale: 0.0025
+    ref:
+      dist: norm
+      loc: 1
+      scale: 0.002
+    proposal: 0.0005
+    latex: y_\mathrm{cal}
+    renames: calPlanck
+  calib_100T:
+    prior:
+      dist: norm
+      loc: 1.0002
+      scale: 0.0007
+    ref:
+      dist: norm
+      loc: 1.0002
+      scale: 0.001
+    proposal: 0.0005
+    latex: c_{100}
+    renames: cal0
+  calib_217T:
+    prior:
+      dist: norm
+      loc: 0.99805
+      scale: 0.00065
+    ref:
+      dist: norm
+      loc: 0.99805
+      scale: 0.001
+    proposal: 0.0005
+    latex: c_{217}
+    renames: cal2
+  A_pol:
+    value: 1
+  calib_100P:
+    value: 1.021
+  calib_143P:
+    value: 0.966
+  calib_217P:
+    value: 1.04
+  cib_index:
+    value: -1.3
+  A_cib_217:
+    prior:
+      dist: uniform
+      min: 0
+      max: 200
+    ref:
+      dist: norm
+      loc: 67
+      scale: 10
+    proposal: 1.2
+    latex: A^\mathrm{CIB}_{217}
+    renames: acib217
+  xi_sz_cib:
+    prior:
+      dist: uniform
+      min: 0
+      max: 1
+    ref:
+      dist: halfnorm
+      loc: 0
+      scale: 0.1
+    proposal: 0.1
+    latex: \xi^{\mathrm{tSZ}\times\mathrm{CIB}}
+    renames: xi
+  A_sz:
+    prior:
+      dist: uniform
+      min: 0
+      max: 10
+    ref:
+      dist: norm
+      loc: 7
+      scale: 2
+    proposal: 0.6
+    latex: A^\mathrm{tSZ}_{143}
+    renames: asz143
+  ksz_norm:
+    prior:
+      dist: uniform
+      min: 0
+      max: 10
+    ref:
+      dist: halfnorm
+      loc: 0
+      scale: 3
+    proposal: 1
+    latex: A^\mathrm{kSZ}
+    renames: aksz
+  gal545_A_100:
+    prior:
+      dist: norm
+      loc: 8.6
+      scale: 2
+    ref:
+      dist: norm
+      loc: 7
+      scale: 2
+    proposal: 1
+    latex: A^\mathrm{dustTT}_{100}
+    renames: kgal100
+  gal545_A_143:
+    prior:
+      dist: norm
+      loc: 10.6
+      scale: 2
+    ref:
+      dist: norm
+      loc: 9
+      scale: 2
+    proposal: 1
+    latex: A^\mathrm{dustTT}_{143}
+    renames: kgal143
+  gal545_A_143_217:
+    prior:
+      dist: norm
+      loc: 23.5
+      scale: 8.5
+    ref:
+      dist: norm
+      loc: 21
+      scale: 4
+    proposal: 1.5
+    latex: A^\mathrm{dustTT}_{\mathrm{143}\times\mathrm{217}}
+    renames: kgal143217
+  gal545_A_217:
+    prior:
+      dist: norm
+      loc: 91.9
+      scale: 20
+    ref:
+      dist: norm
+      loc: 80
+      scale: 15
+    proposal: 2
+    latex: A^\mathrm{dustTT}_{217}
+    renames: kgal217
+  A_sbpx_100_100_TT:
+    value: 1
+  A_sbpx_143_143_TT:
+    value: 1
+  A_sbpx_143_217_TT:
+    value: 1
+  A_sbpx_217_217_TT:
+    value: 1
+  ps_A_100_100:
+    prior:
+      dist: uniform
+      min: 0
+      max: 400
+    ref:
+      dist: norm
+      loc: 257
+      scale: 24
+    proposal: 17
+    latex: A^\mathrm{PS}_{100}
+    renames: aps100
+  ps_A_143_143:
+    prior:
+      dist: uniform
+      min: 0
+      max: 400
+    ref:
+      dist: norm
+      loc: 47
+      scale: 10
+    proposal: 3
+    latex: A^\mathrm{PS}_{143}
+    renames: aps143
+  ps_A_143_217:
+    prior:
+      dist: uniform
+      min: 0
+      max: 400
+    ref:
+      dist: norm
+      loc: 40
+      scale: 12
+    proposal: 2
+    latex: A^\mathrm{PS}_{\mathrm{143}\times\mathrm{217}}
+    renames: aps143217
+  ps_A_217_217:
+    prior:
+      dist: uniform
+      min: 0
+      max: 400
+    ref:
+      dist: norm
+      loc: 104
+      scale: 13
+    proposal: 2.5
+    latex: A^\mathrm{PS}_{217}
+    renames: aps217
+  galf_TE_index:
+    value: -2.4
+  galf_TE_A_100:
+    prior:
+      dist: norm
+      loc: 0.13
+      scale: 0.042
+    ref:
+      dist: norm
+      loc: 0.13
+      scale: 0.1
+    proposal: 0.1
+    latex: A^\mathrm{dustTE}_{100}
+    renames: galfTE100
+  galf_TE_A_100_143:
+    prior:
+      dist: norm
+      loc: 0.13
+      scale: 0.036
+    ref:
+      dist: norm
+      loc: 0.13
+      scale: 0.1
+    proposal: 0.1
+    latex: A^\mathrm{dustTE}_{\mathrm{100}\times\mathrm{143}}
+    renames: galfTE100143
+  galf_TE_A_100_217:
+    prior:
+      dist: norm
+      loc: 0.46
+      scale: 0.09
+    ref:
+      dist: norm
+      loc: 0.46
+      scale: 0.1
+    proposal: 0.1
+    latex: A^\mathrm{dustTE}_{\mathrm{100}\times\mathrm{217}}
+    renames: galfTE100217
+  galf_TE_A_143:
+    prior:
+      dist: norm
+      loc: 0.207
+      scale: 0.072
+    ref:
+      dist: norm
+      loc: 0.207
+      scale: 0.1
+    proposal: 0.1
+    latex: A^\mathrm{dustTE}_{143}
+    renames: galfTE143
+  galf_TE_A_143_217:
+    prior:
+      dist: norm
+      loc: 0.69
+      scale: 0.09
+    ref:
+      dist: norm
+      loc: 0.69
+      scale: 0.1
+    proposal: 0.1
+    latex: A^\mathrm{dustTE}_{\mathrm{143}\times\mathrm{217}}
+    renames: galfTE143217
+  galf_TE_A_217:
+    prior:
+      dist: norm
+      loc: 1.938
+      scale: 0.54
+    ref:
+      dist: norm
+      loc: 1.938
+      scale: 0.2
+    proposal: 0.2
+    latex: A^\mathrm{dustTE}_{217}
+    renames: galfTE217
+  galf_EE_index:
+    value: -2.4
+  galf_EE_A_100:
+    value: 0.055
+    latex: A^\mathrm{dustEE}_{100}
+    renames: galfEE100
+  galf_EE_A_100_143:
+    value: 0.04
+    latex: A^\mathrm{dustEE}_{\mathrm{100}\times\mathrm{143}}
+    renames: galfEE100143
+  galf_EE_A_100_217:
+    value: 0.094
+    latex: A^\mathrm{dustEE}_{\mathrm{100}\times\mathrm{217}}
+    renames: galfEE100217
+  galf_EE_A_143:
+    value: 0.086
+    latex: A^\mathrm{dustEE}_{143}
+    renames: galfEE143
+  galf_EE_A_143_217:
+    value: 0.21
+    latex: A^\mathrm{dustEE}_{\mathrm{143}\times\mathrm{217}}
+    renames: galfEE143217
+  galf_EE_A_217:
+    value: 0.7
+    latex: A^\mathrm{dustEE}_{217}
+    renames: galfEE217
+  A_cnoise_e2e_100_100_EE:
+    value: 1
+  A_cnoise_e2e_143_143_EE:
+    value: 1
+  A_cnoise_e2e_217_217_EE:
+    value: 1
+  A_sbpx_100_100_EE:
+    value: 1
+  A_sbpx_100_143_EE:
+    value: 1
+  A_sbpx_100_217_EE:
+    value: 1
+  A_sbpx_143_143_EE:
+    value: 1
+  A_sbpx_143_217_EE:
+    value: 1
+  A_sbpx_217_217_EE:
+    value: 1
+  chi2__CMB:
+    latex: \chi^2_\mathrm{CMB}
+    derived: true
+sampler:
+  evaluate:
+    N: 1
+    override:
+      beta_DE: 0.0
+    seed: null
+    version: null
+output: 0.0
+debug: true
+
+ 2025-01-15 17:01:07,273 [prior] Loading external prior 'SZ' from: 'lambda ksz_norm, A_sz: stats.norm.logpdf(ksz_norm+1.6*A_sz, loc=9.5, scale=3.0)'
+ 2025-01-15 17:01:07,273 [prior] *WARNING* External prior 'SZ' loaded. Mind that it might not be normalized!
+ 2025-01-15 17:01:07,275 [camb] Attempting import from /users/smp24dhl/cosmo/code/CAMB_beta.
+ 2025-01-15 17:01:07,275 [camb] 'camb' to be imported from (sub)directory /users/smp24dhl/cosmo/code/CAMB_beta
+ 2025-01-15 17:01:07,325 [camb] `camb` module loaded successfully from /users/smp24dhl/cosmo/code/CAMB_beta/camb
+ 2025-01-15 17:01:07,327 [planck_2018_highl_plik.ttteee] Attempting import of Cobaya-installed version, but defaulting to global import if not found.
+ 2025-01-15 17:01:07,329 [planck_2018_highl_plik.ttteee] 'clik' to be imported from (sub)directory /users/smp24dhl/cosmo/code/planck/clik/lib/python/site-packages
+ 2025-01-15 17:01:07,459 [planck_2018_highl_plik.ttteee] Could not import 'clik' from /users/smp24dhl/cosmo/code/planck: Module clik successfully loaded, but not from requested path: /users/smp24dhl/cosmo/code/planck/clik/lib/python/site-packages, but instead from /users/smp24dhl/cosmo/code/planck/clik/lib/python3.9/site-packages/clik
+ 2025-01-15 17:01:07,460 [planck_2018_highl_plik.ttteee] Defaulting to global import.
+ 2025-01-15 17:01:07,460 [planck_2018_highl_plik.ttteee] `clik` module loaded successfully from /users/smp24dhl/cosmo/code/planck/clik/lib/python3.9/site-packages/clik
+----
+clik version clik_16.0b1-2-g63c889f3aa9c MAKEFILE
+  smica
+Checking likelihood '/users/smp24dhl/cosmo/data/planck_2018/baseline/plc_3.0/hi_l/plik/plik_rd12_HM_v22b_TTTEEE.clik' on test data. got -1172.47 expected -1172.47 (diff -4.34054e-07)
+----
+ 2025-01-15 17:01:07,917 [model] Parameters were assigned as follows:
+ 2025-01-15 17:01:07,917 [model] - planck_2018_highl_plik.TTTEEE:
+ 2025-01-15 17:01:07,917 [model]      Input:  ['A_planck', 'calib_100T', 'calib_217T', 'A_pol', 'calib_100P', 'calib_143P', 'calib_217P', 'cib_index', 'A_cib_217', 'xi_sz_cib', 'A_sz', 'ksz_norm', 'gal545_A_100', 'gal545_A_143', 'gal545_A_143_217', 'gal545_A_217', 'A_sbpx_100_100_TT', 'A_sbpx_143_143_TT', 'A_sbpx_143_217_TT', 'A_sbpx_217_217_TT', 'ps_A_100_100', 'ps_A_143_143', 'ps_A_143_217', 'ps_A_217_217', 'galf_TE_index', 'galf_TE_A_100', 'galf_TE_A_100_143', 'galf_TE_A_100_217', 'galf_TE_A_143', 'galf_TE_A_143_217', 'galf_TE_A_217', 'galf_EE_index', 'galf_EE_A_100', 'galf_EE_A_100_143', 'galf_EE_A_100_217', 'galf_EE_A_143', 'galf_EE_A_143_217', 'galf_EE_A_217', 'A_cnoise_e2e_100_100_EE', 'A_cnoise_e2e_143_143_EE', 'A_cnoise_e2e_217_217_EE', 'A_sbpx_100_100_EE', 'A_sbpx_100_143_EE', 'A_sbpx_100_217_EE', 'A_sbpx_143_143_EE', 'A_sbpx_143_217_EE', 'A_sbpx_217_217_EE']
+ 2025-01-15 17:01:07,917 [model]      Output: []
+ 2025-01-15 17:01:07,917 [model] - planck_2018_lowl.TT:
+ 2025-01-15 17:01:07,917 [model]      Input:  ['A_planck']
+ 2025-01-15 17:01:07,917 [model]      Output: []
+ 2025-01-15 17:01:07,917 [model] - planck_2018_lowl.EE:
+ 2025-01-15 17:01:07,917 [model]      Input:  ['A_planck']
+ 2025-01-15 17:01:07,917 [model]      Output: []
+ 2025-01-15 17:01:07,917 [model] - camb.transfers:
+ 2025-01-15 17:01:07,917 [model]      Input:  ['H0', 'ombh2', 'omch2', 'mnu', 'w', 'wa', 'beta_DE', 'tau']
+ 2025-01-15 17:01:07,918 [model]      Output: []
+ 2025-01-15 17:01:07,918 [model] - camb:
+ 2025-01-15 17:01:07,918 [model]      Input:  ['As', 'ns']
+ 2025-01-15 17:01:07,918 [model]      Output: ['omegam', 'YHe', 'Y_p', 'zrei', 'sigma8', 'age', 'rdrag', 'DH']
+ 2025-01-15 17:01:07,921 [model] Components will be computed in the order:
+ 2025-01-15 17:01:07,921 [model]  - [camb.transfers, camb, planck_2018_highl_plik.TTTEEE, planck_2018_lowl.TT, planck_2018_lowl.EE]
+ 2025-01-15 17:01:07,922 [model] Requirements will be calculated by these components:
+ 2025-01-15 17:01:07,922 [model] - Cl: camb
+ 2025-01-15 17:01:07,922 [model] - CAMB_transfers: camb.transfers
+ 2025-01-15 17:01:07,962 [evaluate] Initialized!
+ 2025-01-15 17:01:07,963 [evaluate] Looking for a reference point with non-zero prior.
+ 2025-01-15 17:01:07,963 [prior] Evaluating prior at array([9.99495264e-01, 9.98822161e-01, 9.97742425e-01, 6.71755042e+01,
+       1.67310513e-01, 7.50396478e+00, 3.70529018e+00, 6.08370201e+00,
+       8.71514717e+00, 1.74228980e+01, 7.40072026e+01, 2.68098077e+02,
+       4.74820625e+01, 4.15944238e+01, 1.01662181e+02, 2.67025402e-01,
+       2.49674775e-01, 6.19354297e-01, 3.84096147e-01, 5.64834651e-01,
+       1.75777415e+00])
+ 2025-01-15 17:01:07,964 [prior] Got logpriors (internal) = -37.609284921215604
+ 2025-01-15 17:01:07,964 [prior] Got logpriors (external) = [-4.161128310134019]
+ 2025-01-15 17:01:07,964 [evaluate] *ERROR* Parameter 'beta_DE' used in override not known. Known parameters names are {'A_planck': 0.9994952640410275, 'calib_100T': 0.9988221612029178, 'calib_217T': 0.9977424251962265, 'A_cib_217': 67.17550418839718, 'xi_sz_cib': 0.16731051285669332, 'A_sz': 7.503964777814813, 'ksz_norm': 3.705290181528083, 'gal545_A_100': 6.083702010421679, 'gal545_A_143': 8.715147169088924, 'gal545_A_143_217': 17.422898038509878, 'gal545_A_217': 74.00720256075282, 'ps_A_100_100': 268.0980771656871, 'ps_A_143_143': 47.48206250266459, 'ps_A_143_217': 41.59442380250205, 'ps_A_217_217': 101.66218069231299, 'galf_TE_A_100': 0.26702540217519954, 'galf_TE_A_100_143': 0.24967477518645537, 'galf_TE_A_100_217': 0.6193542967832215, 'galf_TE_A_143': 0.38409614714393336, 'galf_TE_A_143_217': 0.5648346510746729, 'galf_TE_A_217': 1.757774153595177}.
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun detected that one or more processes exited with non-zero status, thus causing
+the job to be terminated. The first process to do so was:
+
+  Process name: [[24691,1],0]
+  Exit code:    1
+--------------------------------------------------------------------------
+Running for beta = 0.1
+theory:
+  camb:
+    path: /users/smp24dhl/cosmo/code/CAMB_beta
+    extra_args:
+      lens_potential_accuracy: 1
+      num_massive_neutrinos: 1
+      nnu: 3.044
+      theta_H0_range:
+      - 20
+      - 100
+likelihood:
+  planck_2018_highl_plik.TTTEEE:
+  planck_2018_lowl.TT:
+  planck_2018_lowl.EE:
+
+params:
+  logA:
+    value: 3.06958
+    latex: \log(10^{10} A_\mathrm{s})
+    drop: true
+  As:
+    value: 'lambda logA: 1e-10*np.exp(logA)'
+    latex: A_\mathrm{s}
+  ns:
+    value: 0.9659111
+    latex: n_\mathrm{s}
+  H0:
+    latex: H_0
+    value: 68.07373
+  ombh2:
+    value: 0.02230531
+    latex: \Omega_\mathrm{b} h^2
+  omch2:
+    value: 0.1201717
+    latex: \Omega_\mathrm{c} h^2
+  omegam:
+    latex: \Omega_\mathrm{m}
+  omegamh2:
+    derived: 'lambda omegam, H0: omegam*(H0/100)**2'
+    latex: \Omega_\mathrm{m} h^2
+  mnu: 0.06
+  w:
+    value: -1.032966
+    latex: w_{0,\mathrm{DE}}
+  wa:
+    value: 0.00819477
+    latex: w_{a, \mathrm{DE}}
+  beta_DE:
+    value: 1.091425
+    latex: \beta_{\mathrm{DE}}
+  YHe:
+    latex: Y_\mathrm{P}
+  Y_p:
+    latex: Y_P^\mathrm{BBN}
+  DHBBN:
+    derived: 'lambda DH: 10**5*DH'
+    latex: 10^5 \mathrm{D}/\mathrm{H}
+  tau:
+    value: 0.06997392
+    latex: \tau_\mathrm{reio}
+  zrei:
+    latex: z_\mathrm{re}
+  sigma8:
+    latex: \sigma_8
+  s8h5:
+    derived: 'lambda sigma8, H0: sigma8*(H0*1e-2)**(-0.5)'
+    latex: \sigma_8/h^{0.5}
+  s8omegamp5:
+    derived: 'lambda sigma8, omegam: sigma8*omegam**0.5'
+    latex: \sigma_8 \Omega_\mathrm{m}^{0.5}
+  s8omegamp25:
+    derived: 'lambda sigma8, omegam: sigma8*omegam**0.25'
+    latex: \sigma_8 \Omega_\mathrm{m}^{0.25}
+  A:
+    derived: 'lambda As: 1e9*As'
+    latex: 10^9 A_\mathrm{s}
+  clggamp:
+    derived: 'lambda As, tau: 1e9*As*np.exp(-2*tau)'
+    latex: 10^9 A_\mathrm{s} e^{-2\tau}
+  age:
+    latex: '{\rm{Age}}/\mathrm{Gyr}'
+  rdrag:
+    latex: r_\mathrm{drag}
+sampler:
+  evaluate:
+    override:
+      beta_DE: 0.1
+
+output: 0.1
+debug: true
+ 2025-01-15 17:01:09,121 [exception handler] ---------------------------------------
+
+Traceback (most recent call last):
+  File "/users/smp24dhl/.conda/envs/cosmos/bin/cobaya-run", line 8, in <module>
+    sys.exit(run_script())
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/run.py", line 198, in run_script
+    run(info, **arguments.__dict__)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/run.py", line 94, in run
+    with get_output(prefix=info.get("output"), resume=info.get("resume"),
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/output.py", line 676, in get_output
+    return Output(*args, **kwargs)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/mpi.py", line 274, in wrapper
+    result = method(self, *args, **kwargs)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/output.py", line 353, in __init__
+    OutputReadOnly.__init__(self, prefix, infix)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/output.py", line 152, in __init__
+    self.folder, self.prefix = split_prefix(prefix)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/input.py", line 162, in split_prefix
+    folder = os.path.dirname(prefix) or "."
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/posixpath.py", line 152, in dirname
+    p = os.fspath(p)
+TypeError: expected str, bytes or os.PathLike object, not float
+-------------------------------------------------------------
+
+ 2025-01-15 17:01:09,121 [exception handler] Some unexpected ERROR occurred. You can see the exception information above.
+We recommend trying to reproduce this error with 'debug:True' in the input.
+If you cannot solve it yourself and need to report it, include the debug output,
+which you can send it to a file setting 'debug:[some_file_name]'.
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun detected that one or more processes exited with non-zero status, thus causing
+the job to be terminated. The first process to do so was:
+
+  Process name: [[25101,1],0]
+  Exit code:    1
+--------------------------------------------------------------------------
+Running for beta = 0.2
+theory:
+  camb:
+    path: /users/smp24dhl/cosmo/code/CAMB_beta
+    extra_args:
+      lens_potential_accuracy: 1
+      num_massive_neutrinos: 1
+      nnu: 3.044
+      theta_H0_range:
+      - 20
+      - 100
+likelihood:
+  planck_2018_highl_plik.TTTEEE:
+  planck_2018_lowl.TT:
+  planck_2018_lowl.EE:
+
+params:
+  logA:
+    value: 3.06958
+    latex: \log(10^{10} A_\mathrm{s})
+    drop: true
+  As:
+    value: 'lambda logA: 1e-10*np.exp(logA)'
+    latex: A_\mathrm{s}
+  ns:
+    value: 0.9659111
+    latex: n_\mathrm{s}
+  H0:
+    latex: H_0
+    value: 68.07373
+  ombh2:
+    value: 0.02230531
+    latex: \Omega_\mathrm{b} h^2
+  omch2:
+    value: 0.1201717
+    latex: \Omega_\mathrm{c} h^2
+  omegam:
+    latex: \Omega_\mathrm{m}
+  omegamh2:
+    derived: 'lambda omegam, H0: omegam*(H0/100)**2'
+    latex: \Omega_\mathrm{m} h^2
+  mnu: 0.06
+  w:
+    value: -1.032966
+    latex: w_{0,\mathrm{DE}}
+  wa:
+    value: 0.00819477
+    latex: w_{a, \mathrm{DE}}
+  beta_DE:
+    value: 1.091425
+    latex: \beta_{\mathrm{DE}}
+  YHe:
+    latex: Y_\mathrm{P}
+  Y_p:
+    latex: Y_P^\mathrm{BBN}
+  DHBBN:
+    derived: 'lambda DH: 10**5*DH'
+    latex: 10^5 \mathrm{D}/\mathrm{H}
+  tau:
+    value: 0.06997392
+    latex: \tau_\mathrm{reio}
+  zrei:
+    latex: z_\mathrm{re}
+  sigma8:
+    latex: \sigma_8
+  s8h5:
+    derived: 'lambda sigma8, H0: sigma8*(H0*1e-2)**(-0.5)'
+    latex: \sigma_8/h^{0.5}
+  s8omegamp5:
+    derived: 'lambda sigma8, omegam: sigma8*omegam**0.5'
+    latex: \sigma_8 \Omega_\mathrm{m}^{0.5}
+  s8omegamp25:
+    derived: 'lambda sigma8, omegam: sigma8*omegam**0.25'
+    latex: \sigma_8 \Omega_\mathrm{m}^{0.25}
+  A:
+    derived: 'lambda As: 1e9*As'
+    latex: 10^9 A_\mathrm{s}
+  clggamp:
+    derived: 'lambda As, tau: 1e9*As*np.exp(-2*tau)'
+    latex: 10^9 A_\mathrm{s} e^{-2\tau}
+  age:
+    latex: '{\rm{Age}}/\mathrm{Gyr}'
+  rdrag:
+    latex: r_\mathrm{drag}
+sampler:
+  evaluate:
+    override:
+      beta_DE: 0.2
+
+output: 0.2
+debug: true
+ 2025-01-15 17:01:10,146 [exception handler] ---------------------------------------
+
+Traceback (most recent call last):
+  File "/users/smp24dhl/.conda/envs/cosmos/bin/cobaya-run", line 8, in <module>
+    sys.exit(run_script())
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/run.py", line 198, in run_script
+    run(info, **arguments.__dict__)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/run.py", line 94, in run
+    with get_output(prefix=info.get("output"), resume=info.get("resume"),
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/output.py", line 676, in get_output
+    return Output(*args, **kwargs)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/mpi.py", line 274, in wrapper
+    result = method(self, *args, **kwargs)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/output.py", line 353, in __init__
+    OutputReadOnly.__init__(self, prefix, infix)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/output.py", line 152, in __init__
+    self.folder, self.prefix = split_prefix(prefix)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/input.py", line 162, in split_prefix
+    folder = os.path.dirname(prefix) or "."
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/posixpath.py", line 152, in dirname
+    p = os.fspath(p)
+TypeError: expected str, bytes or os.PathLike object, not float
+-------------------------------------------------------------
+
+ 2025-01-15 17:01:10,146 [exception handler] Some unexpected ERROR occurred. You can see the exception information above.
+We recommend trying to reproduce this error with 'debug:True' in the input.
+If you cannot solve it yourself and need to report it, include the debug output,
+which you can send it to a file setting 'debug:[some_file_name]'.
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun detected that one or more processes exited with non-zero status, thus causing
+the job to be terminated. The first process to do so was:
+
+  Process name: [[27703,1],0]
+  Exit code:    1
+--------------------------------------------------------------------------
+Running for beta = 0.3
+theory:
+  camb:
+    path: /users/smp24dhl/cosmo/code/CAMB_beta
+    extra_args:
+      lens_potential_accuracy: 1
+      num_massive_neutrinos: 1
+      nnu: 3.044
+      theta_H0_range:
+      - 20
+      - 100
+likelihood:
+  planck_2018_highl_plik.TTTEEE:
+  planck_2018_lowl.TT:
+  planck_2018_lowl.EE:
+
+params:
+  logA:
+    value: 3.06958
+    latex: \log(10^{10} A_\mathrm{s})
+    drop: true
+  As:
+    value: 'lambda logA: 1e-10*np.exp(logA)'
+    latex: A_\mathrm{s}
+  ns:
+    value: 0.9659111
+    latex: n_\mathrm{s}
+  H0:
+    latex: H_0
+    value: 68.07373
+  ombh2:
+    value: 0.02230531
+    latex: \Omega_\mathrm{b} h^2
+  omch2:
+    value: 0.1201717
+    latex: \Omega_\mathrm{c} h^2
+  omegam:
+    latex: \Omega_\mathrm{m}
+  omegamh2:
+    derived: 'lambda omegam, H0: omegam*(H0/100)**2'
+    latex: \Omega_\mathrm{m} h^2
+  mnu: 0.06
+  w:
+    value: -1.032966
+    latex: w_{0,\mathrm{DE}}
+  wa:
+    value: 0.00819477
+    latex: w_{a, \mathrm{DE}}
+  beta_DE:
+    value: 1.091425
+    latex: \beta_{\mathrm{DE}}
+  YHe:
+    latex: Y_\mathrm{P}
+  Y_p:
+    latex: Y_P^\mathrm{BBN}
+  DHBBN:
+    derived: 'lambda DH: 10**5*DH'
+    latex: 10^5 \mathrm{D}/\mathrm{H}
+  tau:
+    value: 0.06997392
+    latex: \tau_\mathrm{reio}
+  zrei:
+    latex: z_\mathrm{re}
+  sigma8:
+    latex: \sigma_8
+  s8h5:
+    derived: 'lambda sigma8, H0: sigma8*(H0*1e-2)**(-0.5)'
+    latex: \sigma_8/h^{0.5}
+  s8omegamp5:
+    derived: 'lambda sigma8, omegam: sigma8*omegam**0.5'
+    latex: \sigma_8 \Omega_\mathrm{m}^{0.5}
+  s8omegamp25:
+    derived: 'lambda sigma8, omegam: sigma8*omegam**0.25'
+    latex: \sigma_8 \Omega_\mathrm{m}^{0.25}
+  A:
+    derived: 'lambda As: 1e9*As'
+    latex: 10^9 A_\mathrm{s}
+  clggamp:
+    derived: 'lambda As, tau: 1e9*As*np.exp(-2*tau)'
+    latex: 10^9 A_\mathrm{s} e^{-2\tau}
+  age:
+    latex: '{\rm{Age}}/\mathrm{Gyr}'
+  rdrag:
+    latex: r_\mathrm{drag}
+sampler:
+  evaluate:
+    override:
+      beta_DE: 0.3
+
+output: 0.3
+debug: true
+ 2025-01-15 17:01:11,171 [exception handler] ---------------------------------------
+
+Traceback (most recent call last):
+  File "/users/smp24dhl/.conda/envs/cosmos/bin/cobaya-run", line 8, in <module>
+    sys.exit(run_script())
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/run.py", line 198, in run_script
+    run(info, **arguments.__dict__)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/run.py", line 94, in run
+    with get_output(prefix=info.get("output"), resume=info.get("resume"),
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/output.py", line 676, in get_output
+    return Output(*args, **kwargs)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/mpi.py", line 274, in wrapper
+    result = method(self, *args, **kwargs)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/output.py", line 353, in __init__
+    OutputReadOnly.__init__(self, prefix, infix)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/output.py", line 152, in __init__
+    self.folder, self.prefix = split_prefix(prefix)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/input.py", line 162, in split_prefix
+    folder = os.path.dirname(prefix) or "."
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/posixpath.py", line 152, in dirname
+    p = os.fspath(p)
+TypeError: expected str, bytes or os.PathLike object, not float
+-------------------------------------------------------------
+
+ 2025-01-15 17:01:11,171 [exception handler] Some unexpected ERROR occurred. You can see the exception information above.
+We recommend trying to reproduce this error with 'debug:True' in the input.
+If you cannot solve it yourself and need to report it, include the debug output,
+which you can send it to a file setting 'debug:[some_file_name]'.
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun detected that one or more processes exited with non-zero status, thus causing
+the job to be terminated. The first process to do so was:
+
+  Process name: [[28004,1],0]
+  Exit code:    1
+--------------------------------------------------------------------------
+Running for beta = 0.4
+theory:
+  camb:
+    path: /users/smp24dhl/cosmo/code/CAMB_beta
+    extra_args:
+      lens_potential_accuracy: 1
+      num_massive_neutrinos: 1
+      nnu: 3.044
+      theta_H0_range:
+      - 20
+      - 100
+likelihood:
+  planck_2018_highl_plik.TTTEEE:
+  planck_2018_lowl.TT:
+  planck_2018_lowl.EE:
+
+params:
+  logA:
+    value: 3.06958
+    latex: \log(10^{10} A_\mathrm{s})
+    drop: true
+  As:
+    value: 'lambda logA: 1e-10*np.exp(logA)'
+    latex: A_\mathrm{s}
+  ns:
+    value: 0.9659111
+    latex: n_\mathrm{s}
+  H0:
+    latex: H_0
+    value: 68.07373
+  ombh2:
+    value: 0.02230531
+    latex: \Omega_\mathrm{b} h^2
+  omch2:
+    value: 0.1201717
+    latex: \Omega_\mathrm{c} h^2
+  omegam:
+    latex: \Omega_\mathrm{m}
+  omegamh2:
+    derived: 'lambda omegam, H0: omegam*(H0/100)**2'
+    latex: \Omega_\mathrm{m} h^2
+  mnu: 0.06
+  w:
+    value: -1.032966
+    latex: w_{0,\mathrm{DE}}
+  wa:
+    value: 0.00819477
+    latex: w_{a, \mathrm{DE}}
+  beta_DE:
+    value: 1.091425
+    latex: \beta_{\mathrm{DE}}
+  YHe:
+    latex: Y_\mathrm{P}
+  Y_p:
+    latex: Y_P^\mathrm{BBN}
+  DHBBN:
+    derived: 'lambda DH: 10**5*DH'
+    latex: 10^5 \mathrm{D}/\mathrm{H}
+  tau:
+    value: 0.06997392
+    latex: \tau_\mathrm{reio}
+  zrei:
+    latex: z_\mathrm{re}
+  sigma8:
+    latex: \sigma_8
+  s8h5:
+    derived: 'lambda sigma8, H0: sigma8*(H0*1e-2)**(-0.5)'
+    latex: \sigma_8/h^{0.5}
+  s8omegamp5:
+    derived: 'lambda sigma8, omegam: sigma8*omegam**0.5'
+    latex: \sigma_8 \Omega_\mathrm{m}^{0.5}
+  s8omegamp25:
+    derived: 'lambda sigma8, omegam: sigma8*omegam**0.25'
+    latex: \sigma_8 \Omega_\mathrm{m}^{0.25}
+  A:
+    derived: 'lambda As: 1e9*As'
+    latex: 10^9 A_\mathrm{s}
+  clggamp:
+    derived: 'lambda As, tau: 1e9*As*np.exp(-2*tau)'
+    latex: 10^9 A_\mathrm{s} e^{-2\tau}
+  age:
+    latex: '{\rm{Age}}/\mathrm{Gyr}'
+  rdrag:
+    latex: r_\mathrm{drag}
+sampler:
+  evaluate:
+    override:
+      beta_DE: 0.4
+
+output: 0.4
+debug: true
+ 2025-01-15 17:01:12,190 [exception handler] ---------------------------------------
+
+Traceback (most recent call last):
+  File "/users/smp24dhl/.conda/envs/cosmos/bin/cobaya-run", line 8, in <module>
+    sys.exit(run_script())
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/run.py", line 198, in run_script
+    run(info, **arguments.__dict__)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/run.py", line 94, in run
+    with get_output(prefix=info.get("output"), resume=info.get("resume"),
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/output.py", line 676, in get_output
+    return Output(*args, **kwargs)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/mpi.py", line 274, in wrapper
+    result = method(self, *args, **kwargs)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/output.py", line 353, in __init__
+    OutputReadOnly.__init__(self, prefix, infix)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/output.py", line 152, in __init__
+    self.folder, self.prefix = split_prefix(prefix)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/input.py", line 162, in split_prefix
+    folder = os.path.dirname(prefix) or "."
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/posixpath.py", line 152, in dirname
+    p = os.fspath(p)
+TypeError: expected str, bytes or os.PathLike object, not float
+-------------------------------------------------------------
+
+ 2025-01-15 17:01:12,190 [exception handler] Some unexpected ERROR occurred. You can see the exception information above.
+We recommend trying to reproduce this error with 'debug:True' in the input.
+If you cannot solve it yourself and need to report it, include the debug output,
+which you can send it to a file setting 'debug:[some_file_name]'.
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun detected that one or more processes exited with non-zero status, thus causing
+the job to be terminated. The first process to do so was:
+
+  Process name: [[27985,1],0]
+  Exit code:    1
+--------------------------------------------------------------------------
+Running for beta = 0.5
+theory:
+  camb:
+    path: /users/smp24dhl/cosmo/code/CAMB_beta
+    extra_args:
+      lens_potential_accuracy: 1
+      num_massive_neutrinos: 1
+      nnu: 3.044
+      theta_H0_range:
+      - 20
+      - 100
+likelihood:
+  planck_2018_highl_plik.TTTEEE:
+  planck_2018_lowl.TT:
+  planck_2018_lowl.EE:
+
+params:
+  logA:
+    value: 3.06958
+    latex: \log(10^{10} A_\mathrm{s})
+    drop: true
+  As:
+    value: 'lambda logA: 1e-10*np.exp(logA)'
+    latex: A_\mathrm{s}
+  ns:
+    value: 0.9659111
+    latex: n_\mathrm{s}
+  H0:
+    latex: H_0
+    value: 68.07373
+  ombh2:
+    value: 0.02230531
+    latex: \Omega_\mathrm{b} h^2
+  omch2:
+    value: 0.1201717
+    latex: \Omega_\mathrm{c} h^2
+  omegam:
+    latex: \Omega_\mathrm{m}
+  omegamh2:
+    derived: 'lambda omegam, H0: omegam*(H0/100)**2'
+    latex: \Omega_\mathrm{m} h^2
+  mnu: 0.06
+  w:
+    value: -1.032966
+    latex: w_{0,\mathrm{DE}}
+  wa:
+    value: 0.00819477
+    latex: w_{a, \mathrm{DE}}
+  beta_DE:
+    value: 1.091425
+    latex: \beta_{\mathrm{DE}}
+  YHe:
+    latex: Y_\mathrm{P}
+  Y_p:
+    latex: Y_P^\mathrm{BBN}
+  DHBBN:
+    derived: 'lambda DH: 10**5*DH'
+    latex: 10^5 \mathrm{D}/\mathrm{H}
+  tau:
+    value: 0.06997392
+    latex: \tau_\mathrm{reio}
+  zrei:
+    latex: z_\mathrm{re}
+  sigma8:
+    latex: \sigma_8
+  s8h5:
+    derived: 'lambda sigma8, H0: sigma8*(H0*1e-2)**(-0.5)'
+    latex: \sigma_8/h^{0.5}
+  s8omegamp5:
+    derived: 'lambda sigma8, omegam: sigma8*omegam**0.5'
+    latex: \sigma_8 \Omega_\mathrm{m}^{0.5}
+  s8omegamp25:
+    derived: 'lambda sigma8, omegam: sigma8*omegam**0.25'
+    latex: \sigma_8 \Omega_\mathrm{m}^{0.25}
+  A:
+    derived: 'lambda As: 1e9*As'
+    latex: 10^9 A_\mathrm{s}
+  clggamp:
+    derived: 'lambda As, tau: 1e9*As*np.exp(-2*tau)'
+    latex: 10^9 A_\mathrm{s} e^{-2\tau}
+  age:
+    latex: '{\rm{Age}}/\mathrm{Gyr}'
+  rdrag:
+    latex: r_\mathrm{drag}
+sampler:
+  evaluate:
+    override:
+      beta_DE: 0.5
+
+output: 0.5
+debug: true
+ 2025-01-15 17:01:13,198 [exception handler] ---------------------------------------
+
+Traceback (most recent call last):
+  File "/users/smp24dhl/.conda/envs/cosmos/bin/cobaya-run", line 8, in <module>
+    sys.exit(run_script())
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/run.py", line 198, in run_script
+    run(info, **arguments.__dict__)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/run.py", line 94, in run
+    with get_output(prefix=info.get("output"), resume=info.get("resume"),
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/output.py", line 676, in get_output
+    return Output(*args, **kwargs)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/mpi.py", line 274, in wrapper
+    result = method(self, *args, **kwargs)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/output.py", line 353, in __init__
+    OutputReadOnly.__init__(self, prefix, infix)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/output.py", line 152, in __init__
+    self.folder, self.prefix = split_prefix(prefix)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/input.py", line 162, in split_prefix
+    folder = os.path.dirname(prefix) or "."
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/posixpath.py", line 152, in dirname
+    p = os.fspath(p)
+TypeError: expected str, bytes or os.PathLike object, not float
+-------------------------------------------------------------
+
+ 2025-01-15 17:01:13,198 [exception handler] Some unexpected ERROR occurred. You can see the exception information above.
+We recommend trying to reproduce this error with 'debug:True' in the input.
+If you cannot solve it yourself and need to report it, include the debug output,
+which you can send it to a file setting 'debug:[some_file_name]'.
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun detected that one or more processes exited with non-zero status, thus causing
+the job to be terminated. The first process to do so was:
+
+  Process name: [[27965,1],0]
+  Exit code:    1
+--------------------------------------------------------------------------
+Running for beta = 0.6
+theory:
+  camb:
+    path: /users/smp24dhl/cosmo/code/CAMB_beta
+    extra_args:
+      lens_potential_accuracy: 1
+      num_massive_neutrinos: 1
+      nnu: 3.044
+      theta_H0_range:
+      - 20
+      - 100
+likelihood:
+  planck_2018_highl_plik.TTTEEE:
+  planck_2018_lowl.TT:
+  planck_2018_lowl.EE:
+
+params:
+  logA:
+    value: 3.06958
+    latex: \log(10^{10} A_\mathrm{s})
+    drop: true
+  As:
+    value: 'lambda logA: 1e-10*np.exp(logA)'
+    latex: A_\mathrm{s}
+  ns:
+    value: 0.9659111
+    latex: n_\mathrm{s}
+  H0:
+    latex: H_0
+    value: 68.07373
+  ombh2:
+    value: 0.02230531
+    latex: \Omega_\mathrm{b} h^2
+  omch2:
+    value: 0.1201717
+    latex: \Omega_\mathrm{c} h^2
+  omegam:
+    latex: \Omega_\mathrm{m}
+  omegamh2:
+    derived: 'lambda omegam, H0: omegam*(H0/100)**2'
+    latex: \Omega_\mathrm{m} h^2
+  mnu: 0.06
+  w:
+    value: -1.032966
+    latex: w_{0,\mathrm{DE}}
+  wa:
+    value: 0.00819477
+    latex: w_{a, \mathrm{DE}}
+  beta_DE:
+    value: 1.091425
+    latex: \beta_{\mathrm{DE}}
+  YHe:
+    latex: Y_\mathrm{P}
+  Y_p:
+    latex: Y_P^\mathrm{BBN}
+  DHBBN:
+    derived: 'lambda DH: 10**5*DH'
+    latex: 10^5 \mathrm{D}/\mathrm{H}
+  tau:
+    value: 0.06997392
+    latex: \tau_\mathrm{reio}
+  zrei:
+    latex: z_\mathrm{re}
+  sigma8:
+    latex: \sigma_8
+  s8h5:
+    derived: 'lambda sigma8, H0: sigma8*(H0*1e-2)**(-0.5)'
+    latex: \sigma_8/h^{0.5}
+  s8omegamp5:
+    derived: 'lambda sigma8, omegam: sigma8*omegam**0.5'
+    latex: \sigma_8 \Omega_\mathrm{m}^{0.5}
+  s8omegamp25:
+    derived: 'lambda sigma8, omegam: sigma8*omegam**0.25'
+    latex: \sigma_8 \Omega_\mathrm{m}^{0.25}
+  A:
+    derived: 'lambda As: 1e9*As'
+    latex: 10^9 A_\mathrm{s}
+  clggamp:
+    derived: 'lambda As, tau: 1e9*As*np.exp(-2*tau)'
+    latex: 10^9 A_\mathrm{s} e^{-2\tau}
+  age:
+    latex: '{\rm{Age}}/\mathrm{Gyr}'
+  rdrag:
+    latex: r_\mathrm{drag}
+sampler:
+  evaluate:
+    override:
+      beta_DE: 0.6
+
+output: 0.6
+debug: true
+ 2025-01-15 17:01:14,233 [exception handler] ---------------------------------------
+
+Traceback (most recent call last):
+  File "/users/smp24dhl/.conda/envs/cosmos/bin/cobaya-run", line 8, in <module>
+    sys.exit(run_script())
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/run.py", line 198, in run_script
+    run(info, **arguments.__dict__)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/run.py", line 94, in run
+    with get_output(prefix=info.get("output"), resume=info.get("resume"),
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/output.py", line 676, in get_output
+    return Output(*args, **kwargs)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/mpi.py", line 274, in wrapper
+    result = method(self, *args, **kwargs)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/output.py", line 353, in __init__
+    OutputReadOnly.__init__(self, prefix, infix)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/output.py", line 152, in __init__
+    self.folder, self.prefix = split_prefix(prefix)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/input.py", line 162, in split_prefix
+    folder = os.path.dirname(prefix) or "."
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/posixpath.py", line 152, in dirname
+    p = os.fspath(p)
+TypeError: expected str, bytes or os.PathLike object, not float
+-------------------------------------------------------------
+
+ 2025-01-15 17:01:14,233 [exception handler] Some unexpected ERROR occurred. You can see the exception information above.
+We recommend trying to reproduce this error with 'debug:True' in the input.
+If you cannot solve it yourself and need to report it, include the debug output,
+which you can send it to a file setting 'debug:[some_file_name]'.
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun detected that one or more processes exited with non-zero status, thus causing
+the job to be terminated. The first process to do so was:
+
+  Process name: [[28393,1],0]
+  Exit code:    1
+--------------------------------------------------------------------------
+Running for beta = 0.7
+theory:
+  camb:
+    path: /users/smp24dhl/cosmo/code/CAMB_beta
+    extra_args:
+      lens_potential_accuracy: 1
+      num_massive_neutrinos: 1
+      nnu: 3.044
+      theta_H0_range:
+      - 20
+      - 100
+likelihood:
+  planck_2018_highl_plik.TTTEEE:
+  planck_2018_lowl.TT:
+  planck_2018_lowl.EE:
+
+params:
+  logA:
+    value: 3.06958
+    latex: \log(10^{10} A_\mathrm{s})
+    drop: true
+  As:
+    value: 'lambda logA: 1e-10*np.exp(logA)'
+    latex: A_\mathrm{s}
+  ns:
+    value: 0.9659111
+    latex: n_\mathrm{s}
+  H0:
+    latex: H_0
+    value: 68.07373
+  ombh2:
+    value: 0.02230531
+    latex: \Omega_\mathrm{b} h^2
+  omch2:
+    value: 0.1201717
+    latex: \Omega_\mathrm{c} h^2
+  omegam:
+    latex: \Omega_\mathrm{m}
+  omegamh2:
+    derived: 'lambda omegam, H0: omegam*(H0/100)**2'
+    latex: \Omega_\mathrm{m} h^2
+  mnu: 0.06
+  w:
+    value: -1.032966
+    latex: w_{0,\mathrm{DE}}
+  wa:
+    value: 0.00819477
+    latex: w_{a, \mathrm{DE}}
+  beta_DE:
+    value: 1.091425
+    latex: \beta_{\mathrm{DE}}
+  YHe:
+    latex: Y_\mathrm{P}
+  Y_p:
+    latex: Y_P^\mathrm{BBN}
+  DHBBN:
+    derived: 'lambda DH: 10**5*DH'
+    latex: 10^5 \mathrm{D}/\mathrm{H}
+  tau:
+    value: 0.06997392
+    latex: \tau_\mathrm{reio}
+  zrei:
+    latex: z_\mathrm{re}
+  sigma8:
+    latex: \sigma_8
+  s8h5:
+    derived: 'lambda sigma8, H0: sigma8*(H0*1e-2)**(-0.5)'
+    latex: \sigma_8/h^{0.5}
+  s8omegamp5:
+    derived: 'lambda sigma8, omegam: sigma8*omegam**0.5'
+    latex: \sigma_8 \Omega_\mathrm{m}^{0.5}
+  s8omegamp25:
+    derived: 'lambda sigma8, omegam: sigma8*omegam**0.25'
+    latex: \sigma_8 \Omega_\mathrm{m}^{0.25}
+  A:
+    derived: 'lambda As: 1e9*As'
+    latex: 10^9 A_\mathrm{s}
+  clggamp:
+    derived: 'lambda As, tau: 1e9*As*np.exp(-2*tau)'
+    latex: 10^9 A_\mathrm{s} e^{-2\tau}
+  age:
+    latex: '{\rm{Age}}/\mathrm{Gyr}'
+  rdrag:
+    latex: r_\mathrm{drag}
+sampler:
+  evaluate:
+    override:
+      beta_DE: 0.7
+
+output: 0.7
+debug: true
+ 2025-01-15 17:01:15,321 [exception handler] ---------------------------------------
+
+Traceback (most recent call last):
+  File "/users/smp24dhl/.conda/envs/cosmos/bin/cobaya-run", line 8, in <module>
+    sys.exit(run_script())
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/run.py", line 198, in run_script
+    run(info, **arguments.__dict__)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/run.py", line 94, in run
+    with get_output(prefix=info.get("output"), resume=info.get("resume"),
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/output.py", line 676, in get_output
+    return Output(*args, **kwargs)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/mpi.py", line 274, in wrapper
+    result = method(self, *args, **kwargs)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/output.py", line 353, in __init__
+    OutputReadOnly.__init__(self, prefix, infix)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/output.py", line 152, in __init__
+    self.folder, self.prefix = split_prefix(prefix)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/input.py", line 162, in split_prefix
+    folder = os.path.dirname(prefix) or "."
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/posixpath.py", line 152, in dirname
+    p = os.fspath(p)
+TypeError: expected str, bytes or os.PathLike object, not float
+-------------------------------------------------------------
+
+ 2025-01-15 17:01:15,321 [exception handler] Some unexpected ERROR occurred. You can see the exception information above.
+We recommend trying to reproduce this error with 'debug:True' in the input.
+If you cannot solve it yourself and need to report it, include the debug output,
+which you can send it to a file setting 'debug:[some_file_name]'.
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun detected that one or more processes exited with non-zero status, thus causing
+the job to be terminated. The first process to do so was:
+
+  Process name: [[28374,1],0]
+  Exit code:    1
+--------------------------------------------------------------------------
+Running for beta = 0.8
+theory:
+  camb:
+    path: /users/smp24dhl/cosmo/code/CAMB_beta
+    extra_args:
+      lens_potential_accuracy: 1
+      num_massive_neutrinos: 1
+      nnu: 3.044
+      theta_H0_range:
+      - 20
+      - 100
+likelihood:
+  planck_2018_highl_plik.TTTEEE:
+  planck_2018_lowl.TT:
+  planck_2018_lowl.EE:
+
+params:
+  logA:
+    value: 3.06958
+    latex: \log(10^{10} A_\mathrm{s})
+    drop: true
+  As:
+    value: 'lambda logA: 1e-10*np.exp(logA)'
+    latex: A_\mathrm{s}
+  ns:
+    value: 0.9659111
+    latex: n_\mathrm{s}
+  H0:
+    latex: H_0
+    value: 68.07373
+  ombh2:
+    value: 0.02230531
+    latex: \Omega_\mathrm{b} h^2
+  omch2:
+    value: 0.1201717
+    latex: \Omega_\mathrm{c} h^2
+  omegam:
+    latex: \Omega_\mathrm{m}
+  omegamh2:
+    derived: 'lambda omegam, H0: omegam*(H0/100)**2'
+    latex: \Omega_\mathrm{m} h^2
+  mnu: 0.06
+  w:
+    value: -1.032966
+    latex: w_{0,\mathrm{DE}}
+  wa:
+    value: 0.00819477
+    latex: w_{a, \mathrm{DE}}
+  beta_DE:
+    value: 1.091425
+    latex: \beta_{\mathrm{DE}}
+  YHe:
+    latex: Y_\mathrm{P}
+  Y_p:
+    latex: Y_P^\mathrm{BBN}
+  DHBBN:
+    derived: 'lambda DH: 10**5*DH'
+    latex: 10^5 \mathrm{D}/\mathrm{H}
+  tau:
+    value: 0.06997392
+    latex: \tau_\mathrm{reio}
+  zrei:
+    latex: z_\mathrm{re}
+  sigma8:
+    latex: \sigma_8
+  s8h5:
+    derived: 'lambda sigma8, H0: sigma8*(H0*1e-2)**(-0.5)'
+    latex: \sigma_8/h^{0.5}
+  s8omegamp5:
+    derived: 'lambda sigma8, omegam: sigma8*omegam**0.5'
+    latex: \sigma_8 \Omega_\mathrm{m}^{0.5}
+  s8omegamp25:
+    derived: 'lambda sigma8, omegam: sigma8*omegam**0.25'
+    latex: \sigma_8 \Omega_\mathrm{m}^{0.25}
+  A:
+    derived: 'lambda As: 1e9*As'
+    latex: 10^9 A_\mathrm{s}
+  clggamp:
+    derived: 'lambda As, tau: 1e9*As*np.exp(-2*tau)'
+    latex: 10^9 A_\mathrm{s} e^{-2\tau}
+  age:
+    latex: '{\rm{Age}}/\mathrm{Gyr}'
+  rdrag:
+    latex: r_\mathrm{drag}
+sampler:
+  evaluate:
+    override:
+      beta_DE: 0.8
+
+output: 0.8
+debug: true
+ 2025-01-15 17:01:16,506 [exception handler] ---------------------------------------
+
+Traceback (most recent call last):
+  File "/users/smp24dhl/.conda/envs/cosmos/bin/cobaya-run", line 8, in <module>
+    sys.exit(run_script())
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/run.py", line 198, in run_script
+    run(info, **arguments.__dict__)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/run.py", line 94, in run
+    with get_output(prefix=info.get("output"), resume=info.get("resume"),
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/output.py", line 676, in get_output
+    return Output(*args, **kwargs)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/mpi.py", line 274, in wrapper
+    result = method(self, *args, **kwargs)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/output.py", line 353, in __init__
+    OutputReadOnly.__init__(self, prefix, infix)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/output.py", line 152, in __init__
+    self.folder, self.prefix = split_prefix(prefix)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/input.py", line 162, in split_prefix
+    folder = os.path.dirname(prefix) or "."
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/posixpath.py", line 152, in dirname
+    p = os.fspath(p)
+TypeError: expected str, bytes or os.PathLike object, not float
+-------------------------------------------------------------
+
+ 2025-01-15 17:01:16,506 [exception handler] Some unexpected ERROR occurred. You can see the exception information above.
+We recommend trying to reproduce this error with 'debug:True' in the input.
+If you cannot solve it yourself and need to report it, include the debug output,
+which you can send it to a file setting 'debug:[some_file_name]'.
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun detected that one or more processes exited with non-zero status, thus causing
+the job to be terminated. The first process to do so was:
+
+  Process name: [[28355,1],0]
+  Exit code:    1
+--------------------------------------------------------------------------
+Running for beta = 0.9
+theory:
+  camb:
+    path: /users/smp24dhl/cosmo/code/CAMB_beta
+    extra_args:
+      lens_potential_accuracy: 1
+      num_massive_neutrinos: 1
+      nnu: 3.044
+      theta_H0_range:
+      - 20
+      - 100
+likelihood:
+  planck_2018_highl_plik.TTTEEE:
+  planck_2018_lowl.TT:
+  planck_2018_lowl.EE:
+
+params:
+  logA:
+    value: 3.06958
+    latex: \log(10^{10} A_\mathrm{s})
+    drop: true
+  As:
+    value: 'lambda logA: 1e-10*np.exp(logA)'
+    latex: A_\mathrm{s}
+  ns:
+    value: 0.9659111
+    latex: n_\mathrm{s}
+  H0:
+    latex: H_0
+    value: 68.07373
+  ombh2:
+    value: 0.02230531
+    latex: \Omega_\mathrm{b} h^2
+  omch2:
+    value: 0.1201717
+    latex: \Omega_\mathrm{c} h^2
+  omegam:
+    latex: \Omega_\mathrm{m}
+  omegamh2:
+    derived: 'lambda omegam, H0: omegam*(H0/100)**2'
+    latex: \Omega_\mathrm{m} h^2
+  mnu: 0.06
+  w:
+    value: -1.032966
+    latex: w_{0,\mathrm{DE}}
+  wa:
+    value: 0.00819477
+    latex: w_{a, \mathrm{DE}}
+  beta_DE:
+    value: 1.091425
+    latex: \beta_{\mathrm{DE}}
+  YHe:
+    latex: Y_\mathrm{P}
+  Y_p:
+    latex: Y_P^\mathrm{BBN}
+  DHBBN:
+    derived: 'lambda DH: 10**5*DH'
+    latex: 10^5 \mathrm{D}/\mathrm{H}
+  tau:
+    value: 0.06997392
+    latex: \tau_\mathrm{reio}
+  zrei:
+    latex: z_\mathrm{re}
+  sigma8:
+    latex: \sigma_8
+  s8h5:
+    derived: 'lambda sigma8, H0: sigma8*(H0*1e-2)**(-0.5)'
+    latex: \sigma_8/h^{0.5}
+  s8omegamp5:
+    derived: 'lambda sigma8, omegam: sigma8*omegam**0.5'
+    latex: \sigma_8 \Omega_\mathrm{m}^{0.5}
+  s8omegamp25:
+    derived: 'lambda sigma8, omegam: sigma8*omegam**0.25'
+    latex: \sigma_8 \Omega_\mathrm{m}^{0.25}
+  A:
+    derived: 'lambda As: 1e9*As'
+    latex: 10^9 A_\mathrm{s}
+  clggamp:
+    derived: 'lambda As, tau: 1e9*As*np.exp(-2*tau)'
+    latex: 10^9 A_\mathrm{s} e^{-2\tau}
+  age:
+    latex: '{\rm{Age}}/\mathrm{Gyr}'
+  rdrag:
+    latex: r_\mathrm{drag}
+sampler:
+  evaluate:
+    override:
+      beta_DE: 0.9
+
+output: 0.9
+debug: true
+ 2025-01-15 17:01:17,642 [exception handler] ---------------------------------------
+
+Traceback (most recent call last):
+  File "/users/smp24dhl/.conda/envs/cosmos/bin/cobaya-run", line 8, in <module>
+    sys.exit(run_script())
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/run.py", line 198, in run_script
+    run(info, **arguments.__dict__)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/run.py", line 94, in run
+    with get_output(prefix=info.get("output"), resume=info.get("resume"),
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/output.py", line 676, in get_output
+    return Output(*args, **kwargs)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/mpi.py", line 274, in wrapper
+    result = method(self, *args, **kwargs)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/output.py", line 353, in __init__
+    OutputReadOnly.__init__(self, prefix, infix)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/output.py", line 152, in __init__
+    self.folder, self.prefix = split_prefix(prefix)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/input.py", line 162, in split_prefix
+    folder = os.path.dirname(prefix) or "."
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/posixpath.py", line 152, in dirname
+    p = os.fspath(p)
+TypeError: expected str, bytes or os.PathLike object, not float
+-------------------------------------------------------------
+
+ 2025-01-15 17:01:17,642 [exception handler] Some unexpected ERROR occurred. You can see the exception information above.
+We recommend trying to reproduce this error with 'debug:True' in the input.
+If you cannot solve it yourself and need to report it, include the debug output,
+which you can send it to a file setting 'debug:[some_file_name]'.
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun detected that one or more processes exited with non-zero status, thus causing
+the job to be terminated. The first process to do so was:
+
+  Process name: [[28336,1],0]
+  Exit code:    1
+--------------------------------------------------------------------------
+Running for beta = 1.0
+theory:
+  camb:
+    path: /users/smp24dhl/cosmo/code/CAMB_beta
+    extra_args:
+      lens_potential_accuracy: 1
+      num_massive_neutrinos: 1
+      nnu: 3.044
+      theta_H0_range:
+      - 20
+      - 100
+likelihood:
+  planck_2018_highl_plik.TTTEEE:
+  planck_2018_lowl.TT:
+  planck_2018_lowl.EE:
+
+params:
+  logA:
+    value: 3.06958
+    latex: \log(10^{10} A_\mathrm{s})
+    drop: true
+  As:
+    value: 'lambda logA: 1e-10*np.exp(logA)'
+    latex: A_\mathrm{s}
+  ns:
+    value: 0.9659111
+    latex: n_\mathrm{s}
+  H0:
+    latex: H_0
+    value: 68.07373
+  ombh2:
+    value: 0.02230531
+    latex: \Omega_\mathrm{b} h^2
+  omch2:
+    value: 0.1201717
+    latex: \Omega_\mathrm{c} h^2
+  omegam:
+    latex: \Omega_\mathrm{m}
+  omegamh2:
+    derived: 'lambda omegam, H0: omegam*(H0/100)**2'
+    latex: \Omega_\mathrm{m} h^2
+  mnu: 0.06
+  w:
+    value: -1.032966
+    latex: w_{0,\mathrm{DE}}
+  wa:
+    value: 0.00819477
+    latex: w_{a, \mathrm{DE}}
+  beta_DE:
+    value: 1.091425
+    latex: \beta_{\mathrm{DE}}
+  YHe:
+    latex: Y_\mathrm{P}
+  Y_p:
+    latex: Y_P^\mathrm{BBN}
+  DHBBN:
+    derived: 'lambda DH: 10**5*DH'
+    latex: 10^5 \mathrm{D}/\mathrm{H}
+  tau:
+    value: 0.06997392
+    latex: \tau_\mathrm{reio}
+  zrei:
+    latex: z_\mathrm{re}
+  sigma8:
+    latex: \sigma_8
+  s8h5:
+    derived: 'lambda sigma8, H0: sigma8*(H0*1e-2)**(-0.5)'
+    latex: \sigma_8/h^{0.5}
+  s8omegamp5:
+    derived: 'lambda sigma8, omegam: sigma8*omegam**0.5'
+    latex: \sigma_8 \Omega_\mathrm{m}^{0.5}
+  s8omegamp25:
+    derived: 'lambda sigma8, omegam: sigma8*omegam**0.25'
+    latex: \sigma_8 \Omega_\mathrm{m}^{0.25}
+  A:
+    derived: 'lambda As: 1e9*As'
+    latex: 10^9 A_\mathrm{s}
+  clggamp:
+    derived: 'lambda As, tau: 1e9*As*np.exp(-2*tau)'
+    latex: 10^9 A_\mathrm{s} e^{-2\tau}
+  age:
+    latex: '{\rm{Age}}/\mathrm{Gyr}'
+  rdrag:
+    latex: r_\mathrm{drag}
+sampler:
+  evaluate:
+    override:
+      beta_DE: 1.0
+
+output: 1.0
+debug: true
+ 2025-01-15 17:01:18,749 [exception handler] ---------------------------------------
+
+Traceback (most recent call last):
+  File "/users/smp24dhl/.conda/envs/cosmos/bin/cobaya-run", line 8, in <module>
+    sys.exit(run_script())
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/run.py", line 198, in run_script
+    run(info, **arguments.__dict__)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/run.py", line 94, in run
+    with get_output(prefix=info.get("output"), resume=info.get("resume"),
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/output.py", line 676, in get_output
+    return Output(*args, **kwargs)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/mpi.py", line 274, in wrapper
+    result = method(self, *args, **kwargs)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/output.py", line 353, in __init__
+    OutputReadOnly.__init__(self, prefix, infix)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/output.py", line 152, in __init__
+    self.folder, self.prefix = split_prefix(prefix)
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/site-packages/cobaya/input.py", line 162, in split_prefix
+    folder = os.path.dirname(prefix) or "."
+  File "/users/smp24dhl/.conda/envs/cosmos/lib/python3.9/posixpath.py", line 152, in dirname
+    p = os.fspath(p)
+TypeError: expected str, bytes or os.PathLike object, not float
+-------------------------------------------------------------
+
+ 2025-01-15 17:01:18,750 [exception handler] Some unexpected ERROR occurred. You can see the exception information above.
+We recommend trying to reproduce this error with 'debug:True' in the input.
+If you cannot solve it yourself and need to report it, include the debug output,
+which you can send it to a file setting 'debug:[some_file_name]'.
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun detected that one or more processes exited with non-zero status, thus causing
+the job to be terminated. The first process to do so was:
+
+  Process name: [[28317,1],0]
+  Exit code:    1
+--------------------------------------------------------------------------
