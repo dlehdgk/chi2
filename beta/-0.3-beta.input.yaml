@@ -9,10 +9,9 @@ theory:
       - 20
       - 100
 likelihood:
-  planck_2018_highl_plik.TTTEEE:
-  planck_2018_lowl.TT:
-  planck_2018_lowl.EE:
-
+  planck_2018_highl_plik.TTTEEE: null
+  planck_2018_lowl.TT: null
+  planck_2018_lowl.EE: null
 params:
   logA:
     value: 3.06958
@@ -46,7 +45,7 @@ params:
     value: 0.00819477
     latex: w_{a, \mathrm{DE}}
   beta_DE:
-    value: 1.0
+    value: -0.3
     latex: \beta_{\mathrm{DE}}
   YHe:
     latex: Y_\mathrm{P}
@@ -82,7 +81,5 @@ params:
   rdrag:
     latex: r_\mathrm{drag}
 sampler:
-  evaluate:
-
-output: ./beta/1.0-beta
-debug: true
+  evaluate: null
+output: -0.3-beta
