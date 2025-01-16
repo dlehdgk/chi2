@@ -46,7 +46,7 @@ params:
     value: 0.00819477
     latex: w_{a, \mathrm{DE}}
   beta_DE:
-    value: 1.0
+    value: 1.000
     latex: \beta_{\mathrm{DE}}
   YHe:
     latex: Y_\mathrm{P}
@@ -84,5 +84,5 @@ params:
 sampler:
   evaluate:
 
-output: ./beta/1.0-beta
+output: ./beta/1.000-beta
 debug: true

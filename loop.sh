@@ -10,7 +10,7 @@ module load OpenMPI/4.0.3-GCC-9.3.0
 module load OpenBLAS/0.3.9-GCC-9.3.0
 module load CFITSIO/3.48-GCCcore-9.3.0
 
-for beta in $(seq -1 0.1 1); do
+for beta in $(seq -1 0.001 1); do
   echo "Running for beta = $beta"
   sed -i '/^\s*beta_DE:\s*$/ {n;s|^\s*value:\s*.*|    value: '"$beta"'|;}' beta.yaml
   sed -i "s|^output:.*|output: ./beta/$beta-beta|" beta.yaml
