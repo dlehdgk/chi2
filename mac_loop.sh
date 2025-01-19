@@ -1,6 +1,6 @@
 #!/bin/bash
 
-for b in $(seq -0.1 0.01 0.1); do
+for b in $(seq -0.1 0.001 0.1); do
   echo "Running for beta = $b"
 
   # Update the beta_DE value in the params file
@@ -13,7 +13,7 @@ for b in $(seq -0.1 0.01 0.1); do
   sed -i '' -e "s|^output:.*|output: ./beta/$b-beta|" beta.yaml
 
   # print the updated yaml file
-  cat beta.yaml
+  #cat beta.yaml
 
   # Run cobaya
   source /Users/dongha/Projects/cosmo/code/planck/clik/bin/clik_profile.zsh
