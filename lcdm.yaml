@@ -76,6 +76,7 @@ params:
     latex: r_\mathrm{drag}
 sampler:
   evaluate:
+    override:
 
 output: lcdm/fixed
 debug: true
