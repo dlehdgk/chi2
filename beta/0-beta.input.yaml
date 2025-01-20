@@ -2,7 +2,7 @@ theory:
   camb:
     path: /Users/dongha/Projects/cosmo/code/CAMB_beta
     extra_args:
-      dark_energy_model: 'ppf'
+      dark_energy_model: ppf
       lens_potential_accuracy: 1
       num_massive_neutrinos: 1
       nnu: 3.044
@@ -10,13 +10,12 @@ theory:
       - 20
       - 100
 likelihood:
-  planck_2018_highl_plik.TTTEEE:
-  planck_2018_lowl.TT:
-  planck_2018_lowl.EE:
-  planck_2018_lensing.clik:
-  bao.desi_2024_bao_all:
-  sn.pantheonplus:
-
+  planck_2018_highl_plik.TTTEEE: null
+  planck_2018_lowl.TT: null
+  planck_2018_lowl.EE: null
+  planck_2018_lensing.clik: null
+  bao.desi_2024_bao_all: null
+  sn.pantheonplus: null
 params:
   logA:
     value: 3.06958
@@ -50,7 +49,7 @@ params:
     value: 0.00819477
     latex: w_{a, \mathrm{DE}}
   beta_DE:
-    value: 0.002
+    value: 0
     latex: \beta_{\mathrm{DE}}
   YHe:
     latex: Y_\mathrm{P}
@@ -86,7 +85,5 @@ params:
   rdrag:
     latex: r_\mathrm{drag}
 sampler:
-  evaluate:
-
-output: ./beta/0.002-beta
-debug: true
+  evaluate: null
+output: 0-beta

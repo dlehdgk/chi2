@@ -1,6 +1,6 @@
 #!/bin/bash
 
-for b in $(seq -0.1 0.001 0.1); do
+for b in $(seq 0.000 0.0001 0.002); do
   echo "Running for beta = $b"
 
   # Update the beta_DE value in the params file

@@ -215,14 +215,14 @@ params:
     value: 0.00819477
     latex: w_{a, \mathrm{DE}}
   beta_DE:
-    value: 0.002
+    value: 0.0002
     latex: \beta_{\mathrm{DE}}
   YHe:
     latex: Y_\mathrm{P}
     derived: true
     renames:
-    - yhe
     - yheused
+    - yhe
   Y_p:
     latex: Y_P^\mathrm{BBN}
     derived: true
@@ -592,5 +592,5 @@ sampler:
     override: null
     seed: null
     version: null
-output: 0.002-beta
+output: 0.0002-beta
 version: 3.5.4
