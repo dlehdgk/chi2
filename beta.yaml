@@ -10,10 +10,6 @@ theory:
       - 20
       - 100
 likelihood:
-  planck_2018_highl_plik.TTTEEE:
-  planck_2018_lowl.TT:
-  planck_2018_lowl.EE:
-  planck_2018_lensing.clik:
   bao.desi_2024_bao_all:
   sn.pantheonplus:
 
@@ -21,7 +17,6 @@ params:
   logA:
     value: 3.06958
     latex: \log(10^{10} A_\mathrm{s})
-    drop: true
   As:
     value: 'lambda logA: 1e-10*np.exp(logA)'
     latex: A_\mathrm{s}
@@ -88,5 +83,5 @@ params:
 sampler:
   evaluate:
 
-output: ./beta/0.002-beta
+output: ./beta/0.002-at0.0005log
 debug: true

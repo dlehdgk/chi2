@@ -1,6 +1,6 @@
 #!/bin/bash
 
-for b in $(seq 0.000 0.0001 0.002); do
+for b in $(seq -0.0020 0.00005 0.0020); do
   echo "Running for beta = $b"
 
   # Update the beta_DE value in the params file
@@ -10,7 +10,7 @@ for b in $(seq 0.000 0.0001 0.002); do
   }' beta.yaml
 
   # Update the output directory
-  sed -i '' -e "s|^output:.*|output: ./beta/$b-beta|" beta.yaml
+  sed -i '' -e "s|^output:.*|output: ./beta/$b-at0.0005log|" beta.yaml
 
   # print the updated yaml file
   #cat beta.yaml
