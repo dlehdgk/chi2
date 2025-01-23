@@ -1,11 +1,12 @@
-import os
 import glob
+import os
+
+import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
-import matplotlib.pyplot as plt
 
 # 1. Get the list of all files matching the pattern
-log_num = 0.0005
+log_num = 0.001
 file_list = sorted(glob.glob(f"./beta/*-at{log_num}log.1.txt"))
 
 # Prepare a list to hold each file's data as a dict
@@ -42,9 +43,13 @@ df = pd.DataFrame(data_rows)
 df = df.apply(pd.to_numeric, errors="ignore")
 
 # chi2_df = df[["chi2", "beta"]]
-# chi2_df = df[(df["beta"] < 0.0015) & (df["beta"] > 0.0005)]
+chi2_df = df[df["beta"] < 0.1]
 
 # print(chi2_df)
 
-sns.lmplot(x="beta", y="chi2", data=df, fit_reg=True)
+# sns.lmplot(x="beta", y="chi2", data=chi2_df, fit_reg=True)
+
+chi2_df.plot.scatter(x="beta", y="chi2", marker=".")
+plt.title(f"chi2 vs beta at critical beta = {log_num}")
+plt.grid()
 plt.savefig(f"beta/output/{log_num}log.png", dpi=300)
